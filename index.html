@@ -233,6 +233,8 @@ footer td{border:1px solid var(--line);padding:3px 8px;vertical-align:top}
 .bell{margin-left:auto;border:0;background:transparent;width:36px;height:36px;border-radius:50%;font-size:1.15rem}
 .bell:active{transform:scale(.9)}
 
+.fulllink{display:block;margin:0 auto 12px;font-size:.85rem;color:var(--rose-d);text-decoration:underline;text-underline-offset:4px;padding:6px 0}
+.about a{color:var(--rose-d);text-underline-offset:3px}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.01ms!important}
   .petal,.star{display:none}
@@ -675,7 +677,7 @@ function stars(host){
 
 /* ---------- 页脚 ---------- */
 const BELL = '<button class="bell" data-bell aria-label="音乐开关" aria-pressed="false">🔕</button>';
-const FOOTER = `<footer><button class="aboutbtn" data-about>说明与免责声明</button><p>同人二创 · 非官方 · 免费开源不商用</p></footer>`;
+const FOOTER = `<footer><a class="fulllink" href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener noreferrer">想读全本？去看《高性价比人生指南》原书 ↗</a><button class="aboutbtn" data-about>说明与免责声明</button><p>同人二创 · 非官方 · 免费开源不商用</p></footer>`;
 
 /* ---------- 首页 ---------- */
 function home(){
@@ -823,7 +825,7 @@ function about(){
   app.innerHTML = `<div class="bar"><button class="back" id="back">← 八音盒</button><b>说明与免责声明</b>${BELL}</div>
   <div class="about">
     <h2>这是什么</h2>
-    <p>一本写给成年读者的平安小册子，内容改编自开源书《高性价比人生指南》（Unlicense）。条目原文没有改动，小熊先生的话只出现在每页开头和结尾。</p>
+    <p>一本写给成年读者的平安小册子，内容改编自开源书<a href="https://eternity4719.github.io/HowToLiveBetter/" target="_blank" rel="noopener noreferrer">《高性价比人生指南》↗</a>（Unlicense）。这里只选了 63 条，想读全本 614 条和全部文献，请去原书。条目原文没有改动，小熊先生的话只出现在每页开头和结尾。</p>
     <h2>仅供参考</h2>
     <p>急症请直接打 120。具体案件、用药、法律问题，请咨询专业人士，这里不能替代他们。</p>
     <h2>证据等级怎么看</h2>
