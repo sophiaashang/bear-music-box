@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#241d4a">
+<title>小熊先生的八音盒</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" media="print" onload="this.media='all'">
+<style>
+/* ===== Open Props (MIT, Adam Argyle) 的缓动与关键帧 ===== */
+:where(html){--ease-1:cubic-bezier(.25,0,.5,1);--ease-2:cubic-bezier(.25,0,.4,1);--ease-3:cubic-bezier(.25,0,.3,1);--ease-4:cubic-bezier(.25,0,.2,1);--ease-5:cubic-bezier(.25,0,.1,1);--ease-in-1:cubic-bezier(.25,0,1,1);--ease-in-2:cubic-bezier(.50,0,1,1);--ease-in-3:cubic-bezier(.70,0,1,1);--ease-in-4:cubic-bezier(.90,0,1,1);--ease-in-5:cubic-bezier(1,0,1,1);--ease-out-1:cubic-bezier(0,0,.75,1);--ease-out-2:cubic-bezier(0,0,.50,1);--ease-out-3:cubic-bezier(0,0,.3,1);--ease-out-4:cubic-bezier(0,0,.1,1);--ease-out-5:cubic-bezier(0,0,0,1);--ease-in-out-1:cubic-bezier(.1,0,.9,1);--ease-in-out-2:cubic-bezier(.3,0,.7,1);--ease-in-out-3:cubic-bezier(.5,0,.5,1);--ease-in-out-4:cubic-bezier(.7,0,.3,1);--ease-in-out-5:cubic-bezier(.9,0,.1,1);--ease-elastic-out-1:cubic-bezier(.5,.75,.75,1.25);--ease-elastic-out-2:cubic-bezier(.5,1,.75,1.25);--ease-elastic-out-3:cubic-bezier(.5,1.25,.75,1.25);--ease-elastic-out-4:cubic-bezier(.5,1.5,.75,1.25);--ease-elastic-out-5:cubic-bezier(.5,1.75,.75,1.25);--ease-elastic-in-1:cubic-bezier(.5,-0.25,.75,1);--ease-elastic-in-2:cubic-bezier(.5,-0.50,.75,1);--ease-elastic-in-3:cubic-bezier(.5,-0.75,.75,1);--ease-elastic-in-4:cubic-bezier(.5,-1.00,.75,1);--ease-elastic-in-5:cubic-bezier(.5,-1.25,.75,1);--ease-elastic-in-out-1:cubic-bezier(.5,-.1,.1,1.5);--ease-elastic-in-out-2:cubic-bezier(.5,-.3,.1,1.5);--ease-elastic-in-out-3:cubic-bezier(.5,-.5,.1,1.5);--ease-elastic-in-out-4:cubic-bezier(.5,-.7,.1,1.5);--ease-elastic-in-out-5:cubic-bezier(.5,-.9,.1,1.5);--ease-step-1:steps(2);--ease-step-2:steps(3);--ease-step-3:steps(4);--ease-step-4:steps(7);--ease-step-5:steps(10);--ease-elastic-1:var(--ease-elastic-out-1);--ease-elastic-2:var(--ease-elastic-out-2);--ease-elastic-3:var(--ease-elastic-out-3);--ease-elastic-4:var(--ease-elastic-out-4);--ease-elastic-5:var(--ease-elastic-out-5);--ease-squish-1:var(--ease-elastic-in-out-1);--ease-squish-2:var(--ease-elastic-in-out-2);--ease-squish-3:var(--ease-elastic-in-out-3);--ease-squish-4:var(--ease-elastic-in-out-4);--ease-squish-5:var(--ease-elastic-in-out-5);--ease-spring-1:linear(0,0.006,0.025 2.8%,0.101 6.1%,0.539 18.9%,0.721 25.3%,0.849 31.5%,0.937 38.1%,0.968 41.8%,0.991 45.7%,1.006 50.1%,1.015 55%,1.017 63.9%,1.001);--ease-spring-2:linear(0,0.007,0.029 2.2%,0.118 4.7%,0.625 14.4%,0.826 19%,0.902,0.962,1.008 26.1%,1.041 28.7%,1.064 32.1%,1.07 36%,1.061 40.5%,1.015 53.4%,0.999 61.6%,0.995 71.2%,1);--ease-spring-3:linear(0,0.009,0.035 2.1%,0.141 4.4%,0.723 12.9%,0.938 16.7%,1.017,1.077,1.121,1.149 24.3%,1.159,1.163,1.161,1.154 29.9%,1.129 32.8%,1.051 39.6%,1.017 43.1%,0.991,0.977 51%,0.974 53.8%,0.975 57.1%,0.997 69.8%,1.003 76.9%,1);--ease-spring-4:linear(0,0.009,0.037 1.7%,0.153 3.6%,0.776 10.3%,1.001,1.142 16%,1.185,1.209 19%,1.215 19.9% 20.8%,1.199,1.165 25%,1.056 30.3%,1.008 33%,0.973,0.955 39.2%,0.953 41.1%,0.957 43.3%,0.998 53.3%,1.009 59.1% 63.7%,0.998 78.9%,1);--ease-spring-5:linear(0,0.01,0.04 1.6%,0.161 3.3%,0.816 9.4%,1.046,1.189 14.4%,1.231,1.254 17%,1.259,1.257 18.6%,1.236,1.194 22.3%,1.057 27%,0.999 29.4%,0.955 32.1%,0.942,0.935 34.9%,0.933,0.939 38.4%,1 47.3%,1.011,1.017 52.6%,1.016 56.4%,1 65.2%,0.996 70.2%,1.001 87.2%,1);--ease-bounce-1:linear(0,0.004,0.016,0.035,0.063,0.098,0.141,0.191,0.25,0.316,0.391 36.8%,0.563,0.766,1 58.8%,0.946,0.908 69.1%,0.895,0.885,0.879,0.878,0.879,0.885,0.895,0.908 89.7%,0.946,1);--ease-bounce-2:linear(0,0.004,0.016,0.035,0.063,0.098,0.141 15.1%,0.25,0.391,0.562,0.765,1,0.892 45.2%,0.849,0.815,0.788,0.769,0.757,0.753,0.757,0.769,0.788,0.815,0.85,0.892 75.2%,1 80.2%,0.973,0.954,0.943,0.939,0.943,0.954,0.973,1);--ease-bounce-3:linear(0,0.004,0.016,0.035,0.062,0.098,0.141 11.4%,0.25,0.39,0.562,0.764,1 30.3%,0.847 34.8%,0.787,0.737,0.699,0.672,0.655,0.65,0.656,0.672,0.699,0.738,0.787,0.847 61.7%,1 66.2%,0.946,0.908,0.885 74.2%,0.879,0.878,0.879,0.885 79.5%,0.908,0.946,1 87.4%,0.981,0.968,0.96,0.957,0.96,0.968,0.981,1);--ease-bounce-4:linear(0,0.004,0.016 3%,0.062,0.141,0.25,0.391,0.562 18.2%,1 24.3%,0.81,0.676 32.3%,0.629,0.595,0.575,0.568,0.575,0.595,0.629,0.676 48.2%,0.811,1 56.2%,0.918,0.86,0.825,0.814,0.825,0.86,0.918,1 77.2%,0.94 80.6%,0.925,0.92,0.925,0.94 87.5%,1 90.9%,0.974,0.965,0.974,1);--ease-bounce-5:linear(0,0.004,0.016 2.5%,0.063,0.141,0.25 10.1%,0.562,1 20.2%,0.783,0.627,0.534 30.9%,0.511,0.503,0.511,0.534 38%,0.627,0.782,1 48.7%,0.892,0.815,0.769 56.3%,0.757,0.753,0.757,0.769 61.3%,0.815,0.892,1 68.8%,0.908 72.4%,0.885,0.878,0.885,0.908 79.4%,1 83%,0.954 85.5%,0.943,0.939,0.943,0.954 90.5%,1 93%,0.977,0.97,0.977,1);--ease-circ-in:cubic-bezier(.6,.04,.98,.335);--ease-circ-in-out:cubic-bezier(.785,.135,.15,.86);--ease-circ-out:cubic-bezier(.075,.82,.165,1);--ease-cubic-in:cubic-bezier(.55,.055,.675,.19);--ease-cubic-in-out:cubic-bezier(.645,.045,.355,1);--ease-cubic-out:cubic-bezier(.215,.61,.355,1);--ease-expo-in:cubic-bezier(.95,.05,.795,.035);--ease-expo-in-out:cubic-bezier(1,0,0,1);--ease-expo-out:cubic-bezier(.19,1,.22,1);--ease-quad-in:cubic-bezier(.55,.085,.68,.53);--ease-quad-in-out:cubic-bezier(.455,.03,.515,.955);--ease-quad-out:cubic-bezier(.25,.46,.45,.94);--ease-quart-in:cubic-bezier(.895,.03,.685,.22);--ease-quart-in-out:cubic-bezier(.77,0,.175,1);--ease-quart-out:cubic-bezier(.165,.84,.44,1);--ease-quint-in:cubic-bezier(.755,.05,.855,.06);--ease-quint-in-out:cubic-bezier(.86,0,.07,1);--ease-quint-out:cubic-bezier(.23,1,.32,1);--ease-sine-in:cubic-bezier(.47,0,.745,.715);--ease-sine-in-out:cubic-bezier(.445,.05,.55,.95);--ease-sine-out:cubic-bezier(.39,.575,.565,1)}
+:where(html){--animation-fade-in:fade-in .5s var(--ease-3);--animation-fade-in-bloom:fade-in-bloom 2s var(--ease-3);--animation-fade-out:fade-out .5s var(--ease-3);--animation-fade-out-bloom:fade-out-bloom 2s var(--ease-3);--animation-scale-up:scale-up .5s var(--ease-3);--animation-scale-down:scale-down .5s var(--ease-3);--animation-slide-out-up:slide-out-up .5s var(--ease-3);--animation-slide-out-down:slide-out-down .5s var(--ease-3);--animation-slide-out-right:slide-out-right .5s var(--ease-3);--animation-slide-out-left:slide-out-left .5s var(--ease-3);--animation-slide-in-up:slide-in-up .5s var(--ease-3);--animation-slide-in-down:slide-in-down .5s var(--ease-3);--animation-slide-in-right:slide-in-right .5s var(--ease-3);--animation-slide-in-left:slide-in-left .5s var(--ease-3);--animation-shake-x:shake-x .75s var(--ease-out-5);--animation-shake-y:shake-y .75s var(--ease-out-5);--animation-shake-z:shake-z 1s var(--ease-in-out-3);--animation-spin:spin 2s linear infinite;--animation-ping:ping 5s var(--ease-out-3) infinite;--animation-blink:blink 1s var(--ease-out-3) infinite;--animation-float:float 3s var(--ease-in-out-3) infinite;--animation-bounce:bounce 2s var(--ease-squish-2) infinite;--animation-pulse:pulse 2s var(--ease-out-3) infinite}@keyframes fade-in{to{opacity:1}}@keyframes fade-in-bloom{0%{filter:brightness(1) blur(20px);opacity:0}10%{filter:brightness(2) blur(10px);opacity:1}to{filter:brightness(1) blur(0);opacity:1}}@keyframes fade-out{to{opacity:0}}@keyframes fade-out-bloom{to{filter:brightness(1) blur(20px);opacity:0}10%{filter:brightness(2) blur(10px);opacity:1}0%{filter:brightness(1) blur(0);opacity:1}}@keyframes scale-up{to{transform:scale(1.25)}}@keyframes scale-down{to{transform:scale(.75)}}@keyframes slide-out-up{to{transform:translateY(-100%)}}@keyframes slide-out-down{to{transform:translateY(100%)}}@keyframes slide-out-right{to{transform:translateX(100%)}}@keyframes slide-out-left{to{transform:translateX(-100%)}}@keyframes slide-in-up{0%{transform:translateY(100%)}}@keyframes slide-in-down{0%{transform:translateY(-100%)}}@keyframes slide-in-right{0%{transform:translateX(-100%)}}@keyframes slide-in-left{0%{transform:translateX(100%)}}@keyframes shake-x{0%,to{transform:translateX(0)}20%{transform:translateX(-5%)}40%{transform:translateX(5%)}60%{transform:translateX(-5%)}80%{transform:translateX(5%)}}@keyframes shake-y{0%,to{transform:translateY(0)}20%{transform:translateY(-5%)}40%{transform:translateY(5%)}60%{transform:translateY(-5%)}80%{transform:translateY(5%)}}@keyframes shake-z{0%,to{transform:rotate(0deg)}20%{transform:rotate(-2deg)}40%{transform:rotate(2deg)}60%{transform:rotate(-2deg)}80%{transform:rotate(2deg)}}@keyframes spin{to{transform:rotate(1turn)}}@keyframes ping{90%,to{opacity:0;transform:scale(2)}}@keyframes blink{0%,to{opacity:1}50%{opacity:.5}}@keyframes float{50%{transform:translateY(-25%)}}@keyframes bounce{25%{transform:translateY(-20%)}40%{transform:translateY(-3%)}0%,60%,to{transform:translateY(0)}}@keyframes pulse{50%{transform:scale(.9)}}@media (prefers-color-scheme:dark){@keyframes fade-in-bloom{0%{filter:brightness(1) blur(20px);opacity:0}10%{filter:brightness(.5) blur(10px);opacity:1}to{filter:brightness(1) blur(0);opacity:1}}}@media (prefers-color-scheme:dark){@keyframes fade-out-bloom{to{filter:brightness(1) blur(20px);opacity:0}10%{filter:brightness(.5) blur(10px);opacity:1}0%{filter:brightness(1) blur(0);opacity:1}}}
+/* ===== 以下为本页样式 ===== */
+:root{
+  --ink:#3a2a40; --ink-soft:#7d6a85; --cream:#fff6ef; --paper:#fffdfa;
+  --rose:#f2a4bf; --rose-d:#c24d78; --lilac:#b7a4f2; --night:#241d4a; --night2:#4b3d8f;
+  --wine:#b3203f; --line:#f1dde5; --eye:#3a2a30;
+  --spring: var(--ease-spring-3);
+}
+@supports not (transition-timing-function: linear(0,1)){ :root{ --spring: cubic-bezier(.34,1.56,.64,1); } }
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{font-size:17px}
+body{margin:0;background:#efe6f7;color:var(--ink);line-height:1.8;
+  font-family:"LXGW WenKai","霞鹜文楷","PingFang SC","Microsoft YaHei",sans-serif}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:var(--rose-d)}
+:focus-visible{outline:3px solid var(--lilac);outline-offset:3px;border-radius:12px}
+.app{max-width:520px;margin:0 auto;min-height:100vh;background:var(--cream);position:relative;overflow-x:hidden;
+  box-shadow:0 0 60px rgba(75,61,143,.18)}
+
+/* ---------- 开场：八音盒 ---------- */
+.hero{position:relative;padding:22px 20px 34px;text-align:center;color:#fff;overflow:hidden;
+  background:linear-gradient(180deg,var(--night) 0%,var(--night2) 58%,#b49be8 100%);border-radius:0 0 40px 40px}
+.moon{position:absolute;top:74px;right:20px;width:44px;height:44px;border-radius:50%;
+  box-shadow:inset -11px -4px 0 0 #fff4d6;transform:rotate(-24deg);opacity:.95;animation:float 6s ease-in-out infinite}
+.star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;
+  animation:twinkle var(--d,3s) ease-in-out infinite var(--dl,0s)}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:1;transform:scale(1.4)}}
+.petal{position:absolute;top:-20px;width:11px;height:16px;border-radius:70% 0 70% 0;
+  background:linear-gradient(135deg,#fff,#e4dcff);opacity:.85;pointer-events:none;
+  animation:petalfall var(--t,9s) linear var(--dl,0s) infinite}
+@keyframes petalfall{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(var(--dx,30px),260px) rotate(160deg)}100%{transform:translate(calc(var(--dx,30px) * -1),560px) rotate(340deg);opacity:.1}}
+.snd{position:absolute;top:14px;right:14px;z-index:6;border:0;background:rgba(255,255,255,.16);color:#fff;
+  width:40px;height:40px;border-radius:50%;font-size:1.05rem;backdrop-filter:blur(4px)}
+.kicker{margin:18px 0 0;font-size:.82rem;letter-spacing:.22em;color:#d9ccff;position:relative;z-index:2}
+.hero h1{margin:4px 0 2px;font-size:1.9rem;letter-spacing:.06em;position:relative;z-index:2;
+  text-shadow:0 2px 14px rgba(0,0,0,.25)}
+.sub{margin:0;color:#e9e0ff;font-size:.95rem;position:relative;z-index:2}
+
+.stage{position:relative;height:292px;margin-top:6px;z-index:2}
+.mbox{position:absolute;left:50%;bottom:8px;width:240px;height:212px;transform:translateX(-50%)}
+.glow{position:absolute;left:50%;bottom:70px;width:300px;height:250px;margin-left:-150px;z-index:0;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(255,228,150,.6),rgba(255,228,150,0));opacity:0;transition:opacity 1.2s ease .3s}
+.hero.open .glow{opacity:1;animation:glowpulse 3.6s ease-in-out 1.5s infinite}
+@keyframes glowpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+
+/* 盒盖：合上是一条粉色盖子，掀开后露出内衬（月亮和星星） */
+.mbox-lid{position:absolute;left:8px;width:224px;height:84px;bottom:98px;z-index:1;border-radius:18px 18px 8px 8px;
+  background:
+    radial-gradient(circle at 24% 34%,#fff7cf 0 2px,transparent 3px),
+    radial-gradient(circle at 78% 26%,#fff7cf 0 1.6px,transparent 2.6px),
+    radial-gradient(circle at 60% 66%,#fff7cf 0 1.4px,transparent 2.4px),
+    radial-gradient(circle at 34% 74%,#fff7cf 0 1.2px,transparent 2.2px),
+    linear-gradient(180deg,#dcd0ff,#a98ff0);
+  box-shadow:inset 0 0 0 4px #e8b957,0 2px 0 #c9953a;
+  transform-origin:50% 100%;transform:scaleY(.2);
+  transition:transform 1s var(--spring)}
+.mbox-lid::before{content:"";position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(180deg,#ffd9e6,#f4a4c0);box-shadow:inset 0 0 0 4px #e8b957;transition:opacity .5s .15s}
+.mbox-lid::after{content:"";position:absolute;left:50%;top:16px;width:22px;height:22px;margin-left:-11px;border-radius:50%;
+  box-shadow:inset -7px -3px 0 0 #fff4d6;transform:rotate(-24deg);opacity:0;transition:opacity .6s .6s}
+.hero.open .mbox-lid{transform:scaleY(1)}
+.hero.open .mbox-lid::before{opacity:0}
+.hero.open .mbox-lid::after{opacity:.95}
+.hero.instant .mbox-lid,.hero.instant .mbox-lid::before,.hero.instant .mbox-lid::after{transition:none}
+
+/* 盒身：金边、爱心铭牌 */
+.mbox-base{position:absolute;left:0;bottom:6px;width:100%;height:100px;z-index:3;
+  filter:drop-shadow(0 9px 0 #b8607f) drop-shadow(0 20px 20px rgba(0,0,0,.3))}
+.mbox-base svg{display:block;width:100%;height:100%;overflow:visible}
+
+/* 飘出来的音符 */
+.note{position:absolute;bottom:176px;z-index:4;font-size:1.3rem;color:#fff3c4;opacity:0;pointer-events:none;
+  text-shadow:0 0 8px rgba(255,220,120,.85)}
+.hero.open .note{animation:noterise 4.2s ease-out infinite var(--nd,0s)}
+.note.n1{left:2px;--nx:-18px;--nd:1.4s}
+.note.n2{right:6px;--nx:20px;--nd:2.6s}
+.note.n3{left:44px;--nx:-10px;--nd:3.6s;font-size:1.05rem}
+@keyframes noterise{0%{opacity:0;transform:translate(0,10px) rotate(-8deg)}15%{opacity:.95}100%{opacity:0;transform:translate(var(--nx),-90px) rotate(14deg)}}
+
+/* 发条钥匙 */
+.key{position:absolute;right:-42px;bottom:32px;width:46px;height:40px;z-index:5;transform-origin:0 50%;
+  transform:perspective(160px) rotateX(0deg);transition:transform 1.1s cubic-bezier(.3,.1,.2,1)}
+.key svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))}
+.hero:not(.winding) .key{animation:keyhint 1.8s ease-in-out infinite}
+@keyframes keyhint{0%,100%{transform:perspective(160px) rotateX(0deg)}50%{transform:perspective(160px) rotateX(70deg)}}
+.hero.winding .key{transform:perspective(160px) rotateX(1080deg)}
+.hero.instant .key{transition:none;transform:perspective(160px) rotateX(0deg)}
+
+/* 小熊先生 */
+.bear-wrap{position:absolute;left:50%;bottom:92px;margin-left:-56px;width:112px;height:112px;z-index:2;padding:0;border:0;background:none;
+  opacity:0;transform:translateY(46px) scale(.6);filter:drop-shadow(0 6px 8px rgba(0,0,0,.25))}
+.hero.open .bear-wrap{opacity:1;transform:none}
+.hero.open:not(.instant) .bear-wrap{animation:rise 1s var(--spring) backwards,sway 3.2s ease-in-out 1s infinite}
+.hero.open.instant .bear-wrap{animation:sway 3.2s ease-in-out infinite}
+@keyframes rise{from{opacity:0;transform:translateY(70px) scale(.5)}to{opacity:1;transform:none}}
+@keyframes sway{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(4deg) translateY(-6px)}}
+.bear{width:100%;height:100%;display:block}
+.hero.red{--eye:#ff2a4a}
+.hero.red .bear-wrap{filter:drop-shadow(0 6px 8px rgba(0,0,0,.25))}
+.eye{transition:fill .12s}
+.sprig{position:absolute;left:6px;bottom:2px;width:70px;opacity:.9;z-index:1;transform-origin:50% 100%;animation:sway 5s ease-in-out infinite}
+
+.quote{margin:2px 0 14px;font-size:.95rem;color:#fff;position:relative;z-index:2;padding:0 6px;text-wrap:balance}
+.quote small{display:block;color:#efe7ff;font-size:.74rem;margin-top:4px}
+.windbtn{position:relative;z-index:2;border:0;border-radius:999px;padding:12px 30px;font-size:1.05rem;color:#4a3000;
+  background:linear-gradient(180deg,#ffe49a,#f0c76a);box-shadow:0 5px 0 #b98a2e,0 12px 20px rgba(0,0,0,.25);
+  animation:pulse 2s ease-in-out infinite}
+.windbtn:active{transform:translateY(3px);box-shadow:0 2px 0 #b98a2e}
+.hero.winding .quote,.hero.winding .windbtn{display:none}
+.say{display:none;position:relative;z-index:2;flex-direction:column;align-items:center;gap:8px}
+.hero.talk .say{display:flex}
+.say p{margin:0;background:rgba(255,255,255,.17);border:1.5px solid rgba(255,255,255,.28);padding:6px 16px;border-radius:18px;
+  backdrop-filter:blur(4px);animation:pop .5s var(--spring) backwards;animation-delay:var(--t,0s)}
+.whisper{position:absolute;left:0;right:0;top:18px;text-align:center;z-index:7;pointer-events:none;color:#ffe3e8;
+  opacity:0;font-size:.95rem;text-shadow:0 2px 10px rgba(20,10,40,.8)}
+.whisper.on{animation:whisper 1.6s ease forwards}
+@keyframes whisper{0%{opacity:0;transform:translateY(8px)}15%,75%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.94)}to{opacity:1;transform:none}}
+
+/* ---------- 首页：场景 ---------- */
+.pick{margin:22px 20px 6px;font-size:.9rem;color:var(--ink-soft);text-align:center}
+.grid-wrap.locked{display:none}
+.grid-wrap.show .grid>*{animation:cardin .6s var(--spring) backwards;animation-delay:calc(var(--i) * .08s)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:6px 16px 8px}
+.scene{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:16px 14px 14px;text-align:left;
+  border:2px solid var(--line);border-radius:24px;background:var(--paper);box-shadow:0 5px 0 var(--line);
+  transition:transform .15s var(--ease-out-3,ease),box-shadow .15s}
+.scene:active{transform:translateY(4px) scale(.98);box-shadow:0 1px 0 var(--line)}
+.scene .ic{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:1.6rem;
+  background:var(--c,#ffe9ef);animation:float 4.2s ease-in-out infinite;animation-delay:calc(var(--i) * -.7s)}
+.scene b{font-size:1.02rem;line-height:1.35;margin-top:4px}
+.scene small{color:var(--ink-soft);font-size:.78rem;line-height:1.5}
+
+/* ---------- 场景页 ---------- */
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:10px 14px;
+  background:rgba(255,246,239,.92);backdrop-filter:blur(8px);border-bottom:2px solid var(--line)}
+.back{border:2px solid var(--line);background:#fff;border-radius:999px;padding:4px 14px;font-size:.9rem}
+.back:active{transform:scale(.95)}
+.bar b{font-size:1rem}
+.chat{display:flex;flex-direction:column;gap:8px;padding:16px 16px 6px}
+.msg{display:flex;gap:10px;align-items:flex-end;animation:pop .5s var(--spring) backwards;animation-delay:var(--t,0s)}
+.av{width:38px;height:38px;border-radius:50%;background:#fde4d2;flex:none;box-shadow:0 0 0 2px #fff;overflow:hidden}
+.av svg{width:100%;height:100%;display:block}
+.msg.cont .av{visibility:hidden}
+.bubble{background:#fff;border:2px solid var(--line);border-radius:18px 18px 18px 6px;padding:7px 14px;max-width:82%;
+  box-shadow:0 3px 0 var(--line)}
+.typing{display:flex;gap:10px;align-items:flex-end;animation:typing 1s forwards}
+.typing .bubble{display:flex;gap:5px;padding:12px 16px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--rose);animation:blink .9s ease-in-out infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes typing{0%,70%{opacity:1;max-height:60px}100%{opacity:0;max-height:0;margin:-4px 0;overflow:hidden}}
+.call{display:block;text-align:center;text-decoration:none;color:#fff;border-radius:22px;padding:14px;margin:12px 16px 2px;
+  font-size:1.35rem;font-weight:700;letter-spacing:.04em}
+.call.red{background:var(--wine);box-shadow:0 6px 0 #7e1329;animation:callpulse 1.8s ease-in-out infinite}
+.call.soft{background:linear-gradient(180deg,#c8b8ff,#a490f0);box-shadow:0 6px 0 #7b66cc;font-size:1.1rem}
+.call:active{transform:translateY(4px);box-shadow:0 2px 0 rgba(0,0,0,.2)}
+@keyframes callpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+.callnote{text-align:center;color:var(--ink-soft);font-size:.8rem;margin:8px 16px 0}
+.cards{padding:6px 16px 0}
+.card{background:var(--paper);border:2px solid var(--line);border-radius:24px;padding:18px 18px 14px;margin:16px 0;
+  box-shadow:0 5px 0 var(--line)}
+.reveal{opacity:0;transform:translateY(24px) scale(.97)}
+.reveal.in{animation:cardin .6s var(--spring) forwards}
+@keyframes cardin{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
+.tag{display:inline-block;font-size:.7rem;border-radius:999px;padding:0 10px;margin:0 6px 6px 0;background:#ffe9ef;color:var(--rose-d)}
+.tag.lv-A{background:#e3f4ec;color:#2f7a5c}.tag.lv-B{background:#fff1d6;color:#9a6a12}.tag.lv-C{background:#ece8f6;color:#6a5a99}
+.card h3{margin:2px 0 8px;font-size:1.08rem;line-height:1.6}
+.card p{margin:6px 0;font-size:.95rem}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btn{border:0;border-radius:999px;padding:8px 18px;font-size:.9rem;background:var(--rose);color:#fff;box-shadow:0 3px 0 var(--rose-d);
+  transition:transform .12s}
+.btn:active{transform:translateY(3px) scale(.97);box-shadow:0 0 0 var(--rose-d)}
+.btn.ghost{background:#fff;color:var(--rose-d);border:2px solid var(--rose);box-shadow:0 3px 0 var(--rose)}
+details{margin-top:12px;border-top:1.5px dashed var(--line);padding-top:8px}
+summary{cursor:pointer;color:var(--rose-d);font-size:.88rem}
+.deep{font-size:.8rem;line-height:1.85;color:#5a4a60;word-break:break-all}
+.deep p{margin:6px 0;font-size:.8rem}
+.tail{padding:6px 16px 4px}
+.next{display:block;margin:18px auto 6px;border:2px solid var(--rose);background:#fff;color:var(--rose-d);
+  border-radius:999px;padding:10px 24px;box-shadow:0 4px 0 var(--rose)}
+.next:active{transform:translateY(3px);box-shadow:0 1px 0 var(--rose)}
+
+footer{padding:26px 20px 70px;color:var(--ink-soft);font-size:.74rem;line-height:1.9;text-align:center}
+footer details{text-align:left;border:0;margin:10px 0;padding:0}
+footer table{border-collapse:collapse;margin-top:6px;font-size:.72rem}
+footer td{border:1px solid var(--line);padding:3px 8px;vertical-align:top}
+
+.toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,20px);background:#3a2a40;color:#fff;border-radius:999px;
+  padding:10px 22px;font-size:.88rem;opacity:0;pointer-events:none;transition:.3s var(--spring);z-index:60}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.fx{position:fixed;pointer-events:none;z-index:70;font-size:1.1rem;animation:fly .9s ease-out forwards}
+@keyframes fly{from{opacity:1;transform:translate(0,0) scale(.6)}to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.3)}}
+
+/* ---------- 场景小插画 ---------- */
+.vig{background:linear-gradient(180deg,var(--sky1,#d9ccff),var(--sky2,#fff6ef));border-radius:0 0 30px 30px;overflow:hidden;cursor:pointer;
+  -webkit-user-select:none;user-select:none}
+.vig svg{display:block;width:100%;height:auto}
+.vcap{margin:8px 20px 0;text-align:center;font-size:.8rem;color:var(--ink-soft)}
+.bob{animation:vbob 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes vbob{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-4px) rotate(1.5deg)}}
+.tw{animation:twinkle 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.vf{animation:vfloat 3.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes vfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.breathe{animation:breathe 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes breathe{0%,100%{transform:scale(.7);opacity:.5}50%{transform:scale(1.5);opacity:1}}
+.flick{animation:flick 1.3s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes flick{0%,100%{transform:scale(1,1)}50%{transform:scale(.9,1.12)}}
+.aboutbtn{border:2px solid var(--line);background:#fff;color:var(--ink-soft);border-radius:999px;padding:6px 18px;font-size:.8rem}
+.about{padding:14px 20px 40px;font-size:.88rem;line-height:1.95}
+.about h2{font-size:1rem;margin:20px 0 4px;color:var(--rose-d)}
+.about p{margin:4px 0}
+.about table{border-collapse:collapse;font-size:.8rem;margin-top:4px}
+.about td{border:1px solid var(--line);padding:4px 8px;vertical-align:top}
+
+/* ---------- 点小熊说话 / 铃铛 ---------- */
+.vig{position:relative}
+.vig:focus-visible{outline:3px solid var(--rose);outline-offset:-3px}
+.vsay{margin:8px 18px 0;min-height:3.7em;padding:10px 14px;border-radius:20px;background:#fff;border:2px solid var(--line);box-shadow:0 3px 0 var(--line);font-size:.92rem;line-height:1.75}
+.vsay.hint .vt{color:var(--ink-soft)}
+.vig.talk .bob{animation:vtalk .6s ease-out}
+@keyframes vtalk{0%{transform:scale(1)}30%{transform:scale(1.07,.93)}60%{transform:scale(.97,1.05)}100%{transform:scale(1)}}
+.bell{margin-left:auto;border:0;background:transparent;width:36px;height:36px;border-radius:50%;font-size:1.15rem}
+.bell:active{transform:scale(.9)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.01ms!important}
+  .petal,.star{display:none}
+  .bob,.tw,.vf,.breathe,.flick,.vig.talk .bob{animation:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><radialGradient id="fur" cx=".36" cy=".28" r=".85"><stop offset="0" stop-color="#f6cfae"/><stop offset=".55" stop-color="#e5ac83"/><stop offset="1" stop-color="#c88a60"/></radialGradient><radialGradient id="fur2" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#e8b58f"/><stop offset="1" stop-color="#bf8059"/></radialGradient>
+  <symbol id="bear-sym" viewBox="0 0 120 120">
+    <circle cx="27" cy="31" r="17" fill="url(#fur2)"/><circle cx="93" cy="31" r="17" fill="url(#fur2)"/>
+    <circle cx="27" cy="32" r="9.5" fill="#f4bccb"/><circle cx="93" cy="32" r="9.5" fill="#f4bccb"/>
+    <ellipse cx="60" cy="62" rx="42" ry="37" fill="url(#fur)"/>
+    <path d="M19.5 68l-7 2.5 7.5 2.5z M100.5 68l7 2.5-7.5 2.5z" fill="#d9966c"/>
+    <ellipse cx="46" cy="38" rx="15" ry="6.5" fill="#fff" opacity=".2" transform="rotate(-16 46 38)"/>
+    <ellipse cx="60" cy="75" rx="17.5" ry="13.5" fill="#fbe4d0"/>
+    <path d="M52 68.5q8-5 16 0q-1.2 6.6-8 8.2q-6.8-1.6-8-8.2z" fill="#5a3636"/>
+    <ellipse cx="56.5" cy="69" rx="2.6" ry="1.3" fill="#fff" opacity=".55"/>
+    <path d="M60 76.5v3.2M52.5 81q7.5 6 15 0" stroke="#5a3636" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <ellipse cx="29" cy="72" rx="7.5" ry="4.6" fill="#f58aa8" opacity=".5"/><ellipse cx="91" cy="72" rx="7.5" ry="4.6" fill="#f58aa8" opacity=".5"/>
+    <path d="M35 49q7-4 14-1M71 48q7-3 14 1" stroke="#a8683f" stroke-width="2" fill="none" stroke-linecap="round" opacity=".55"/>
+    <ellipse class="eye" cx="42" cy="59" rx="4.6" ry="5.2" style="fill:var(--eye,#3a2a30)"/>
+    <ellipse class="eye" cx="78" cy="59" rx="4.6" ry="5.2" style="fill:var(--eye,#3a2a30)"/>
+    <circle cx="43.8" cy="56.6" r="1.7" fill="#fff"/><circle cx="79.8" cy="56.6" r="1.7" fill="#fff"/>
+    <circle cx="40.6" cy="61.4" r=".8" fill="#fff" opacity=".7"/><circle cx="76.6" cy="61.4" r=".8" fill="#fff" opacity=".7"/>
+    <ellipse cx="42" cy="59" rx="5.6" ry="0" fill="#e0a982"><animate attributeName="ry" values="0;0;6;0;0" keyTimes="0;.93;.96;.99;1" dur="5s" repeatCount="indefinite"/></ellipse><ellipse cx="78" cy="59" rx="5.6" ry="0" fill="#e0a982"><animate attributeName="ry" values="0;0;6;0;0" keyTimes="0;.93;.96;.99;1" dur="5s" repeatCount="indefinite"/></ellipse>
+    <path d="M60 107l-16-8v16z M60 107l16-8v16z" fill="#b3203f"/>
+    <path d="M60 107l-16-8v5z M60 107l16-8v5z" fill="#d6405e" opacity=".75"/>
+    <circle cx="60" cy="107" r="5" fill="#8f1830"/><circle cx="58.6" cy="105.6" r="1.3" fill="#fff" opacity=".45"/>
+  </symbol>
+  <symbol id="sprig-sym" viewBox="0 0 70 110">
+    <path d="M35 108C34 80 36 50 35 12" stroke="#9fb39a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <g fill="#b8c9b0"><ellipse cx="25" cy="30" rx="4" ry="12" transform="rotate(-28 25 30)"/><ellipse cx="45" cy="38" rx="4" ry="12" transform="rotate(28 45 38)"/>
+    <ellipse cx="24" cy="58" rx="4.5" ry="13" transform="rotate(-32 24 58)"/><ellipse cx="46" cy="66" rx="4.5" ry="13" transform="rotate(32 46 66)"/>
+    <ellipse cx="26" cy="86" rx="4.5" ry="12" transform="rotate(-30 26 86)"/><ellipse cx="44" cy="92" rx="4.5" ry="12" transform="rotate(30 44 92)"/></g>
+  </symbol>
+</defs></svg>
+
+<div class="app" id="app"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const DATA = {"scenes": [{"id": "night", "icon": "🌙", "name": "晚上要出去玩", "hint": "KTV、酒吧、剧本杀", "lead": ["要出去玩？好。", "玩得开心最要紧。进门之前，我只想提醒几件小事。", "不多，翻到哪条算哪条。"], "tail": "玩够了就回家，到了跟朋友说一声。", "entries": [{"title": "进 KTV、酒吧、密室之前先看一眼安全出口在哪，被锁被堵就换一家", "ref": "第22节·第1条", "成本": "不花钱。进门时抬头看 10 秒。", "说人话": "按规定，娱乐场所营业时，疏散通道和安全出口必须畅通。不许封堵，不许上锁，不许摆东西挡路，也不许遮住指示标志。网吧同样不许封门锁窗。做不到就是违法，你可以举报。包厢在地下、只有一个出口、走道堆满杂物的，换一家。", "收益": "这是经营者的法定义务。做不到就是违法，你可以举报。条例原文：「营业期间，娱乐场所应当保证疏散通道和安全出口畅通，不得封堵、锁闭疏散通道和安全出口，不得在疏散通道和安全出口设置栅栏等影响疏散的障碍物」。条例还要求，「应当在疏散通道和安全出口设置明显指示标志，不得遮挡、覆盖指示标志」。网吧也一样，被要求「营业期间禁止封堵或者锁闭门窗、安全疏散通道和安全出口」，并「禁止明火照明和吸烟」", "证据等级": "A", "来源": "国务院 (2006). 娱乐场所管理条例（国令第 458 号，第二十、二十一条）. <http://www.gov.cn/zhengce/zhengceku/2008-03/28/content_6297.htm>；国务院 (2002). 互联网上网服务营业场所管理条例（国令第 363 号，第二十一条）. <http://www.gov.cn/gongbao/content/2002/content_61788.htm>", "备注": "下面几样占了任何一样，就换个地方：包厢在地下、只有一个出口、走道堆满杂物、安全出口的指示灯不亮。这类场所着火时烟大、走道窄、人多，而且多数人喝了酒。留给你逃出去的时间以秒计。举报电话按条例应当写在场所内的警示标志上", "level": "A"}, {"title": "不吃陌生人给的糖和零食，不喝离开过视线的饮料，不接别人递的烟弹", "ref": "第22节·第4条", "成本": "不花钱。别人递过来的一律不接。自己的杯子离开过视线，就换一杯。", "说人话": "现在的毒品不长毒品的样子。掺了合成大麻素的「上头」电子烟，颜色口味都能调，看着和普通电子烟差不多，专在酒吧、KTV、宾馆里递给人试。骗人吸食的，拘留 10 到 15 日、罚 1000 到 5000 元。被骗吸了的人自己也要拘留 10 到 15 日。饮料离开过视线就换一杯。", "收益": "现在的毒品不长毒品的样子。合成大麻素类物质自 2021 年 7 月 1 日起被整类列管，也就是这一大类整体按毒品管。有人把它掺进烟油，做成「上头」电子烟。最高检报道的案子里，办案人员的描述是：这种烟油「可以通过添加食用颜料变成各种颜色、各种口味」，「在外观上和普通电子烟基本一致」。卖家在酒吧、KTV、宾馆呼朋引伴推销，诱导他人吸食。报道里，当地当年办理的吸食案件中，未成年吸食者占比近四成。依托咪酯自 2023 年 10 月 1 日起列入第二类精神药品目录。骗人吸食本身就是一档违法：引诱、教唆、欺骗或者强迫他人吸食、注射毒品的，拘留 10 到 15 日并罚 1000 到 5000 元。构成犯罪的判 3 年以下，情节严重的判 3 到 7 年，强迫的判 3 到 10 年，对未成年人下手的从重。后果也落在被骗的人身上：吸食、注射毒品的，处 10 到 15 日拘留并可罚 3000 元以下。情节较轻的处 5 日以下拘留或者 1000 元以下罚款。还可能被同时责令 6 个月到 1 年内不得进入娱乐场所。成瘾的责令社区戒毒 3 年。拒绝社区戒毒、或者戒毒期间再吸的，强制隔离戒毒 2 年，最长可再延长 1 年（全国，治安管理处罚法 2026 年 1 月起）", "证据等级": "A", "来源": "最高人民检察院 (2021). 江苏苏州吴江区：办案检察官揭秘披着潮流外衣的新型毒品. <https://www.spp.gov.cn/spp/zdgz/202110/t20211011_531831.shtml>；国家药监局、公安部、国家卫生健康委 (2023). 关于调整麻醉药品和精神药品目录的公告（2023 年第 120 号）. <https://yjj.sh.gov.cn/qtgzwj/20230911/3b612c94e35b4b63abba314c972a2593.html>（上海市药监局转载，原文页 nmpa.gov.cn 在本机返回 412）；全国人大常委会 (2025). 治安管理处罚法（2025 年修订，第八十四、八十五条）. <https://www.spp.gov.cn/spp/fl/202506/t20250627_699863.shtml>；全国人大 (1997). 刑法（第三百五十三条）. <https://www.spp.gov.cn/spp/fl/201802/t20180206_364975.shtml>；全国人大常委会 (2007). 禁毒法（第三十三、三十八、四十七条）. <http://www.gd.gov.cn/zwgk/wjk/zcfgk/content/post_2520706.html>（广东省人民政府转载）", "备注": "这条不只在娱乐场所管用。学校门口、朋友聚会、长途车上同理。给的是糖果、饮料还是烟弹，也都一样。被下药之后常跟着抢劫、性侵和敲诈，这部分没有公开的官方统计，属于经验判断。饮料只要离开过视线就换一杯，比事后追究省事得多。场子里有人拿出不明粉末、片剂、烟弹时怎么办，见本节第 3 条。替人带东西见第 8 节第 29 条。", "level": "A"}, {"title": "场子里有人递「东西」就立刻走，容留和提供都不是「帮朋友」", "ref": "第22节·第3条", "成本": "不花钱。站起来走出去。难在要当着一桌人的面离席。", "说人话": "娱乐场所不许贩毒，不许提供毒品，也不许留人在里面吸，违反的要停业整顿 3 到 6 个月，重的吊销许可证。个人这一头更重：自己吸要受治安处罚。在自己订的包厢或住处让人「用一下」，就是容留他人吸毒，属于刑事犯罪。有人掏出不明粉末、片剂、烟弹请你试，当场走。", "收益": "条例明令禁止娱乐场所「贩卖、提供毒品，或者组织、强迫、教唆、引诱、欺骗、容留他人吸食、注射毒品」。从业人员也不得吸毒，不得为顾客做上面这些事提供条件。违反的，由公安部门没收违法所得和非法财物，责令停业整顿 3 至 6 个月。情节严重的吊销娱乐经营许可证。条例还要求场所在大厅、包厢、包间的显著位置悬挂禁毒、禁赌、禁止卖淫嫖娼的警示标志，并注明举报电话", "证据等级": "A", "来源": "国务院 (2006). 娱乐场所管理条例（国令第 458 号，第十四、三十、四十二条）. <http://www.gov.cn/zhengce/zhengceku/2008-03/28/content_6297.htm>", "备注": "只要有人拿出不明的粉末、片剂、电子烟弹，请你「试试」，就当场离开，别留下来看热闹。个人这一侧的风险比场所更重。自己吸毒，本身就要受治安处罚。在自己订的包厢或者自己住处「让朋友在这儿用一下」，构成的是容留他人吸毒，属于刑事犯罪", "level": "A"}, {"title": "点单前要价目表，娱乐场所必须明码标价，不接受「先玩后算」", "ref": "第22节·第2条", "成本": "不花钱。开口要一次单子。难在当着人开口问价，有点抹不开面子。", "说人话": "按规定，娱乐场所卖服务、卖东西都必须明码标价，还要主动把价目表拿给你看。所谓「天价酒水」，几乎都出在没看过价目表、事后按口头报价结账的场合。进包厢先要单子拍照。点完再要一份确认清单。结账有争议就当场打 12315。", "收益": "条例原文：「娱乐场所提供娱乐服务项目和出售商品，应当明码标价，并向消费者出示价目表；不得强迫、欺骗消费者接受服务、购买商品。」违反价格法律法规的，由有关部门依法处罚。所谓「天价酒水」纠纷，绝大多数发生在这种场合：没有出示价目表，事后按口头报价结账", "证据等级": "A", "来源": "国务院 (2006). 娱乐场所管理条例（国令第 458 号，第二十九、五十三条）. <http://www.gov.cn/zhengce/zhengceku/2008-03/28/content_6297.htm>", "备注": "怎么做：进包厢先要一份价目表，纸质的电子的都行，拿到就拍照。点完单再要一份确认好的清单。服务员推荐的「特调」「果盘」，一律先问价再点。结账有争议时当场打 12315。别先付款再去维权，付了款你要举证就难得多", "level": "A"}, {"title": "剧本杀、密室别去开在居民楼里或者地下二层以下的", "ref": "第22节·第6条", "成本": "不花钱。订之前问一句地址在几层。", "说人话": "五部门 2022 年的通知写明，剧本娱乐场所不得开在居民楼内，也不得开在地下一层以下。这类场地黑、隔断多、道具易燃，门还常常要解谜才打得开。一旦起火，比普通商铺难跑得多。订之前在点评页看一眼地址和楼层，不合规的换一家。", "收益": "五部门 2022 年的专门通知写得很具体：「剧本娱乐经营场所不得设在居民楼内、建筑物地下一层以下（不含地下一层）等地」。通知还要求场所落实安全生产法和消防法的要求，「常态化开展火灾风险自知、自查、自改，提高紧急情况下的组织疏散逃生和初起火灾扑救能力」。同一份通知还要求剧本设置适龄提示。场景不适宜未成年人的，不得允许未成年人进入。除法定节假日、休息日及寒暑假外，不得向未成年人提供剧本娱乐活动", "证据等级": "A", "来源": "文化和旅游部、公安部、住房和城乡建设部、应急管理部、市场监管总局 (2022). 关于加强剧本娱乐经营场所管理的通知. <https://www.gov.cn/zhengce/zhengceku/2022-06/27/content_5698021.htm>", "备注": "这类场所的特点是黑暗、隔断多、道具易燃，门常常需要「解谜」才能打开。一旦起火，比普通商铺更难跑出去。订之前在点评页面上就能看出楼层，也能看出是不是居民楼。不合规的直接换一家", "level": "A"}]}, {"id": "party", "icon": "🥂", "name": "周末有局", "hint": "小酌、打麻将、少喝点", "lead": ["有局？好。", "麻将可以打，小酌也行。我不扫兴，只挑几条要紧的。"], "tail": "尽兴就好。回去的路，别自己开。", "entries": [{"title": "麻将、扑克可以打，不抽头、不当庄、不组局收钱，不玩网络赌博", "ref": "第9节·第13条", "成本": "不花钱。亲友之间小额娱乐照打。不从局里抽成，不当庄，不组局收钱。难在有人张罗时忍住不去接手。", "说人话": "亲友之间小额打牌，法律不管。从局里抽头、当庄、组局收钱，性质就变了：参与赌博、赌资较大的，拘留 5 日以下或者罚 1000 元以下。聚众赌博、靠赌博过日子的判 3 年以下，开赌场的判 5 年以下。多少算「赌资较大」，各地自己定，没有全国统一数字。", "收益": "为了挣钱给赌博提供便利条件，或者参与赌博、赌资较大的，拘留 5 日以下，或者罚 1000 元以下。情节严重的拘留 10 到 15 日，并罚 1000 到 5000 元。为了挣钱把人聚起来赌，或者靠赌博过日子的，判 3 年以下并罚钱。开赌场的判 5 年以下并罚钱，情节严重的判 5 到 10 年（全国）", "证据等级": "B", "来源": "全国人大常委会 (2025). 治安管理处罚法（2025 年修订，第八十二条）. <https://www.spp.gov.cn/spp/fl/202506/t20250627_699863.shtml>；全国人大 (2020). 刑法（根据刑法修正案（十一）修正，第三百零三条）. <https://jtgl.beijing.gov.cn/jgj/jgxx/flfg/fl/11033925/index.html>；全国人大常委会 (2020). 刑法修正案（十一）（第三十六条，开设赌场刑期提高到五年以下、五年以上十年以下）. <https://www.spp.gov.cn/zdgz/202012/t20201227_503682.shtml>", "备注": "多少算「赌资较大」没有全国统一数字，各地自己定，所以这条只给 B 级。从局里抽成、替网络赌博平台代收投注，办案时常常按开设赌场认定。相关的司法解释原文本节没有核实。也没有找到官方案例。", "level": "B"}, {"title": "少喝或不喝酒", "ref": "第2节·第20条", "成本": "不花钱，还省钱，也不占时间。难在社交场合推酒时的一点尴尬。", "说人话": "每周喝过 100 g 纯酒精以后，喝得越多死得越早。100 g 纯酒精大约是 2.5 L 啤酒。40 岁时每周喝 100–200 g 的人，少活半年左右；喝 200–350 g 的少一两年；超过 350 g 的少四五年。按整体健康算，最划算的量是不喝。", "收益": "把 83 项往后跟踪的研究合起来算，只记录、不分组，60 万名在喝酒的人。死亡风险的最低点，在每周不超过 100 g 纯酒精。这个量大约是 5% 的啤酒 2.5 L，或者 40 度白酒 300 mL。40 岁时每周喝 100–200 g 的人，预期寿命少约 6 个月。每周喝 200–350 g 的少 1–2 年。超过 350 g 的少 4–5 年。以上三项原文以寿命年报告。全球疾病负担研究 GBD 2016 把各类健康损失合起来算，风险最低的饮酒量是 0 杯/周。还有一项汇总把研究设计上的偏差校正过了。每天喝 1.3–24 g 的人和一辈子不喝的人比，死亡风险低约 7%（RR 0.93）。但这一项没看出统计上的差别。每天喝 45–64 g 的高约 19%（RR 1.19）。每天 65 g 以上的高约 35%（RR 1.35）。", "证据等级": "A", "来源": "Wood AM 等 (2018). Risk thresholds for alcohol consumption: combined analysis of individual-participant data for 599 912 current drinkers in 83 prospective studies. Lancet. <https://doi.org/10.1016/S0140-6736(18)30134-X>；GBD 2016 Alcohol Collaborators (2018). Alcohol use and burden for 195 countries and territories, 1990–2016: a systematic analysis for the Global Burden of Disease Study 2016. Lancet. <https://doi.org/10.1016/S0140-6736(18)31310-2>；Zhao J 等 (2023). Association Between Daily Alcohol Intake and Risk of All-Cause Mortality: A Systematic Review and Meta-analyses. JAMA Network Open. <https://doi.org/10.1001/jamanetworkopen.2023.6185>；Di Castelnuovo A 等 (2006). Alcohol dosing and total mortality in men and women: an updated meta-analysis of 34 prospective studies. Archives of Internal Medicine. <https://doi.org/10.1001/archinte.166.22.2437>（争议方）", "备注": "争议。认为「少喝有好处」的一方，是一份 34 项长期跟踪研究的汇总。它报告：少量饮酒的人总死亡率最多低 17%–18%。它给的量是男性每天不超过 4 杯、女性不超过 2 杯。在这个量以内，喝得多的人死亡率反而低。反方认为，「不喝酒」那一组里混进了因病戒酒的人和本来身体就差的人。有一项汇总专门把这些干扰扣掉，做完以后保护作用就没了。全球疾病负担研究也给出 0 最安全。稳妥的读法是：少喝不会明显伤寿命，多喝一定伤。「为了健康开始喝酒」没有依据。想少喝怎么办见本节第 22 条（先数杯数再找医生）。天天喝的人不能自己硬戒，见本节第 21 条（别自己硬戒）", "level": "A"}, {"title": "想少喝酒，先把一周喝了多少数出来，再找医生聊几分钟", "ref": "第2节·第22条", "成本": "不花钱。数杯数每天记一笔就行。在门诊顺口问一句也不额外花钱。", "说人话": "医生花几分钟看你的饮酒量、说清风险、帮你定个目标，一年后平均每周少喝 20 克纯酒精，大约半升啤酒。谈更久并没有更多好处。已经停不下来的，国外有两种药被证明管用，大约每治 12 个人能多 1 个人不再回到一喝就喝多。", "收益": "34 项随机试验、15197 人合起来算，接受简短干预的人在一年后比只接受最少干预或不干预的人每周少喝 20 克纯酒精（95% CI 少 12 到 28 克，这是可信范围；中等质量证据）。这些研究里受试者的基线饮酒量平均是每周 244 克。简短干预指的是不超过 5 次、总时长不到 60 分钟的建议或生活方式咨询；谈得更久并没有多出好处。药物方面：122 项随机试验、22803 人合起来算，阿坎酸每治疗 12 人（95% CI 8 到 26）可多让 1 人不再回到任何饮酒；口服纳曲酮每天 50 毫克，每治疗 12 人（8 到 26）可多让 1 人不再回到重度饮酒。", "证据等级": "A", "来源": "Kaner EF, Beyer FR, Muirhead C, et al. (2018). Effectiveness of brief alcohol interventions in primary care populations. Cochrane Database of Systematic Reviews, 2, CD004148. <https://doi.org/10.1002/14651858.CD004148.pub4>；Jonas DE, Amick HR, Feltner C, et al. (2014). Pharmacotherapy for adults with alcohol use disorders in outpatient settings: a systematic review and meta-analysis. JAMA, 311(18), 1889–1900. <https://doi.org/10.1001/jama.2014.3628>", "备注": "收益量级定「小」，是因为这两份证据量到的都是喝了多少，不是死亡率，按本书的规矩只有替代终点就记「小」。药物那部分的试验多在国外做，受试者多数已达到酒精依赖的诊断标准，而且试验里都同时给了心理社会干预，数字是「在这个基础上额外多出来的好处」。这两种药在国内的适应症和能不能开，以医生和药品说明书为准，别自行网购。已经出现戒断反应的见本节第 21 条（别自己硬戒）。", "level": "A"}, {"title": "每天都喝酒、一停就手抖心慌的人，别自己硬戒", "ref": "第2节·第21条", "成本": "挂一次精神科或者成瘾医学科的号，几元到几十元。严重的要住几天院。", "说人话": "天天大量喝酒的人突然停，会出戒断反应。轻的手抖、出汗、心慌、睡不着，重的会抽搐或者出现震颤谵妄，那是会死人的急症。挪威跟踪了三万多人，得过震颤谵妄的那批，往后每年有 8% 的人死亡。想戒就先去医院，说清你每天喝多少。", "收益": "一篇 2026 年的临床综述写明：长期大量饮酒的人在突然停酒或者大幅减量之后会出现戒断综合征，表现包括震颤、自主神经兴奋、焦虑、失眠、感知异常、癫痫发作和震颤谵妄，在普通内科诊疗中「常见且可能危及生命」。挪威的全国登记队列纳入 2009 到 2015 年诊断为酒精依赖、酒精戒断状态或震颤谵妄的 36287 人：震颤谵妄组的年死亡率 8.0%，戒断状态组 5.0%，酒精依赖组 3.6%。震颤谵妄组的标准化死亡比 9.8（95% CI 8.9–10.7，这是可信范围），意思是死亡风险约为同龄一般人群的 9.8 倍。", "证据等级": "B", "来源": "Caputo F, Lungaro L, Costanzini A, De Giorgio R, Addolorato G (2026). Alcohol withdrawal syndrome in hospitalized patients: a practical review. European Journal of Internal Medicine, 107103. <https://doi.org/10.1016/j.ejim.2026.107103>；Bramness JG, Heiberg IH, Høye A, Rossow I (2023). Mortality and alcohol-related morbidity in patients with delirium tremens, alcohol withdrawal state or alcohol dependence in Norway: A register-based prospective cohort study. Addiction, 118(12), 2352–2359. <https://doi.org/10.1111/add.16297>", "备注": "自己怎么判断：几乎天天喝、一天不喝就手抖出汗心慌睡不着、早上要喝一点才舒服，占一条就别自己硬停。医院的常规做法是用苯二氮䓬类药物把这几天顶过去，同时补硫胺素（维生素 B1）。定 B 级是因为挪威那份队列说的是「得过震颤谵妄的人后来怎么样」，不是「自己硬戒会怎么样」，两者之间是推断。这条不是劝你继续喝，是让你换个停法。每周喝多少算多见本节第 20 条（少喝或不喝酒），想少喝怎么办见本节第 22 条（先数杯数再找医生）。", "level": "B"}, {"title": "喝了酒就不碰方向盘，包括电动车和「挪一下车」", "ref": "第8节·第7条", "成本": "代驾或者打车几十元。聚会之前先说好今天谁不喝。难在场面上被劝酒时顶回去。", "说人话": "酒后开车，扣证 6 个月，罚一两千。再犯就拘留加吊销。醉驾直接吊销，5 年内不能重考，还要按危险驾驶罪追刑责，留下案底，影响政审和一部分职业。保险也不管：喝了酒开车，车险一律不赔。「就挪一下车」也算驾驶。", "收益": "酒后驾车，暂扣驾驶证 6 个月，罚 1000 到 2000 元。再犯的，拘留 10 日以下并吊销驾驶证。醉驾直接吊销驾驶证，5 年内不得重考，并按危险驾驶罪追究刑事责任，判拘役并罚钱，拘役就是短期关押。开营运车的更重：酒驾拘留 15 日、罚 5000 元、5 年禁驾；醉驾 10 年禁驾，而且这辈子不能再开营运车。酒后或者醉驾造成重大事故、构成犯罪的，终生禁驾。商业车险对饮酒、吸毒后驾车一律不赔（全国）", "证据等级": "A", "来源": "全国人大常委会 (2021). 道路交通安全法（2021 年修订，第九十一条）. <https://jtgl.beijing.gov.cn/jgj/jgxx/flfg/fl/205308/index.html>（北京市公安交通管理局转载）；全国人大常委会 (2015). 刑法修正案（九）（第八条，即刑法第一百三十三条之一）. <https://www.spp.gov.cn/spp/fl/201802/t20180205_364562.shtml>；中国保险行业协会 (2020). 机动车商业保险示范条款（2020 版）（第九、二十二条）. <https://www.iachina.cn/art/2020/9/4/art_24_104621.html>", "备注": "醉驾是刑事犯罪，会留案底，影响本人政审和一部分职业资格。「饮酒」和「醉酒」按血液里的酒精含量划线，具体界线由国家标准规定。本节没有核实这个数值，别靠感觉估算自己到了哪一档。", "level": "A"}]}, {"id": "love", "icon": "💌", "name": "感情里的事", "hint": "看行为、别纠缠、问问题", "lead": ["感情里的事，慢慢来。", "别急着下结论。这几条，帮你把眼前的事看清楚。"], "tail": "在一段关系里，你自己的感受，最能说明问题。", "entries": [{"title": "判断对方有没有兴趣，看行为不看「信号」：谁主动、谁安排、谁跟进", "ref": "第10节·第3条", "成本": "不花钱，也不花多少时间。难在改习惯：别再琢磨对方的表情和语气，改成记录事实。", "说人话": "让 52 对陌生男女聊十来分钟，再互相判断对方有没有在调情。结果是「对方没在调情」判得比较准，「对方在调情」反而看不出来。换成 261 个人看视频判断，结论一样。所以别猜表情和语气，看行为：谁主动发起，谁安排下一次，你不推进时对方跟不跟进。", "收益": "两项研究测了人识别调情的准确率。第一项让 52 对互不相识的异性两两交谈 10 到 12 分钟。谈完各自报告自己有没有在调情，也报告觉得对方有没有在调情。结果是「没有发生调情的互动被判断得更准，发生了调情的互动反而判断得更差」。第二项用 26 段一分钟的视频，给 261 名旁观者判断，结论一致。人能比较可靠地看出「对方没在调情」，却很难看出「对方在调情」", "证据等级": "B", "来源": "Hall JA, Xing C, Brooks S (2015). Accurately detecting flirting: error management theory, the traditional sexual script, and flirting base rate. Communication Research, 42(7), 939-958. <https://doi.org/10.1177/0093650214534972>；Perilloux C, Kurzban R (2015). Do men overperceive women's sexual interest? Psychological Science, 26(1), 70-77. <https://doi.org/10.1177/0956797614555727>（争议方）", "备注": "争议。另有研究认为，不是男性高估了女性的性意图，而是女性填问卷时把自己的意图报低了。到底谁判断得更准，仍无定论。但两派都同意一件事：从表情、语气这类细微线索反推对方心思，准确率很低。看得见的行为要可靠得多：对方是否主动发起，是否安排下一次，是否在你不推进时也跟进", "level": "B"}, {"title": "关系好不好，主要看你自己在这段关系里的感受，不是看对方条件", "ref": "第10节·第4条", "成本": "不花钱，也不花多少时间。难在改视角：把择偶清单收起来，改成看相处过程。", "说人话": "29 个实验室、43 份配对追踪数据的分析里，最能说明关系好不好的全是你自己的感受，不是对方的条件。比如你感觉到的对方的承诺、欣赏，还有冲突多不多。自己报告的这些，预测力是伴侣报告的二到四倍。但这段关系往后是变好还是变坏，任何问卷都基本算不出来。", "收益": "29 个实验室、43 份纵向配对数据的机器学习分析，纵向就是跟着同一批伴侣一路记录。最能预测关系质量的几项，全部来自当事人对这段关系的感受：感觉到对方的承诺、欣赏、性满意度、感觉到对方满意、冲突。跟个人有关的几项里最强的是生活满意度、负面情绪、抑郁、回避型依恋、焦虑型依恋。关于关系的这些项，在刚开始调查时最多能解释 45% 的方差，也就是伴侣与伴侣之间关系质量的差别里的 45%。到研究结束时最多解释 18%。而且「自己报告的那些项」的预测力，是「伴侣报告的那些项」的二到四倍。在自己报告的关系感受之外，再把个体差异和伴侣的报告加进来，没有多出任何预测力", "证据等级": "A", "来源": "Joel S, Eastwick PW, Allison CJ, et al. (2020). Machine learning uncovers the most robust self-report predictors of relationship quality across 43 longitudinal couples studies. Proceedings of the National Academy of Sciences, 117(32), 19061-19071. <https://doi.org/10.1073/pnas.1917036117>", "备注": "同一项研究还发现，这段关系接下来是变好还是变坏，也就是研究期间的变化，用问卷里任何一组自评指标都基本算不出来。所以这条能用的部分是：判断眼下这段关系好不好，问自己的感受比核对对方的条件清单准。但别指望能预测它以后会怎样。与本节「情绪价值别只问有没有」那条说的是同一件事，这条给出具体是哪几项", "level": "A"}, {"title": "想拉近距离就轮流回答一组由浅入深的问题，别学话术", "ref": "第10节·第5条", "成本": "不花钱。要花 45 分钟。", "说人话": "把两个陌生人配对，轮流回答三组由浅入深、共 36 道问题。45 分钟后，两人的亲近感明显高于闲聊同样时长的对照组。起作用的是轮流说真话、一层层往深里说，不是话术。它测的只是短时间内的亲近感，不代表能发展成长期关系。", "收益": "把互不相识的两人配对，让他们轮流回答三组逐步深入的问题，一共 36 题。问题从「你最想请谁吃饭」一直到「上一次当着别人的面哭是什么时候」。45 分钟后的亲近感，显著高于做同样时长闲聊的对照组。也高于该研究中大学生对自己现实中最亲密关系的平均评分", "证据等级": "B", "来源": "Aron A, Melinat E, Aron EN, Vallone RD, Bator RJ (1997). The experimental generation of interpersonal closeness: a procedure and some preliminary findings. Personality and Social Psychology Bulletin, 23(4), 363-377. <https://doi.org/10.1177/0146167297234003>", "备注": "只做过一次实验，对象是大学生，测的是短时间内的亲近感，不是能不能发展成长期关系。可用的是它的机制：亲近感来自两个人轮流、一层层往深里说自己的真实情况，不是话术、套路，也不是单方面表现。所以聊天时的有效动作是「我说一点真实的，也问一句一样深的」，而且两边轮流", "level": "B"}, {"title": "对方明确拒绝之后就停下，继续纠缠是治安违法，不是「诚意」", "ref": "第10节·第2条", "成本": "不花钱，也不花时间。难在忍住：不再发消息，不再去等人。", "说人话": "对方明确说了拒绝，你还发消息、还去等人，2026 年 1 月起就是治安违法。可以拘留 5 日以下，或者罚 1000 元以下。情节较重的拘留 5 到 10 日。公安还可以下令禁止你接触对方，违反了再拘留 5 到 10 日。", "收益": "2026 年 1 月 1 日起施行的治安管理处罚法，把纠缠、跟踪单列成一项。条文写的是「多次发送淫秽、侮辱、恐吓等信息或者采取滋扰、纠缠、跟踪等方法，干扰他人正常生活的」。这种行为处五日以下拘留，或者一千元以下罚款。情节较重的，处五日以上十日以下拘留，可以并处一千元以下罚款。这一项还多一层：经公安机关负责人批准，可以责令行为人在一定期限内禁止接触被侵害人。违反禁止接触规定的，再处五日以上十日以下拘留", "证据等级": "A", "来源": "全国人大常委会 (2025 修订). 治安管理处罚法（第五十条第一款第五项、第二款）. <https://www.spp.gov.cn/spp/fl/202506/t20250627_699863.shtml>（最高人民检察院转载）", "备注": "「死追到底会感动对方」没有任何研究支持，但拘留和禁止接触令是白纸黑字的。留下的记录还会影响考公、考编、政审，还有一部分职业的从业资格。追一个人和骚扰一个人的界线，不看你怎么想，看对方有没有明确说过拒绝", "level": "A"}]}, {"id": "pretty", "icon": "🎀", "name": "想变得更好看", "hint": "减肥、医美", "lead": ["想变得更好看，这很正常。", "只是有几条路，走错了回不了头。先看看这几条。"], "tail": "先把身体留好，其他的都能慢慢来。", "entries": [{"title": "不要用极端节食、断食或催吐来控制体重，要减就从运动那一侧减", "ref": "第28节·第1条", "成本": "不花钱。反过来还省下买减肥产品的钱。", "说人话": "神经性厌食的人，死亡概率大约是同龄人的 5.9 倍。每 1000 个人跟一年，死 5.1 个。死的人里每五个有一个是自杀。而它的入口就是节食：跟踪 44 所中学的学生三年，严重节食的女生出现进食障碍的概率是不节食的 18 倍。想控制体重就多运动，别少吃到饿。", "收益": "36 项研究合起来算。神经性厌食这一批人累计被跟踪了 166,642 人年，也就是所有人被跟踪的年数加起来。他们的标准化死亡比是 5.86，即死亡概率约为同龄人的 5.9 倍。每 1000 人年死亡 5.1 例，就是 1000 个人跟一年死 5.1 个。死的人里约 1/5 死于自杀。贪食症的标准化死亡比是 1.93，其他进食障碍是 1.92，即各约为同龄人的 1.9 倍。另一项研究在澳大利亚维多利亚州的 44 所中学做，跟踪 14–15 岁学生 3 年、前后查了 6 波，也就是同一批学生三年里查了六次。女生新发进食障碍 21.8/1000 人年，即 1000 个女生跟一年新出 21.8 例。严重节食的女生发病风险是不节食者的 18 倍，中度节食者是 5 倍。再把「以前就节食过」和「本来就有精神症状」的影响扣掉，也就是校正既往节食与精神症状。扣掉之后，BMI（体重除以身高平方算出的胖瘦指标）、运动量和性别都不再预测新发进食障碍。作者结论是「在青少年中用运动而非限食控制体重，发生进食障碍的风险似乎更低」", "证据等级": "A", "来源": "Arcelus J et al. (2011). Mortality rates in patients with anorexia nervosa and other eating disorders. A meta-analysis of 36 studies. Arch Gen Psychiatry. <https://doi.org/10.1001/archgenpsychiatry.2011.74>；Patton GC et al. (1999). Onset of adolescent eating disorders: population based cohort study over 3 years. BMJ. <https://doi.org/10.1136/bmj.318.7186.765>", "备注": "这里说的「严重节食」，指的是长期把吃的压到远低于身体需要，不是指少吃一顿或者不吃夜宵。已经出现催吐、暴食之后自责、反复称重停不下来的，去精神科或者综合医院的临床心理科看。这是有规范治疗办法的病，不是意志力的问题。BMI 与死亡率的关系见第 2 节第 33 条，那条讲的是长期体重区间，不是减重手段。", "level": "A"}, {"title": "不要买承诺「快速瘦」的减肥药、减肥咖啡、瘦身糖果和酵素梅", "ref": "第28节·第4条", "成本": "不花钱。反过来还省下买这些产品的钱。难的是要接受没有「一周掉几斤」这回事。", "说人话": "这类产品里最常查出的违法添加成分是西布曲明。它原来是正经减肥药，2010 年在中国被停掉了。有一项试验招了近万人，平均吃了三年多。吃药的人非致死性心梗高约三成，非致死性中风高约三成六。出事比例 11.4% 对 10.0%。三年多下来只多减了 1.7 公斤。抽检查出来是事后的事，你已经吃下去了。", "收益": "SCOUT 试验招了 9,804 人。他们都是 55 岁以上、超重或肥胖，并且有心血管病或 2 型糖尿病。这些人抽签分成吃药和不吃药两组，平均治疗 3.4 年。主要终点是事先定好要数的几件坏事：非致死性心梗、非致死性卒中也就是中风、心脏骤停后被救回来、心血管死亡。这几件事的发生率是 11.4% vs 10.0%。HR 1.16（95% CI 1.03–1.31，P=0.02）。也就是吃药的人出事概率高约一成六。真实值大致落在高 3% 到高 31% 之间。非致死性心梗 4.1% vs 3.2%，HR 1.28（1.04–1.57），高约三成。非致死性卒中 2.6% vs 1.9%，HR 1.36（1.04–1.77），高约三成六。心血管死亡与全因死亡未增加，全因就是各种原因加起来。抽签之后，西布曲明组平均多减重 1.7 kg。原国家食品药品监督管理局根据安全性评估认为「减肥治疗的风险大于效益」，2010 年 10 月通知停止西布曲明制剂及原料药的生产、销售、使用。西布曲明与酚酞均禁止添加于食品，保健食品也算在内", "证据等级": "A", "来源": "James WPT et al. (2010). Effect of sibutramine on cardiovascular outcomes in overweight and obese subjects. NEJM. <https://doi.org/10.1056/NEJMoa1003114>；天津市市场监督管理委员会. 警惕部分食品中违法添加「盐酸西布曲明」和「酚酞」. <https://scjg.tj.gov.cn/tjsscjdglwyh_52651/hdpt/cjwtyxfts/202007/t20200720_2972549.html>", "备注": "SCOUT 招的是本来就有心脏病或者糖尿病的高危人群。这个试验没有证明健康年轻人吃了也一样出事。但正因为分不清谁是高危，监管才干脆让它退市。另一种常被偷加的成分是酚酞，它本来是泻药，长期吃多了会打乱体内电解质、诱发心律失常。怎么判断：正经减肥药是处方药，在药店和医院能查到批准文号。打着「咖啡」「糖果」「梅子」「代餐」旗号卖、又承诺一周掉几斤的，按定义就不该有药效，有药效就说明加了东西。国食药监办〔2010〕432 号的原文在国家药监局网站，本机打开一直报 412 错误，所以改引省级监管部门的转述页。「风险大于效益」和「2010 年 10 月停止生产销售使用」两句可以在那里逐字核对。", "level": "A"}, {"title": "打针、埋线、开刀之前查两样：机构许可证上有没有「医疗美容」，动手的人是不是主诊医师", "ref": "第28节·第2条", "成本": "不花钱。查这两张证只要几分钟。机构应该把《医疗机构执业许可证》挂在大厅里。医生的资质可以在卫健部门的执业医师查询里核对。", "说人话": "只要动针、动刀、用医疗器械，也就是会破皮或者进到身体里，就算看病。这类事只能在许可证上写了「医疗美容」的机构做，动手的必须是注册过的执业医师。在美容院、工作室、酒店房间里做，属于非法行医：情节严重的判 3 年以下，把人弄伤的判 3 到 10 年，弄死的判 10 年以上。", "收益": "《医疗美容服务管理办法》第二条给医疗美容下了定义。原文是「运用手术、药物、医疗器械以及其他具有创伤性或者侵入性的医学技术方法对人的容貌和人体各部位形态进行的修复与再塑」。说白了，只要破皮、进针、进到身体里，就按看病算。第八条和第二十四条要求先取得《医疗机构执业许可证》，并经登记机关核准医疗美容诊疗科目，才能开展。也就是许可证上没写「医疗美容」这一项就不能做。第十一条要求主诊医师（动手的那位医生）具有执业医师资格并且注册过。做美容外科的还要有 6 年以上相关专业临床工作经历，美容牙科 5 年以上，美容中医科与美容皮肤科各 3 年以上。第二十条要求动手之前书面告知适应症、禁忌症（什么情况适合做、什么情况不能做）、医疗风险和注意事项，并取得签字同意。《刑法》第三百三十六条管的是非法行医。非法行医就是没有医生执业资格的人给人打针、动刀、看病。情节严重的，处 3 年以下有期徒刑、拘役或者管制，并处或者单处罚金。严重损害就诊人身体健康的，处 3 年以上 10 年以下有期徒刑并处罚金。造成就诊人死亡的，处 10 年以上有期徒刑并处罚金", "证据等级": "A", "来源": "卫生部 (2002). 医疗美容服务管理办法（卫生部令第 19 号，第二条、第八条、第十一条、第十六条、第二十条、第二十四条）. <http://www.gov.cn/gongbao/content/2003/content_62198.htm>；全国人大 (1997). 刑法（第三百三十六条）. <https://www.spp.gov.cn/spp/fl/201802/t20180206_364975.shtml>", "备注": "同一份办法第十六条还规定，医美项目只能在美容医疗机构里做，或者在设了医疗美容科室的医院、诊所里做。所以上门打针、在工作室里私下操作，光看地点就已经不合规。第二十条写明，未成年人这类还不能自己作主的人要做医美，必须经监护人同意，也就是要家长签字。做脸、按摩、美甲属于生活美容，不归这套规矩管。但只要动到针和刀，就算医疗美容。", "level": "A"}]}, {"id": "sleep", "icon": "😴", "name": "睡不好", "hint": "熬夜、咖啡、手机", "lead": ["又睡晚了？", "不念你。这几条，挑一条今晚就能用的。"], "tail": "今晚，早一点关灯。", "entries": [{"title": "每晚睡够 7 到 8 小时，别把 6 小时当作够用", "ref": "第3节·第3条", "成本": "不花钱。每天要多留 1 到 2 小时给睡眠。早一点上床，需要一点毅力。", "说人话": "连着两周每晚只睡 6 小时，脑子的表现会掉到相当于两天两夜没合眼的水平。麻烦的是自己感觉不到。自己打分的困倦头几天涨完就不再涨，睡 6 小时的人和睡 4 小时的人打分一样困。所以「我睡 6 小时够用」这句话本身就是缺觉的症状。", "收益": "48 名 21 到 38 岁的健康成人，连续 14 天每晚只睡 6 小时。他们的脑力表现累计下降，掉到相当于连续 2 晚完全不睡的水平。而自己打分的困倦程度只在头几天上升，之后几乎不再增加。6 小时组和 4 小时组的自评困倦没有差别。这是把人随机分成两组做的对照试验（RCT）。另外，短时间不睡（急性睡眠剥夺，不超过 48 小时）对简单注意力走神的效果大小 g = -0.776，对推理准确率 g = -0.125。这部分是把 70 项研究合起来算的。", "证据等级": "A", "来源": "Van Dongen, Maislin, Mullington & Dinges (2003). The cumulative cost of additional wakefulness. Sleep. <https://doi.org/10.1093/sleep/26.2.117>；Lim & Dinges (2010). A meta-analysis of the impact of short-term sleep deprivation on cognitive variables. Psychological Bulletin. <https://doi.org/10.1037/a0018883>", "备注": "最重要的一点是，「自己觉得不困」不是睡够了的证据。长期睡 6 小时的人只是感觉上习惯了，表现并没有跟上。汇总多项研究的那部分说的是整夜不睡。「长期少睡」只有一项随机对照试验支持。", "level": "A"}, {"title": "下午两点以后不碰咖啡因", "ref": "第3节·第4条", "成本": "不花钱。习惯下午喝咖啡的人，要忍住不喝，需要一点毅力。", "说人话": "睡前 6 小时喝一大杯咖啡（400 mg），当晚用仪器测出来少睡 1 小时以上。可自己写的睡眠日记根本看不出差别。一杯普通咖啡（107 mg）要在睡前 8.8 小时以上喝完，才不影响睡眠。十一点睡的人，下午两点就是界线。", "收益": "睡前 6 小时喝 400 mg 咖啡因，仪器测到的总睡眠时间比喝安慰剂少 1.1 到 1.2 小时。安慰剂就是不含咖啡因的对照饮料。可是受试者自己写的睡眠日记没有报出差别，也就是自己察觉不到。把多项研究合起来算（荟萃分析）：咖啡因平均让总睡眠时间减少 45 分钟。躺在床上真正睡着的比例（睡眠效率）下降 7%。一杯咖啡（107 mg）要在睡前 8.8 小时以上喝完，才不影响睡眠。", "证据等级": "A", "来源": "Drake, Roehrs, Shambroom & Roth (2013). Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. Journal of Clinical Sleep Medicine. <https://doi.org/10.5664/jcsm.3170>；Gardiner et al. (2023). The effect of caffeine on subsequent sleep: A systematic review and meta-analysis. Sleep Medicine Reviews. <https://doi.org/10.1016/j.smrv.2023.101764>", "备注": "Drake 那项只有一个实验室做过，用的 400 mg 偏大，大约两三杯咖啡。咖啡因代谢慢的人，截止时间还要更早。这条换回来的是睡眠时长，和第 3 条（每晚睡够 7 到 8 小时）叠加。", "level": "A"}, {"title": "睡前一小时不看发光屏幕，要看就看纸书或墨水屏", "ref": "第3节·第8条", "成本": "不花钱。睡前一小时放下手机，要长期对抗惯性，需要毅力。", "说人话": "睡前读发光屏幕，比读纸书晚约 10 分钟才睡着。褪黑素被压低 55%。第二天生物钟往后推 1.5 小时以上，早上更困，要更久才清醒。", "收益": "实验室里让同一批人两种条件轮着做（交叉试验）。睡前读发光的电子书，比读纸书入睡慢约 10 分钟（25.7 分钟对 15.8 分钟）。晚间褪黑素被压低 55%。第二天的生物钟（昼夜节律）推迟超过 1.5 小时，褪黑素开始分泌的时刻是 22:31 对 21:01。第二天早上更困，要更长时间才完全清醒。", "证据等级": "B", "来源": "Chang, Aeschbach, Duffy & Czeisler (2015). Evening use of light-emitting eReaders negatively affects sleep, circadian timing, and next-morning alertness. PNAS. <https://doi.org/10.1073/pnas.1418490112>", "备注": "人数少，是实验室里控好条件做的。按日常的手机亮度和使用时长，影响可能没这么大。手机的夜间模式管多大用，这项研究没测。", "level": "B"}, {"title": "深夜不做重大决定、不发要紧的消息", "ref": "第3节·第10条", "成本": "不花钱。只是把事情推到睡醒之后再办。", "说人话": "熬到 49.5 小时没睡的人去做风险决策实验。睡饱的时候，他们很快就能学会躲开高风险的选项；缺觉之后，反而一次次挑高风险的。年纪越大，受影响越明显。这测的是连续两晚不睡的极端情况，少睡几小时有多大影响没直接测过，但方向上值得把要紧的决定推到第二天。", "收益": "34 名健康人在 49.5 小时不睡之后，做爱荷华赌博任务。这是一种衡量风险决策的实验。休息充足时，他们能很快学会避开高风险选项。缺觉之后，反而更多地选高风险选项。年纪大的人受影响更大。这是一项实验，只有这一项研究。", "证据等级": "B", "来源": "Killgore, Balkin & Wesensten (2006). Impaired decision making following 49 h of sleep deprivation. Journal of Sleep Research. <https://doi.org/10.1111/j.1365-2869.2006.00487.x>", "备注": "研究的是连续两晚不睡的极端情况。普通人熬到凌晨两点会怎样，没有直接测过。「不发消息」那半是作者经验（C 级），第二天再发也不迟。", "level": "B"}, {"title": "固定起床时间，周末也一样", "ref": "第3节·第2条", "成本": "不花钱。周末要少睡懒觉，需要一点毅力。", "说人话": "作息最乱的那五分之一人，生物钟比最规律的那五分之一晚了约 2.5 小时。等于长期活在时差里。作息越规律的学生，成绩也越好。", "收益": "61 名大学生记录了 30 天。作息最不规律的五分之一，生物钟（昼夜节律）比最规律的五分之一晚约 2.5 小时。具体是褪黑素开始分泌的时刻 00:08 对 21:32。最困、最想睡的时段也晚约 1.8 小时。作息越规律，学业成绩越好（相关系数 r = 0.37）。", "证据等级": "B", "来源": "Phillips et al. (2017). Irregular sleep/wake patterns are associated with poorer academic performance and delayed circadian and sleep/wake timing. Scientific Reports. <https://doi.org/10.1038/s41598-017-03171-4>", "备注": "只有这一项研究，人数少，也没有分组对照。研究者推算，生物钟的差别主要来自每天晒到的光不一样。所以固定起床时间要配合早上见光，才有效果。偶尔熬夜之后怎么补，见第 2 节第 39 条（熬夜之后第二天晚上就补觉）：办法是当晚早点上床，不是第二天睡到中午。", "level": "B"}]}, {"id": "money", "icon": "💰", "name": "钱包的事", "hint": "自动续费、分期、冲动下单", "lead": ["钱包的事，也是正经事。", "不是叫你省，是叫你别白花。"], "tail": "该花的花。那是你挣来的底气。", "entries": [{"title": "关掉所有自动续费，改为到期手动续", "ref": "第5节·第1条", "成本": "不花钱。把支付宝、微信、苹果、安卓的「自动扣款」列表翻一遍，一次 10 到 20 分钟。以后每次续费，要自己多点一次。", "说人话": "省下来的，是那些你早就不用、每月还在扣钱的订阅。翻一遍支付宝、微信、苹果和安卓的自动扣款列表，用不了 20 分钟。按规定，商家扣款前要明显提醒你，还必须给你一个随时能取消的入口，而且要好找好点。", "收益": "省下的钱，等于你已经不用、却还在扣费的那些订阅加起来的钱。每个人不一样，没有统一数字。监管要求商家在续费前明显提醒你。商家还要给你一个「简便的随时取消」的选项。取消不用另外花钱（中国，2021 年起施行）", "证据等级": "C", "来源": "国家市场监督管理总局 (2021, 2025 修正). 网络交易监督管理办法（总局令第 37 号，第十八条）. <https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/art/2025/art_4b47c79b8d994a42bba4835997688faa.html>", "备注": "你确实经常用的服务，年付一般比月付便宜，留着自动续费反而划算。这一条针对的是另一种：你早就忘了，它还在扣钱。", "level": "C"}, {"title": "大额非必需购买设 24 小时冷静期，网购善用七日无理由退货", "ref": "第5节·第23条", "成本": "不花钱。想要的东西要晚一天才拿到。退货的运费通常要你自己出。难的是当天忍住不下单。", "说人话": "省下来的，是那些你第二天就不想要的东西。网购的东西，从你收到货那天算起，七天之内可以无理由退。有几类不能退：按你的要求定做的，生鲜和容易坏的，已经拆封的数字商品，还有报刊。", "收益": "省下来的是冲动买的东西里「第二天就不想要了」的那部分。这部分占多少，给不出统一的比例。网上买的商品，从收到那天算起七日内可以无理由退货。有四类除外：定做的、鲜活易腐的、已经拆封的数字商品、报刊（中国，2017 年起施行）", "证据等级": "C", "来源": "国家市场监督管理总局 (2020 修订). 网络购买商品七日无理由退货暂行办法（总局令第 31 号）. <https://www.gov.cn/zhengce/zhengceku/2020-11/03/content_5557118.htm>", "备注": "「冷静期」本身是经验做法，没有直接的文献支持。七日无理由退货是它的制度兜底。退货之前先确认两件事：这件商品在不在不能退的清单里，包装还完不完好。", "level": "C"}, {"title": "不用信用卡最低还款，不为消费开分期或消费贷", "ref": "第5节·第7条", "成本": "不花钱。要在账单日之前留够全额还款的现金。难的是忍住不用分期把大额开销摊薄。", "说人话": "最低还款不是优惠，它是一笔按天算利息的贷款，折合一年 18% 上下。用了它，免息期当场作废，没还上的那部分本金从头到尾都要算利息。看利率只认按年算的那个数字。央行已经要求发卡机构必须明显展示按年算的利率，不许只写「日利率」。", "收益": "信用卡透支利率在 2020 年以前有上下限：上限是「日利率万分之五」，下限是上限的 0.7 倍。万分之五折合成一年是 18.25%，这是单利，也就是按一年 18.25% 算，利息不再滚进本金里。2021 年起改成由发卡机构和持卡人自己商量定价。用了最低还款以后，没还的那部分本金按天全额算利息，也就是每天都在生利息，免息期同时作废。央行已经要求发卡机构必须用明显的方式展示年化利率，也就是按整年折算出来的利率，「不得仅展示日利率、日还款额」。你看这个按年算的数字再决定（中国，2020 年通知）", "证据等级": "C", "来源": "中国人民银行 (2020). 关于推进信用卡透支利率市场化改革的通知（银发〔2020〕327 号）. <https://xining.pbc.gov.cn/zhengwugongkai/4081330/4406346/4693549/4159909/index.html>", "备注": "18.25% 是拿「万分之五 × 365」直接乘出来的，没有算利滚利。真按月滚起来还要更高。个别银行有折扣，以你自己账单上写明的年化利率为准。真周转不开的时候，优先去找利率更低的正规渠道借，不要拖着最低还款滚利息。", "level": "C"}, {"title": "盲盒、抽卡这类随机销售，按「这笔钱不会回来」算", "ref": "第5节·第35条", "成本": "不花钱。只是买之前把预算定死。难的是没抽到想要的那个，还要停手。", "说人话": "规则给了你知情权，没给你后悔权。抽取规则、商品分布、抽取概率、限量款投放数量，商家都必须显著公示，也不许后台操纵结果、不许设空盒。但「保底、金额上限、次数上限」在文件里只是「鼓励」，不是必须做的。网上买的盲盒，拆封那一下就是你能反悔的最后时刻。", "收益": "依据是《盲盒经营行为规范指引（试行）》。第九条列了一串关键信息，应当以显著方式对外公示，保证消费者买之前就知道。这些信息是：商品名称、种类、样式、抽取规则、商品分布、限量商品投放数量、抽取概率、商品价值范围。同一条还规定了三件不许做的事。一是不得通过后台操纵改变抽取结果、随意调整抽取概率等方式变相诱导消费。二是不得用折现、回购、换购等方式拒绝或者故意拖延发放盲盒。三是不得设置空盒。第十一条只是「鼓励」经营者建立保底机制，通过设定抽取时间、抽取金额上限和次数上限等方式引导理性消费。第十七条管的是以互联网形式卖的盲盒商品。经营者充分告知提示了，消费者也在单次购买时确认了，这种盲盒拆封后可以不适用七日无理由退货。经营者不得用默认勾选的方式替代消费者的确认环节。第二十一条：不得以盲盒的名义从事或者变相从事赌博活动。第二十三条：不得向未满 8 周岁的未成年人销售盲盒；向 8 周岁及以上的未成年人销售，应当依法确认已经取得相关监护人的同意（全国）", "证据等级": "A", "来源": "市场监管总局 (2023). 盲盒经营行为规范指引（试行）（国市监稽发〔2023〕39 号，第九、十一、十七、二十一、二十三条）. <https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/zfjcs/art/2023/art_e2facd76a7fb4e90b03912cffb5e7d53.html>", "备注": "这份文件是指引，管的是经营者该怎么做，它本身不是处罚依据。真出了事，按产品质量法、反不正当竞争法、消费者权益保护法处理。有三种情况是你能投诉的具体事由：概率没公示，公示的概率和实际对不上，买到空盒。投诉之前，先把页面上的规则和开箱的过程录屏留下来。拆封后不适用七日无理由退货有个前提：商家充分告知了，你在单次购买时也确认了，而且不得用默认勾选替你确认。未成年人那一侧另有规定：不满 8 周岁的孩子商家不得卖给他，8 周岁及以上的要先确认已经取得监护人同意。孩子拿手机充值打赏怎么退款，见本节第 9 条（孩子用手机充值打赏）。大额非必需购买的 24 小时冷静期，见第 23 条（大额非必需购买设冷静期）。「买到手就淡了、于是接着买」这个循环，见第 6 节第 23 条（别指望买东西改善心情）。", "level": "A"}, {"title": "先存出 3 到 6 个月生活费的应急金，放在随时能取的地方", "ref": "第5节·第27条", "成本": "不花钱。代价是这笔钱要放弃更高的收益，只能放在活期、货币基金，或者随时能取的存款里。难的是攒的过程中忍住不动它。", "说人话": "把 3 到 6 个月的生活费放在随时能取出来的地方。这样失业或者生病的时候，你就不用去借那种一年要付 18% 利息的钱，也不用亏着把手里的投资卖掉。存在银行里的钱有存款保险，同一家银行最高赔 50 万元。", "收益": "有了应急金，失业或者生病的时候你就不用去借钱，也不用亏着把投资卖掉。消费贷和信用卡最低还款按年算的利率，见本节第 7 条（不用信用卡最低还款）。存在银行里的钱受存款保险保护，同一家银行最高偿付 50 万元（中国，2015 年）", "证据等级": "C", "来源": "国务院 (2015). 存款保险条例（国务院令第 660 号，第五条）. <https://www.gov.cn/zhengce/content/2015-03/31/content_9562.htm>", "备注": "「3 到 6 个月」是大家通行的经验，没有找到官方或者学术上的原始出处，所以标成 C 级。金额按你自己每月的固定支出来算，不按收入算。不构成投资建议。", "level": "C"}]}, {"id": "phone", "icon": "📱", "name": "手机和账号", "hint": "二次验证、手机丢了", "lead": ["手机里有你的照片、你的钱，还有所有人的联系方式。", "多花一分钟，把这几处设好。"], "tail": "设好了，就不用再想它了。", "entries": [{"title": "邮箱、支付、社交账号都开二次验证，优先用手机弹窗确认，其次才是短信验证码", "ref": "第14节·第1条", "成本": "不花钱。每个账号设置一次，两三分钟就设完。", "说人话": "二次验证是指登录时除了密码，还要再确认一次是不是本人。用手机上弹个窗、你点一下确认的办法，九成以上的钓鱼盗号都被拦住了。靠回答「上次在哪登的」「备用邮箱是什么」这种老办法，钓鱼盗号只能拦下一成左右。", "收益": "谷歌统计了 35 万次真实的盗号尝试（也叫账号劫持）。一类是靠设备来验证，比如手机上弹窗让你点确认，或者插一把安全密钥。这一类拦下了「超过 94% 源于钓鱼的劫持尝试和 100% 的自动化劫持尝试」。钓鱼是指骗你在假网站上输密码，自动化是指机器拿泄露的密码批量去试。另一类是靠回答问题来验证，比如问你上次在哪登录、备用邮箱是什么。这一类「只拦下了低至 10% 的钓鱼劫持和 73% 的自动化劫持」", "证据等级": "A", "来源": "Doerfler P, Thomas K, Marincenko M, et al. (2019). Evaluating Login Challenges as a Defense Against Account Takeover. The World Wide Web Conference (WWW '19). <https://doi.org/10.1145/3308558.3313481>", "备注": "同一项研究也发现，这类验证有时会把本人挡在外面。52% 的真用户第一次没登进去。不过最后有 97% 还是进去了。先给邮箱开这个功能，因为别的账号大多能用邮箱找回密码", "level": "A"}, {"title": "邮箱密码单独一个，不和任何网站重复", "ref": "第14节·第2条", "成本": "不花钱。用密码管理器存着就不用自己记。难的是要改掉一个密码到处用的老习惯。", "说人话": "别的网站被偷走的密码，会被人拿来直接登你的邮箱。邮箱一旦被人登进去，凡是能用邮箱找回密码的账号，都跟着一起丢。所以邮箱的密码要单独一个，别的地方一律不用。", "收益": "把别处泄露的账号和密码挨个拿来试着登，这叫撞库。这是最省事的攻击方式。别处泄露的密码会被直接拿来登你的邮箱。邮箱一旦被人登进去，所有用它找回密码的账号一起丢。美国网络安全和基础设施安全局的建议是：每个账号用一个不同的强密码，至少 16 位，交给密码管理器存", "证据等级": "C", "来源": "US CISA. Use Strong Passwords. <https://www.cisa.gov/secure-our-world/use-strong-passwords>", "备注": "记不住就用浏览器自带的密码管理器。它替你记住每个网站的密码，比到处用同一个密码强得多。别把密码存在微信收藏或者备忘录里", "level": "C"}, {"title": "手机设锁屏密码，SIM 卡设 PIN 码", "ref": "第14节·第3条", "成本": "不花钱。锁屏密码和 PIN 码各设一次就行。", "说人话": "SIM 卡就是手机里那张小卡片，短信验证码靠它来收。手机丢了，捡到的人会把这张卡拔下来，插进别的手机收验证码，再挨个重置你的账号。给卡设一个 PIN 码，卡换到别的手机上，一开机就要先输这个码，这条路就断了。", "收益": "手机丢了以后，捡到的人最快的一条路是把 SIM 卡插到别的手机上，收你的短信验证码。有了验证码，他就能一个个重置你的账号。SIM 卡设了 PIN 码，换到别的手机上开机就要先输密码，这条路直接断掉", "证据等级": "C", "来源": "作者经验，无直接文献", "备注": "PIN 码在手机设置里的「SIM 卡锁」那一项里设。出厂时的初始码一般是 1234 或者 0000。连着输错三次，就要用运营商给的 PUK 码才能解开。所以设完先把这个码记在纸上", "level": "C"}, {"title": "手机丢了按这个顺序做：挂失 SIM 卡、远程锁定、改密码、报警、冻结银行卡", "ref": "第14节·第4条", "成本": "不花钱。整套做下来十几分钟。", "说人话": "顺序比手快更重要。第一步挂失 SIM 卡，验证码这条命脉就断了。接着远程锁住手机，再用电脑改邮箱和支付密码，然后报警拿回执，最后看情况冻结银行卡。手机不在身上，借别人的手机打运营商客服也能挂失。", "收益": "顺序比速度更重要。第一步，挂失 SIM 卡，这是断掉验证码这条命脉。第二步，远程锁定手机，并清空手机里的内容。第三步，从电脑上改邮箱和支付密码。第四步，报警，拿回执。最后按需要冻结银行卡。美国联邦通信委员会的提示也是：就算觉得只是弄丢了，也要远程锁住。被偷了马上报警，报上型号和 IMEI 串号（手机的身份编号），并马上告诉运营商", "证据等级": "C", "来源": "US FCC. Protect Your Smart Device. <https://www.fcc.gov/consumers/guides/protect-your-mobile-device>；步骤顺序是作者经验；补办身份证见第 7 节，冒名贷款见第 8 节关于征信的一条", "备注": "提前把三家运营商的客服号记下来：移动 10086，联通 10010，电信 10000。自己的手机号是在哪个城市办的，也记一下，客服会问。用别人的手机一样能打客服挂失", "level": "C"}, {"title": "别为了用 App 点「全部同意」：不是必需的信息，你不同意也不能拒绝给你服务", "ref": "第14节·第7条", "成本": "不花钱。难的是要忍住不点「全部同意」。", "说人话": "App 要你的信息，如果不是提供这项服务必须用的，你不同意给，它不能因此不让你用。它能收的，也只限于用得着的那些。地图要你的位置是必须的，手电筒要你的通讯录就不是。", "收益": "法律明写了两条。一是不得以个人不同意、或者撤回同意为由，拒绝提供产品或者服务；处理这些信息属于提供服务所必需的除外。二是收集应当限于实现处理目的的最小范围，也就是只能收用得着的那些", "证据等级": "A", "来源": "全国人大常委会 (2021). 个人信息保护法. 中国人大网. <http://www.npc.gov.cn/npc/c2/c30834/202108/t20210820_313088.html>：第六条「收集个人信息，应当限于实现处理目的的最小范围，不得过度收集个人信息」；第十六条「个人信息处理者不得以个人不同意处理其个人信息或者撤回同意为由，拒绝提供产品或者服务；处理个人信息属于提供产品或者服务所必需的除外」；第十五条「基于个人同意处理个人信息的，个人有权撤回其同意。个人信息处理者应当提供便捷的撤回同意的方式」", "备注": "判断的标准就一句话：这项信息是不是提供这个服务所必需的。地图要位置是必需的，手电筒要通讯录不是。App 装完，先到手机设置里的应用权限页，把不必需的权限关掉。等真用到的时候，再选只这一次允许。", "level": "A"}]}, {"id": "scam", "icon": "🛡️", "name": "被骗、被威胁", "hint": "止付、报警、被拿把柄", "lead": ["先别慌。", "这类事，最怕的是一个人扛着。先做眼前这一步。"], "tail": "不是你的错。该报警就报警，别一个人扛。", "calls": [{"label": "打 110 · 报警", "tel": "110", "kind": "red"}, {"label": "96110 · 反诈专线", "tel": "96110", "kind": "soft"}], "callnote": "被骗了，立刻打 110 或 96110，要求止付。", "entries": [{"title": "发现被骗，立刻打 110 或 96110 要求止付，别先自己查", "ref": "第8节·第2条", "成本": "不花钱。打一个电话，说清转账的时间、金额和对方的账号。把转账截图和聊天记录留好。", "说人话": "钱刚转出去的那一小段时间，是唯一的窗口。这段时间警方可以紧急止付、快速冻结，银行必须配合。等钱被层层转走、分散开，就基本追不回来了。所以先打 110 或者 96110，别自己先去查、先去问。96110 打进来的是警察在劝阻你，要接。", "收益": "公安机关有权对涉案的资金做即时查询、紧急止付、快速冻结。银行和支付机构必须配合。冻结住的钱，按程序返还给被害人。钱一旦被转走、分散开，追回的概率大幅下降，所以止付越早越有效。96110 是全国统一的反诈预警热线，来电是警方在劝阻你，务必接（全国，2022 年 12 月起）", "证据等级": "A", "来源": "全国人大常委会 (2022). 反电信网络诈骗法（第二十、三十四条）. <https://www.spp.gov.cn/spp/fl/202209/t20220902_575631.shtml>；福建省公安厅 (2023). 96110 来电，请务必接听. <http://gat.fujian.gov.cn/ztzl/fjjffpzxrx/spjq/202303/t20230306_6126156.htm>（省级公安机关页面）", "备注": "凡是自称公检法、让你把钱转到「安全账户」的，都是骗局。法律只写了「建立止付冻结制度」，意思是让银行把钱扣住。能追回多少，要看你报警的时候钱还在不在账上。「国家反诈中心」App 和 96110 的介绍引自福建省公安厅的页面，公安部网站的原文页打不开。", "level": "A"}, {"title": "视频里看见脸、电话里听见声音都不算核实，涉及转账先挂断，用自己通讯录里的旧号码打回去", "ref": "第8节·第4条", "成本": "不花钱。多打一个电话，多等几分钟。平时少在公开账号上发正脸视频和大段语音。难在对方常常催得很急，你要忍住不当场转账。", "说人话": "看见脸、听见声音，都不算核实。只要涉及转账就先挂断，再用自己通讯录里存的旧号码打回去，或者找共同认识的人问一句。对方说「信号不好」「在开会」，不肯当面视频，直接当骗局处理。", "收益": "公安部网安局给了三条办法。第一条是动作验证：请对方做一个连贯的转头动作，或者用手掌完全遮住脸再快速移开。原文说「目前的 AI 技术在模拟这些复杂的面部遮挡和光影变化时，容易出现卡顿、模糊或扭曲」。第二条是听声音细节：「AI 生成的语音有时会缺乏自然的呼吸停顿、情感起伏，或者带有轻微的机械感、背景杂音异常」。第三条是多渠道核实。原文说这是「最核心的一招」：「挂断后直接拨打对方常用且你熟悉的电话号码（不要回拨可疑来电号码），或者通过你们共同认识的第三人进行侧面核实」。口诀是「视频语音莫轻信，动作验证多核实」。法律这一侧：换脸换声早就被禁止用于诈骗。人脸生成、人脸替换、合成人声、仿声这几类服务，平台必须打上显著标识。任何组织和个人不得恶意删除、篡改、伪造、隐匿这个标识。但守规矩的是平台，骗子不会加，所以「没看到 AI 标识」不能反过来当成对方是真人的证据。公安部刑侦局公布过一起案件。14 人团伙被查获合成动态人脸视频 5 万多条，公民个人信息 50 多万条。警方还扣押了云服务器 60 台（全国，标识义务自 2025 年 9 月 1 日起）", "证据等级": "B", "来源": "公安部网安局 (2025). 眼见≠为实，警惕 AI 新型诈骗！<http://gat.fujian.gov.cn/ztzl/fjjffpzxrx/spjq/202509/t20250922_7013008.htm>（福建省公安厅转载）；国家互联网信息办公室、工业和信息化部、公安部 (2022). 互联网信息服务深度合成管理规定（第六、十六、十七条，2023 年 1 月 10 日施行）. <https://www.gov.cn/zhengce/zhengceku/2022-12/12/content_5731431.htm>；国家互联网信息办公室、工业和信息化部、公安部、国家广播电视总局 (2025). 人工智能生成合成内容标识办法（第十条，2025 年 9 月 1 日施行）. <https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm>；公安部刑侦局、央视新闻 (2026). 警方查获 5 万多条合成动态人脸视频 谁在「复制」你的脸？<http://gat.fujian.gov.cn/ztzl/fjjffpzxrx/spjq/202603/t20260330_7117146.htm>（福建省公安厅转载）", "备注": "回拨要用自己通讯录里存的旧号码。不要回拨来电显示的那个号码，也不要用对方在聊天里发来的新号码。对方以「信号不好」「在开会」为由不肯当面视频、不肯做指定动作的，直接当骗局处理。动作验证法只是辅助，AI 一直在变好，唯一稳的是第三条核实。已经转了钱，见本节第 2 条（立刻打 110 要求止付）。防止自己的人脸和声音被采集见第 14 节。定 B 级是因为官方给的是识别办法和案例，没有「按这个方法核实后被骗率下降多少」的数字。公安部官网（mps.gov.cn）这次仍然全站 521 打不开，公安部网安局和刑侦局的原文取自福建省公安厅的转载页。", "level": "B"}, {"title": "发生关系、裸聊之后对方拿报警、发照片、告诉你单位来要钱，一分钱不给，一条记录不删，直接报警", "ref": "第8节·第32条", "成本": "不花钱。截图对方的账号、聊天记录和收款码，带着手机去派出所。难的是忍住「先给钱平事」的念头。", "说人话": "以「我去报警」「我把照片发给你单位」来要挟你给钱，是敲诈勒索，不是私事。一分钱不给，一条记录不删，当场报警。给了第一笔就会有第二笔。对方真把照片发出去，是他多一条罪，不是你的错：价值 2000 到 5000 元以上就够「数额较大」，判 3 年以下，3 万到 10 万以上判 3 到 10 年。", "收益": "《刑法》第二百七十四条：敲诈勒索公私财物，数额较大或者多次敲诈勒索的，处三年以下有期徒刑、拘役或者管制，并处或者单处罚金。拘役是短期关押，管制是不关押但限制自由，并处或者单处罚金就是另外罚钱或者只罚钱。数额巨大或者有其他严重情节的，处三年以上十年以下有期徒刑，并处罚金。数额特别巨大或者有其他特别严重情节的，处十年以上有期徒刑，并处罚金。两高还有一份解释：《关于办理敲诈勒索刑事案件适用法律若干问题的解释》（法释〔2013〕10 号，2013 年 4 月 27 日起施行）。这份解释的第一条定了三档金额。敲诈勒索公私财物价值二千元至五千元以上的，认定为「数额较大」。三万元至十万元以上的，认定为「数额巨大」。三十万元至五十万元以上的，认定为「数额特别巨大」。第三条：二年内敲诈勒索三次以上的，应当认定为「多次敲诈勒索」（全国）。民法典第一千零三十二条：任何组织或者个人不得以刺探、侵扰、泄露、公开等方式侵害他人的隐私权。第一千零三十三条禁止以电话、短信、即时通讯工具等方式侵扰私人生活安宁。所以对方真把照片发出去，是他多一条罪，不是你的错。福建省公安厅同类案件提示的原话是：「一定要保存好证据，及时拨打 110，切勿继续转账」", "证据等级": "A", "来源": "全国人大 (2020 年修正). 刑法（第二百七十四条）. <https://jtgl.beijing.gov.cn/jgj/jgxx/flfg/fl/11033925/index.html>（北京市公安交管局转载整合文本）；最高人民法院、最高人民检察院 (2013). 关于办理敲诈勒索刑事案件适用法律若干问题的解释（法释〔2013〕10 号）. <https://www.court.gov.cn/zixun/xiangqing/5310.html>；全国人大 (2020). 民法典（第一千零三十二、一千零三十三条）. <https://www.spp.gov.cn/spp/fl/202006/t20200602_463888.shtml>；福建省公安厅 (2024). 因为一条「约炮」信息，我背上 23 万的债务. <http://gat.fujian.gov.cn/ztzl/fjjffpzxrx/spjq/202403/t20240307_6410612.htm>", "备注": "三档金额是各省在司法解释给的幅度内自己定的。2000 到 5000 元以上算「数额较大」。3 万到 10 万元以上算「数额巨大」。30 万到 50 万元以上算「数额特别巨大」。落到你所在的省是哪个数，以当地标准为准。两年内敲诈三次以上的，每次金额不大也算「多次」。别自己删聊天记录、删照片、注销账号、拉黑了事，那是把自己的证据也删了，见本节第 5 条（被传唤先请律师、不删记录）。真被立案调查的，这些记录同时是你自证的材料。也别试图「谈判分期」。裸聊敲诈多是境外团伙干的，他们一边录屏，一边用木马读走你的通讯录。「群发给家人」是话术，报警后照样能立案。这条讲的是对方拿把柄向你索财。反过来，你自己是受害人、去向侵权方索赔是另一回事，金额高也不等于敲诈，见本节第 36 条（自己是受害人去索赔）。讲「通知平台删除」的那一条（民法典第一千一百九十五条），几个官方全文页都截断在它前面，TODO（待核实：第一千一百九十五条原文）。", "level": "A"}, {"title": "被网暴了：先开防护、先固证，再在平台、禁令、报警三条路里挑", "ref": "第8节·第37条", "成本": "不花钱。当场花十几分钟做防护和取证。如果走到申请禁令或者自诉这一步，要跑法院，可能还要请律师。难在被骂的时候先去存证，不去对骂。", "说人话": "先做三件当场的事：把平台的防护设置全打开，用平台的快捷取证功能把内容固定下来，再从快捷入口举报。然后在三条路里挑。一是向法院申请人格权侵害禁令，让他先停。二是自己去法院告，取证有困难可以要求公安协助。三是后果特别严重、影响又恶劣的，转成公诉，不用你自己举证。", "收益": "法发〔2023〕14 号第 15 条讲的是禁令。权利人有证据证明，行为人正在实施或者即将实施侵害其人格权的违法行为。不及时制止，将使其合法权益受到难以弥补的损害。权利人依据民法典第九百九十七条申请的，人民法院可以依法作出人格权侵害禁令。人格权侵害禁令就是一道责令对方先停手的法院命令。该解释第 11 条讲的是取证。自诉案件里，「被害人提供证据确有困难的，可以要求公安机关提供协助」。公安机关应当及时查明行为主体，收集传播扩散情况及影响等证据材料。网络服务提供者应当提供必要的技术支持。「经公安机关协助取证，达到自诉案件受理条件的，人民法院应当决定立案」。无法收集的，公安机关应当书面说明。自诉案件就是要受害人自己去法院起诉的案件。该解释第 12 条列了五种情形，应当认定为刑法第二百四十六条第二款说的「严重危害社会秩序」。一是造成被害人或者其近亲属精神失常、自杀等严重后果，且社会影响恶劣。二是随意以普通公众为侵害对象，信息大范围传播引发大量低俗恶意评论，且社会影响恶劣。三是侮辱诽谤多人或者多次散布，且社会影响恶劣。四是组织、指使人员在多个平台大量散布，且社会影响恶劣。五是其他。该解释第 4 条：组织「人肉搜索」，违法收集并向不特定多数人发布公民个人信息，情节严重的以侵犯公民个人信息罪定罪处罚。《网络暴力信息治理规定》第二十三条要求平台提供这些防护选项。可以屏蔽陌生用户或者特定用户。可以限制本人发布信息的可见范围。可以禁止转载或者评论。可以只接收好友私信，或者拒绝接收所有私信。第二十五条要求提供快捷取证功能。第二十六条要求在显著位置设快捷投诉举报入口。第十五条要求平台发现涉嫌违法犯罪的，及时向公安机关报案", "证据等级": "A", "来源": "最高人民法院、最高人民检察院、公安部 (2023). 关于依法惩治网络暴力违法犯罪的指导意见（法发〔2023〕14 号，第 4、11、12、15 条）. <https://www.court.gov.cn/zixun/xiangqing/412992.html>；全国人大 (2020). 民法典（第九百九十七条）. 最高人民检察院转载全文 <https://www.spp.gov.cn/spp/fl/202006/t20200602_463888.shtml>；国家互联网信息办公室、公安部、文化和旅游部、国家广播电视总局 (2024). 网络暴力信息治理规定（第十五、二十三、二十五、二十六条，2024 年 8 月 1 日施行）. 国务院公报 <https://www.gov.cn/gongbao/2024/issue_11526/202408/content_6969181.html>", "备注": "顺序按「快且便宜」排：平台最快、成本最低，先固证、先举报。法院最慢最贵，最后再定要不要打。三条路的过程成本都得自己扛。禁令要自己向法院申请。自诉是自己去法院立案、自己拿证据。想让检察院接手、改走公诉，得撞上法发〔2023〕14 号第 12 条列的那五种情形之一，够不上就只能自己告。有两件事别做。一是不对骂，骂回去会把你自己变成本节第 16 条（网上不骂人、不造谣）里被处罚的那一个。二是不删自己账号里的内容，那是证据。扛不住的时候打 12356，见第 1 节第 25 条。要求平台删除你的个人信息，见第 14 节第 8 条。因为帮了陌生人被拍、被传上网的那条路径，见 [docs/遇到陌生人出事该不该停.md](../docs/遇到陌生人出事该不该停.md)。", "level": "A"}]}, {"id": "rent", "icon": "🏠", "name": "一个人租房", "hint": "押金、中介、房东", "lead": ["一个人住，门要锁好，合同也要看清。", "租房这几处，最容易吃亏。"], "tail": "住得安心，比什么都值。", "entries": [{"title": "押金的数额、退还时间和扣减情形，必须写进合同", "ref": "第15节·第1条", "成本": "不花钱。签合同时多花十分钟。难在要当着房东的面提出来", "说人话": "押金多少、什么时候退、什么情况下能扣，签字前就要写进合同。合同里没写的扣款理由，房东退租时不能拿来扣你的押金。", "收益": "行政法规写得很明白：「出租人收取押金的，应当在住房租赁合同中约定押金的数额、返还时间以及扣减押金的情形等事项。除住房租赁合同约定的情形以外，出租人无正当理由不得扣减押金。」说白了就是三件事要写进合同：押金收多少、什么时候退、什么情况下能扣。合同里没写的理由，房东不能拿来扣你的钱", "证据等级": "A", "来源": "国务院 (2025). 住房租赁条例（国令第 812 号，2025 年 9 月 15 日施行）（第十条）. <https://www.gov.cn/zhengce/zhengceku/202507/content_7032956.htm>", "备注": "退租那天和房东一起拍照录像。水表、电表、燃气表的读数都拍下来，墙面和地面也拍。押金被无故扣了，先找房屋租赁管理部门投诉。金额不大的走小额诉讼，见第 8 节", "level": "A"}, {"title": "中介不得代收代付租金和押金，钱直接给房东", "ref": "第15节·第3条", "成本": "不花钱。付款前核对收款人，几分钟。难在要顶住中介让你把钱转给它的说法", "说人话": "按规定，房租和押金不能由中介代收代付，钱直接付给房东。钱在中介手里过一道，就多一次它卷款跑路的机会。真跑了，你租金白交，还会被房东赶走。付款前核对收款人是不是产权证上的名字。", "收益": "行政法规把「代收、代付住房租金、押金」列为房地产经纪机构的禁止行为。也就是说，中介不能替房东收你的房租和押金。钱在中介手里过一道，就多一次卷款跑路的机会", "证据等级": "A", "来源": "国务院 (2025). 住房租赁条例（国令第 812 号，2025 年 9 月 15 日施行）（第二十五条）. <https://www.gov.cn/zhengce/zhengceku/202507/content_7032956.htm>", "备注": "付款前核对收款人是不是产权证上的名字。不是本人的，问清楚，并留一份书面授权。中介只能收牵线撮合的居间服务费", "level": "A"}, {"title": "签约前核对产权证和抵押情况，所有款项走转账并备注用途", "ref": "第15节·第6条", "成本": "不花钱。查一次半小时", "说人话": "最常见的两种血本无归，一是租金付给了不是产权人的人，二是房子早就抵押给银行、后来被查封。签约前去不动产登记中心查一次产权和抵押。所有钱走转账，备注写「某某房屋某月租金」，出了纠纷这就是直接证据。", "收益": "最常见的两种血本无归是这样来的。一是把租金付给了不是产权人的人。二是房子早就抵押给银行，后来被查封。转账时备注「某某房屋某月租金」，出了纠纷这就是直接证据", "证据等级": "C", "来源": "作者经验，无直接文献；证据留存与转账备注同理见第 8 节关于彩礼和借条的两条", "备注": "产权信息可以去当地不动产登记中心查。签约时让房东本人到场，本人来不了的，要一份授权委托书。二房东转租给你的，要有原房东的书面同意", "level": "C"}, {"title": "被断水断电、换锁、上门威胁赶人，先报警留证：法规禁止用这些方式逼你腾房", "ref": "第15节·第2条", "成本": "不花钱。打个电话报警，当场就能做", "说人话": "房东不能靠断水断电、换锁、上门威胁逼你解约或者搬走，法规明令禁止。遇上了先报警。出警记录是你以后要求赔损失的证据。不要自己动手和对方对抗。", "收益": "行政法规写得很明白：「出租人不得采取暴力、威胁或者其他非法方式迫使承租人解除住房租赁合同或者腾退租赁住房。」腾退就是让你搬走。遇到这类情况先报警，把证据留下。不要自己动手对抗", "证据等级": "A", "来源": "国务院 (2025). 住房租赁条例（国令第 812 号，2025 年 9 月 15 日施行）（第十二条）. <https://www.gov.cn/zhengce/zhengceku/202507/content_7032956.htm>", "备注": "报警是为了留下出警记录。以后要求赔损失时，这份记录就是证据。同时通知房屋租赁管理部门", "level": "A"}, {"title": "别租隔断房：最小出租单位是原设计的房间，厨房、卫生间、阳台不得住人", "ref": "第15节·第8条", "成本": "不花钱。代价是同样的预算，要么住得远一点，要么住得小一点", "说人话": "按规定，最小的出租单位是原来设计好的那间房。厨房、卫生间、阳台和地下储藏室不能住人。这种房被查处之后，你可能要搬走。另外，租期内房东也不能自己说涨租就涨租。", "收益": "规章写得很明白，最小的出租单位是原设计的房间，也就是不能把一间房再隔成几间分开租。人均租住建筑面积不得低于当地规定的最低标准。厨房、卫生间、阳台和地下储藏室不得出租供人员居住。租期内出租人也不得单方面随意提高租金", "证据等级": "A", "来源": "住房和城乡建设部 (2010). 商品房屋租赁管理办法（令第 6 号）第八条：「出租住房的，应当以原设计的房间为最小出租单位，人均租住建筑面积不得低于当地人民政府规定的最低标准。厨房、卫生间、阳台和地下储藏室不得出租供人员居住。」第九条：「出租人应当按照合同约定履行房屋的维修义务并确保房屋和室内设施安全……房屋租赁合同期内，出租人不得单方面随意提高租金水平。」<http://www.gov.cn/gongbao/content/2011/content_1845070.htm>", "备注": "违规隔断被查处时，搬家的是租客，押金和已经付掉的租金往往拿不回来。安全上也差：隔断墙常常堵住逃生的通道，一屋住很多人还共用一条电线。看房时注意三点：墙是不是后来砌的，房间有没有窗，电表带不带得动这么多人。", "level": "A"}]}, {"id": "work", "icon": "💼", "name": "上班的事", "hint": "加班费、辞职、被欺负", "lead": ["上班的事，别一个人憋着。", "该你拿的，一分都别少。"], "tail": "留好证据，其余的慢慢来。", "entries": [{"title": "加班费按 1.5 倍、2 倍、3 倍三档算，不给就投诉劳动监察，逾期不付还要加付 50% 到 100%", "ref": "第19节·第1条", "成本": "不花钱。平时顺手把打卡记录、排班表、加班审批单存一份，工作群里领导派活的消息也截图留着。难在每个月都要记得存。", "说人话": "平时加班按工资的 1.5 倍给钱。休息日加班又没让你补休，按 2 倍。元旦、春节、劳动节、国庆这类法定假日上班按 3 倍，而且不能拿补休顶掉。公司不给，就去劳动监察投诉。被责令限期付款以后还不给的，单位还要另加付欠款的一半到一倍。", "收益": "法律规定的正常上班时间是每天不超过 8 小时，平均每周不超过 44 小时。平时加班一般每天不得超过 1 小时。有特殊原因要多干的，每天不得超过 3 小时，而且一个月加起来不得超过 36 小时。加班费分三档。平时安排你延长工作时间的，按不低于工资的 150% 给。休息日安排你上班、又安排不了补休的，不低于 200%。法定休假日安排你上班的，不低于 300%。法定休假日这一档，法条里没有「拿补休顶掉」这个选项。单位安排了加班又不给加班费的，由劳动行政部门勒令它限期付清。过了期限还不付的，勒令它在欠款之外，再按应付金额的 50% 以上 100% 以下加付一笔赔偿金给劳动者（全国）", "证据等级": "A", "来源": "全国人大常委会 (2018). 劳动法（2018 年第二次修正，第三十六、四十一、四十三、四十四条）. <https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_d9aa750028b14b99a776cb93726a360d.html>（国家市场监督管理总局刊登）；全国人大常委会 (2007). 劳动合同法（第八十五条第三项）. <http://www.gov.cn/gongbao/content/2007/content_711013.htm>", "备注": "休息日和法定休假日不是一回事。法定休假日全年只有元旦、春节、劳动节、国庆节等法定的那几天。调休凑出来的连休日按休息日算，给 200%。「公司规定加班要审批」「我是自愿留下的」，这两句话不等于公司就可以不给钱，但会让你更难拿出证据，所以派活和审批记录要留着。公司想实行综合计算工时制、不定时工时制这两种特殊工时安排，得先经劳动行政部门批准，不是自己说了算。争议的仲裁时效见第 8 节第 19 条。", "level": "A"}, {"title": "不要签「个人原因主动辞职」，那一签就没有 N 了", "ref": "第19节·第7条", "成本": "不花钱。难在要顶住当场签字的压力。", "说人话": "签字承认「个人原因主动辞职」，经济补偿和失业保险金通常一起落空。自己提出离职，本来就不在给补偿的那几种情形里，公司欠薪、不缴社保这类过错除外。不必当天签，冷静一晚再说。", "收益": "劳动合同法把该给经济补偿的情形限定在法律列明的那几类里。劳动者自己提出走人，不在里面，除非是因为公司欠薪、不缴社保这类法定过错。签了「主动辞职」，经济补偿和失业保险金通常一起落空", "证据等级": "B", "来源": "全国人大常委会 (2007). 中华人民共和国劳动合同法（2008 年 1 月 1 日施行）（第三十八条、第四十六条）. <http://www.gov.cn/gongbao/content/2007/content_711013.htm>", "备注": "公司常用的话术是「先签了好走流程，补偿另外给」。要就当场写进协议，不写就不签。当天不签不会有任何法律后果，冷静一晚再说", "level": "B"}, {"title": "离职前把工资条、考勤、劳动合同、社保记录和聊天记录先存下来", "ref": "第19节·第8条", "成本": "不花钱。花半小时把材料存好。难在走之前要记得存。", "说人话": "电脑和账号一交回去，工资条、考勤、合同、社保记录和聊天记录就再也拿不到了。仲裁时工资多少、有没有加班，还是要靠你自己手上的材料。存的是自己的劳动关系材料，公司的源码和客户名单不要带走。", "收益": "一旦交回电脑和账号，这些材料就再也拿不到了。仲裁时谁来举证，虽然会朝单位那边偏一些，但工资多少、有没有加班这些事，还是要靠你自己手上的证据", "证据等级": "C", "来源": "作者经验，无直接文献；维权路径见第 7 节", "备注": "存的是自己的劳动关系材料。不要顺手带走公司的源码、客户名单和技术文档，那是另一回事，见第 11 节", "level": "C"}, {"title": "在单位长期被欺负、辱骂、刁难，别硬扛：先记下来留证据，再按性质走投诉、报警或者仲裁", "ref": "第19节·第17条", "成本": "不花钱。要花时间记录：日期、在场的人、对方原话，聊天截图和邮件留原件。走仲裁、打官司要花几个月。换工作的代价最高，走不走由你自己算。", "说人话": "在单位被欺负的人，后来得心脏病、中风的风险高约六成，被欺负得越多风险越高。被欺负的人几年后冒出自杀念头的几率约是别人的两倍。挨骂受气不是忍一忍就过去的小事。", "收益": "健康那一面：瑞典和丹麦三个队列合起来，共 79,201 名 18 到 65 岁的在职者。他们起初都没有心血管病，平均跟踪 12.4 年。9% 的人说过去一年在单位被欺负过。被欺负的人得心血管病（冠心病和脑血管病）的风险高约 59%（HR 1.59，95% CI 1.28–1.98）。在单位遭遇过暴力的，高约 25%（HR 1.25，1.12–1.40）。两种都是遭遇越多，风险越高。挪威一项全国随机抽样的跟踪调查，1846 名在职者，隔两到三年测一次，共测三次。被欺负的人后来出现自杀念头的几率约是别人的 2 倍（OR 2.05，95% CI 1.08–3.89）。反过来，先有自杀念头的人，后来并不更容易被欺负。法律那一面：我国没有专门管「职场霸凌」的法律，要按具体行为对号。单位侮辱、体罚、殴打、非法搜查或者拘禁劳动者的，要受行政处罚，造成损害要赔偿，构成犯罪的追究刑事责任。单位用暴力、威胁强迫你干活的，你可以立即解除合同，不用事先通知，还能拿经济补偿。单位要采取措施，预防和制止有人利用职权、上下级关系实施性骚扰。受害人可以要求骚扰的人承担民事责任。劳动仲裁从受理那天算起 45 日内结案，复杂的最多再延 15 日。", "证据等级": "B", "来源": "Xu T 等 (2019). Workplace bullying and workplace violence as risk factors for cardiovascular disease: a multi-cohort study. European Heart Journal. <https://doi.org/10.1093/eurheartj/ehy683>；Nielsen MB, Nielsen GH, Notelaers G, Einarsen S (2015). Workplace Bullying and Suicidal Ideation: A 3-Wave Longitudinal Norwegian Study. American Journal of Public Health. <https://doi.org/10.2105/AJPH.2015.302855>；全国人大常委会 (2007). 劳动合同法（第三十八条第二款、第四十六条、第八十八条）. <https://www.gov.cn/gongbao/content/2007/content_711013.htm>；全国人大 (2020). 民法典（第一千零一十条）. 最高人民检察院转载全文 <https://www.spp.gov.cn/spp/fl/202006/t20200602_463888.shtml>；全国人大常委会 (2022 年修订). 妇女权益保障法（第二十五条）. <https://flk.npc.gov.cn/detail?id=ff808181841257210184281512de0eec>；全国人大常委会 (2007). 劳动争议调解仲裁法（第四十三条）. 安康市人社局转载全文 <https://rsj.ankang.gov.cn/Content-2150407.html>", "备注": "定 B 的理由：健康数字来自跟踪记录，不是分组实验，「被欺负」是本人自己报的。这条不主张一受气就辞职，换工作的代价由你自己算。能先做的有四步。第一步，从今天起记录，录音见第 8 节第 41 条（录音）。第二步，按单位内部渠道书面反映，留下反映过的记录。第三步，被打、被关、被当众侮辱的，报警。第四步，因为欠薪、不缴社保被逼走的，按本节第 7 条（别签主动辞职）和第 8 条（离职前存证据）来办。经济补偿怎么算，见本节第 4 条（被裁先算清 N）。单纯的冷落、排挤、刁难，多数对不上哪一条法律，能走的主要是内部投诉、调岗和换工作。仲裁从受理起最长 60 天，打官司一审 6 个月起，律师费自己出。已经撑不住了，先打 12356，见第 1 节第 25 条（12356）。", "level": "B"}]}, {"id": "trip", "icon": "✈️", "name": "出远门", "hint": "出国玩、保险、护照", "lead": ["要出远门？", "好。出发前翻这几条，路上就省心了。"], "tail": "到了，报个平安。", "calls": [{"label": "12308 · 领事保护", "tel": "12308", "kind": "soft"}], "callnote": "人在国内打 12308；人在国外打 +86-10-12308。", "entries": [{"title": "出发前查一次外交部安全提醒，标了「暂勿前往」的地方就别去", "ref": "第21节·第1条", "成本": "不花钱。打开中国领事服务网翻一遍，几分钟就看完。", "说人话": "外交部把国外的安全风险分成四档，最高的一档叫「暂勿前往」。2026 年 9 月 15 日起，避开高风险的国家和地区写进了行政法规。办证件和出境过关的时候，工作人员还会提醒你，必要时会劝你别去。出发前翻一遍那一页，几分钟的事。", "收益": "外交部按风险高低公开发布国外安全提醒。从低到高大致是四档：「注意安全」「加强安全防范」「谨慎前往」「暂勿前往」。2026 年 9 月 15 日起施行的新规，把你这一侧的义务也写进了行政法规。原文是：「中国公民应当关注国外安全提醒和旅游目的地安全风险提示，避免前往及驻留高风险国家或者地区」。新规同时要求移民管理机构（办出入境证件和管边检的部门），在办证和出境边检时提醒要去高风险地区的人。这一条的原文是：「对准备前往风险等级为最高级别或者严重危及人身安全案件突发高发的国家或者地区的中国公民，必要时应当劝阻其前往」", "证据等级": "A", "来源": "国务院 (2026). 关于出境入境管理的规定（国令第 841 号）. <https://www.gov.cn/zhengce/zhengceku/202607/content_7077173.htm>（第二条）；国务院 (2023). 领事保护与协助条例（国令第 763 号）. <https://www.gov.cn/zhengce/zhengceku/202307/content_6891761.htm>（第十九、二十一条）；外交部领事司. 安全提醒. <https://cs.mfa.gov.cn/zggmzhw/lsbh/aqtx/>", "备注": "提醒会随局势变动，本书不抄名单，出行前自己查一次那一页。截至 2026 年 9 月 7 日，该栏目里还挂着这几条「暂勿前往」类提醒。斯威士兰（2026-08-25）、巴勒斯坦（2023-10-10）、苏丹（2023-04-17）。还有阿富汗（2023-02-17）、叙利亚（2023-01-04）。以及秘鲁（2022-12-29）、索马里（2022-11-24）。另外还有针对缅北地区、刚果（金）部分省份的专门提醒。旅行社也有告知义务。跟团之前，你可以要求对方书面说明目的地的风险", "level": "A"}, {"title": "把 12308 和当地使领馆的领保电话存进手机，再抄一份放钱包，别等出事再找", "ref": "第21节·第2条", "成本": "不花钱。存两个号码，再抄一份，几分钟。", "说人话": "出事时的求助电话就一个。人在国内打 12308，人在国外打 +86-10-12308。这条热线开通以来接了 300 多万通电话。同一时期，外交部和驻外机构办了 50 多万起领事保护案件。", "收益": "外交部有一条全球领事保护与服务应急热线，24 小时有人接。人在国内拨 12308。人在国外拨 +86-10-12308，或者 +86-10-65612308。这条热线从 2014 年开通到现在，累计接听 300 多万通来电。同一时期，外交部和驻外机构处置各类领事保护案件 50 多万起", "证据等级": "A", "来源": "外交部、中国驻缅甸使领馆 (2023). 关于当前缅北地区安全局势的领事提醒. <https://cs.mfa.gov.cn/zggmzhw/lsbh/aqtx/202311/t20231109_11176682.shtml>；国务院新闻办 (2023). 国务院政策例行吹风会介绍领事保护与协助有关情况. <https://www.gov.cn/xinwen/2023zccfh/11/index.htm>", "备注": "驻当地使领馆自己还有一个领保电话，通常比总台更快。出发前在中国领事服务网上按国家查到，和总台号码一起存进手机。手机丢了或者没电，存的号码就用不上了。所以再手抄一份放在钱包里，或者把号码写一份给家里人", "level": "A"}, {"title": "买一份含境外医疗和医疗转运的保险，别只买航班延误险", "ref": "第21节·第4条", "成本": "一份短期的境外旅行险，几十到几百元。", "说人话": "在国外看病的钱要自己掏。国内医保基本不报，使领馆也不垫。真正能拖垮一个家的不是门诊费，是重伤以后的住院，还有把人运回国，那得靠专机或者医疗护送。买旅行险主要看两个额度：境外医疗费用，紧急医疗转运与送返。", "收益": "在境外看病的钱要自己出。国内医保在境外基本不报销。领事保护也不垫付这笔钱（见第 3 条，领事保护能做什么、不能做什么，依据是条例第二十六条）。真正会把一个家拖垮的不是门诊费，是重伤以后的住院和医疗转运。把人从境外医院转回国，要用专机或者医疗护送，属于自费项目里最贵的一类。买保险时优先看两项额度。一是境外医疗费用额度。二是紧急医疗转运与送返额度，也就是出事后转院、把人送回国这部分最多能赔多少", "证据等级": "C", "来源": "国务院 (2023). 领事保护与协助条例（国令第 763 号）. <https://www.gov.cn/zhengce/zhengceku/202307/content_6891761.htm>（第二十六条）；作者经验，无直接文献", "备注": "TODO（待核实：境外医疗与医疗转运的典型费用区间，需要官方或行业统计口径的数字）。买之前确认三件事。第一，你要去的国家在不在承保范围里。第二，潜水、滑雪、骑摩托这类高风险活动是不是被排除在外。第三，理赔是保险公司直接和医院结账，还是你先垫钱回来再报销。免签不等于免责，去哪都一样要买", "level": "C"}, {"title": "护照、签证、身份证都拍照存一份在云端，丢了先报警再补旅行证", "ref": "第21节·第7条", "成本": "不花钱。出发前拍几张照片。", "说人话": "护照丢了，使领馆能给你补一张回国用的旅行证件。前提是你能证明自己是谁。手里有资料页、签证页的照片和出入境记录，补办就快得多。你还得先在当地报警拿到回执，出境检查和保险理赔都认这张纸。手机常和护照一起丢，照片别只存在手机里。", "收益": "护照丢了，驻外使领馆能给你签发回国用的旅行证件，但需要你先证明自己的身份。手里有清晰的护照资料页照片、签证页照片和出入境记录，补办速度差别很大。同时你要先在当地报警，拿到报案回执。很多国家的出境检查和保险理赔都要这份材料。找使领馆的入口，就是第 2 条里存好的那两个领保电话", "证据等级": "C", "来源": "国务院 (2023). 领事保护与协助条例（国令第 763 号）. <https://www.gov.cn/zhengce/zhengceku/202307/content_6891761.htm>（第十六条）；作者经验，无直接文献", "备注": "存法是拍完照放进两个不同的地方，比如云盘存一份、发给一位家人一份。另外打印一份纸质复印件，和原件分开放。银行卡、常用药的处方也一并拍下来。手机和护照通常一起丢，只存在手机里等于没存", "level": "C"}, {"title": "出境前把行程、住处和同行人发给一位家人，约好多久联系一次", "ref": "第21节·第11条", "成本": "不花钱。出发前发一条消息。", "说人话": "人在境外失联，家里人可以找驻外机构求助。对方会告诉家属当地怎么报警，还有别的求助渠道。当地立案以后，使领馆会跟进催办。这条链能不能启动，取决于国内有没有人知道你该在哪、该什么时候联系。航班号、住址、同行人电话、约好的联系频率，发给一个人就够。", "收益": "中国公民在境外下落不明时，亲属可以向驻外外交机构求助。条例原文是「驻外外交机构应当提供当地报警方式及其他获取救助的信息」。当地警方立案以后，使领馆会催他们及时处理。这一串能不能转起来，取决于国内有没有人知道你本该在哪、本该什么时候联系", "证据等级": "C", "来源": "国务院 (2023). 领事保护与协助条例（国令第 763 号）. <https://www.gov.cn/zhengce/zhengceku/202307/content_6891761.htm>（第十三条）；作者经验，无直接文献", "备注": "写清四样就够：航班号、住处地址、同行人的姓名和电话、约好的联系频率。要去信号差或者治安差的地方，再把「多久没消息就报警」这句话说明白。这条成本接近零，可是上面所有救助程序能不能开始，都得先有它", "level": "C"}]}, {"id": "body", "icon": "🌿", "name": "对自己好一点", "hint": "走路、晒太阳、喝茶", "lead": ["不用大动作。", "走一走，晒一晒，就已经在对自己好了。"], "tail": "挑一条，今天就做。", "entries": [{"title": "每天走到 7000–8000 步", "ref": "第2节·第11条", "成本": "不花钱。每天走 60–90 分钟，可以拆进上下班和买菜里。难在要天天走。", "说人话": "每天走 5800 步的人，同期死亡的概率比只走 3500 步的人低约四成。走到 7800 步，低约四成半。再往上还能低一些，但到了一定步数就不再往下降了。60 岁以上的人走到 6000–8000 步就够。", "收益": "把 15 项跟踪一群人的研究合起来算，只记录、不分组。这 15 项共 47471 人、3013 例死亡。按每天步数把人分成四档，最低那档中位是 3553 步/天。另外三档的中位是 5801、7842、10901 步/天。这三档的死亡风险比最低档分别低约 40%、45%、53%（HR 0.60、0.55、0.47）。60 岁以上的人走到 6000–8000 步以后，再多走收益就趋平了。60 岁以下的人是在 8000–10000 步以后趋平。另有一项分析把多项研究合起来算：从约 3867 步/天开始有效。之后每多走 1000 步/天，死亡风险降约 15%。", "证据等级": "A", "来源": "Paluch AE 等 (2022). Daily steps and all-cause mortality: a meta-analysis of 15 international cohorts. Lancet Public Health. <https://doi.org/10.1016/S2468-2667(21)00302-9>；Banach M 等 (2023). The association between daily step count and all-cause and cardiovascular mortality: a meta-analysis. European Journal of Preventive Cardiology. <https://doi.org/10.1093/eurjpc/zwad229>", "备注": "从 4000 步加到 7000 步这一段最划算，不必非要凑一万步。要注意这类研究只是跟踪记录：走得最少的那批人里，混着本来就病着走不动的。他们是快不行了才走得少，不是因为少走才早死。所以算出的差距常常偏大。但越走越好的趋势是清楚的。这一条和第 14 条（每周 150–300 分钟中等强度运动）说的是同一件事，只是换了个数法，达标一个就行。", "level": "A"}, {"title": "白天出门晒晒太阳，别整天不见光", "ref": "第2节·第32条", "成本": "不花钱。每天十几分钟，上下班路上和午休就够了。", "说人话": "刻意躲太阳的女性，预期寿命比晒得最多的人少 0.6–2.1 年。原文还说，不吸烟但躲太阳的人，寿命和晒太阳最多那组里的吸烟者差不多。", "收益": "瑞典一项研究，2.95 万名女性，跟踪 20 年。和晒太阳最多的那组比，刻意回避晒太阳的人预期寿命少 0.6 到 2.1 年。作者写道「不吸烟但回避晒太阳的人，预期寿命与晒太阳最多组里的吸烟者相当」", "证据等级": "B", "来源": "Lindqvist PG, Epstein E, Nielsen K, et al. (2016). Avoidance of sun exposure as a risk factor for major causes of death: a competing risk analysis of the Melanoma in Southern Sweden cohort. Journal of Internal Medicine, 280(4), 375-387. <https://doi.org/10.1111/joim.12496>", "备注": "争议在于：瑞典纬度高、日照少，结论不能直接搬到中国。而且回避晒太阳的人，可能本来就体弱、不爱出门。另外别晒到晒伤，正午强光下还是要遮挡，因为晒太阳会增加皮肤癌风险", "level": "B"}, {"title": "每周喝三次以上茶", "ref": "第2节·第26条", "成本": "一年几十到几百元。泡一杯几分钟，不占什么时间。", "说人话": "有喝茶习惯的人，同期死亡的概率低约 15%。从 50 岁算起，平均多活 1.26 年，多出 1.41 年不得心血管病的时间。", "收益": "中国一项 10.09 万人的研究（China-PAR），其中一半人跟踪满了 7.3 年。有喝茶习惯的人，死亡风险低约 15%（风险比 0.85，95% CI 0.79–0.90，这是可信范围）。以 50 岁为起点算：有喝茶习惯的人，没得动脉粥样硬化性心血管病的年数多 1.41 年，预期寿命多 1.26 年", "证据等级": "A", "来源": "Wang X, Liu F, Li J, et al. (2020). Tea consumption and the risk of atherosclerotic cardiovascular disease and all-cause mortality: The China-PAR project. European Journal of Preventive Cardiology, 27(18), 1956-1963. <https://doi.org/10.1177/2047487319894685>；茶叶霉菌毒素：Cui P 等 (2020). Quantitative analysis and dietary risk assessment of aflatoxins in Chinese post-fermented dark tea. Food and Chemical Toxicology. <https://doi.org/10.1016/j.fct.2020.111830>；Zhou H 等 (2022). Mycotoxins in Tea (Camellia sinensis (L.) Kuntze): Contamination and Dietary Exposure Profiling in the Chinese Population. Toxins. <https://doi.org/10.3390/toxins14070452>；绿茶提取物与肝损伤：Hu J 等 (2018). The safety of green tea and green tea extract consumption in adults - Results of a systematic review. Regulatory Toxicology and Pharmacology. <https://doi.org/10.1016/j.yrtph.2018.03.019>", "备注": "争议在于：这类研究只是跟踪记录，中国男性喝茶的人里抽烟喝酒的比例高。作者已经扣掉一部分这类影响，但扣不干净。还有一点，别喝滚烫的，热饮温度见本节关于热饮温度的一条。有人担心茶叶里有霉菌毒素。国内查过 158 份黑茶，有 2 份检出黄曲霉毒素，按喝茶的量算，吃进去的量低于国际上的可接受值。另一项查了 352 份茶、16 种霉菌毒素，只有黑茶里的赭曲霉毒素 A 平均含量超过限量。按国人喝茶的量算，两项都没算出膳食风险。茶叶放在干燥的地方，受潮发霉的别喝。绿茶提取物胶囊是另一回事：高浓度的儿茶素一次大量吞下去会伤肝，冲泡的茶没有这个问题。所以这条只算泡的茶，别拿提取物保健品代替", "level": "A"}, {"title": "每天吃一小把坚果", "ref": "第2节·第23条", "成本": "每天吃 28 克，一年约两三百元。顺手就吃，不占时间。", "说人话": "常吃坚果的人，同期死亡的概率比不吃的人低约两成。一周吃一次就能看出差别，低约一成。吃到每天一把，差别最明显。", "收益": "两项美国跟踪研究，11.9 万人，300 多万人年。人年就是人数乘以各自跟踪的年数。和不吃坚果的人比：每周吃不到 1 次的人死亡风险低约 7%（风险比 0.93，95% CI 0.90–0.96，这是可信范围）。每周吃 1 次的低约 11%（0.89，0.86–0.93）。每周 2–4 次的低约 13%（0.87，0.83–0.90）。每周 5–6 次的低约 15%（0.85，0.79–0.91）。每周 7 次以上的低约 20%（0.80，0.73–0.86）", "证据等级": "A", "来源": "Bao Y, Han J, Hu FB, et al. (2013). Association of nut consumption with total and cause-specific mortality. New England Journal of Medicine, 369(21), 2001-2011. <https://doi.org/10.1056/NEJMoa1307352>", "备注": "买原味不加盐的。坚果热量不低，别当零食敞开吃。要注意这类研究只是长期跟踪一群人，吃坚果的人整体生活方式更好，所以数字要打个折", "level": "A"}, {"title": "别连着坐太久，隔一阵起身动一动", "ref": "第2节·第18条", "成本": "不花钱，起身几下也用不了多少时间。难在坐进去就忘了时间，得设个提醒。", "说人话": "坐得最久的人，同期死亡的概率是坐得最少的人的 2.6 倍。一次连着坐很久，还要另算一笔风险。但只要每天有 60–75 分钟中等强度活动，久坐多出来的风险基本就被抵消了。", "收益": "美国有一项跟踪研究，只记录、不分组，用加速度计实测。把人按每天久坐总时长分成四份。久坐最多的那份人，死亡风险是最少那份的 2.63 倍（HR 2.63）。再按一次连着坐多久分成四份：连坐最久的那份人，是连坐最短那份的 1.96 倍（HR 1.96）。也就是说，坐的总量和一次连坐多久，各自单独相关。另一项汇总把上百万人的研究合起来算，只记录、不分组。每天坐 8 小时以上、又几乎不运动的人，死亡风险是另一类人的 1.59 倍（HR 1.59）。另一类人是每天坐不到 4 小时、又最活跃的。每天约 60–75 分钟中等强度活动，可以抵消久坐多出来的风险。最活跃那组即使每天坐 8 小时以上，HR 也只有 1.04，没看出统计上的差别。", "证据等级": "A", "来源": "Diaz KM 等 (2017). Patterns of Sedentary Behavior and Mortality in U.S. Middle-Aged and Older Adults: A National Cohort Study. Annals of Internal Medicine. <https://doi.org/10.7326/M17-0212>；Ekelund U 等 (2016). Does physical activity attenuate, or even eliminate, the detrimental association of sitting time with mortality? A harmonised meta-analysis of data from more than 1 million men and women. Lancet. <https://doi.org/10.1016/S0140-6736(16)30370-1>", "备注": "可靠的结论是：坐多久不如动多少重要，运动量够的时候久坐的风险基本消失。要注意这类研究只是跟踪记录，坐得最多的人里有大量本来就病着的，「风险高到 2.63 倍」里明显含着「先病了才久坐」。另外同一份汇总里，每天看电视 3 小时以上的风险在各个运动量的人身上都存在，最活跃那组只是把这个起点推到 5 小时。", "level": "A"}]}, {"id": "heart", "icon": "☁️", "name": "心里不太舒服", "hint": "走一走、呼吸、说说话", "lead": ["今天不太好？没关系，不用先解释。", "这些事都不难，也不用一口气做完。选一件就行。"], "tail": "想找人说话，打 12356，全国通用，免费。未成年人可以打 12355。", "calls": [{"label": "打 12356 · 说说话", "tel": "12356", "kind": "soft"}, {"label": "12355 · 青少年", "tel": "12355", "kind": "soft"}], "entries": [{"title": "心情差就去走或者跑，抗抑郁的效应量（效果大小）跟强度成正比", "ref": "第22节·第7条", "成本": "不花钱。每次半小时上下。难在情绪差的时候最不想动，得推自己一把。", "说人话": "把 218 项随机试验、1.4 万多名重度抑郁的人合起来看。改善最明显的是快走或慢跑。其次是瑜伽、力量训练、混合有氧、太极气功，几种差距不算大。强度开得越高效果越好，力量训练和瑜伽最容易坚持。作者自己说证据质量偏低，能用的方向是动比不动好，选自己坚持得下来的那种。", "收益": "这是把 218 项随机分成两组的对照试验合在一起算的结果。涉及 495 个组、14170 名符合重度抑郁临床标准的参与者。算法让各种运动互相比较（贝叶斯网状荟萃分析）。拿来对比的是常规照护和安慰剂片（主动对照）。效果大小用 Hedges' g 表示，数越往负走，症状改善越多。快走或慢跑 −0.62（95% 可信区间 −0.80 至 −0.45，意思是真实值大致落在这一段里）。瑜伽 −0.55（−0.73 至 −0.36）。力量训练 −0.49（−0.69 至 −0.29）。混合有氧 −0.43（−0.61 至 −0.24）。太极或气功 −0.42（−0.65 至 −0.21）。原文说「运动的效果与所处方的强度成正比」，也就是强度开得越高效果越好。力量训练和瑜伽的可接受度最好，也就是最容易坚持下来", "证据等级": "A", "来源": "Noetel M, Sanders T, Gallardo-Gómez D, et al. (2024). Effect of exercise for depression: systematic review and network meta-analysis of randomised controlled trials. BMJ, 384, e075847. <https://doi.org/10.1136/bmj-2023-075847>", "备注": "争议。作者自己写明，218 项研究里只有 1 项做得够干净、不容易被设计带偏。按通行的打分法，快走慢跑只算「低」可信，其余是「极低」。运动也瞒不住参与者，人知道自己在锻炼，就容易觉得好些，这份期待去不掉。结论方向仍然可用：动比不动好，强度别太低，选自己能坚持的那种。这是第 3 节「情绪低落时先动起来」的展开，不能替代确诊后的规范治疗", "level": "A"}, {"title": "当场想缓过来，用 5 分钟「循环叹息」：吸气两段，呼气拉长", "ref": "第22节·第9条", "成本": "不花钱。每天 5 分钟。", "说人话": "每天 5 分钟、连做一个月的对照试验里，三种呼吸练习都比同样时长的正念冥想更能改善情绪，也更能把呼吸频率降下来。其中把呼气拉长的「循环叹息」最好。做法是用鼻子吸一口，再补吸一小口把肺撑满，然后用嘴缓慢吐尽。只有这一项试验，结果还是自己报的，但成本是零。", "收益": "这是一项在家做、随机分组的对照试验，比较三种每天 5 分钟的呼吸练习和同样时长的正念冥想，持续 1 个月。三种呼吸法是：循环叹息（强调延长呼气）、箱式呼吸（吸气、屏息、呼气等长）、带屏息的循环过度换气（吸气长、呼气短）。把各人各次的数据放在一起算（混合效应模型），呼吸练习都好过正念冥想，尤其是以呼气为主的循环叹息。它在情绪改善（P<0.05，即这点差别不像是碰巧撞出来的）和呼吸频率下降（P<0.05）上都更好", "证据等级": "B", "来源": "Balban MY, Neri E, Kogon MM, et al. (2023). Brief structured respiration practices enhance mood and reduce physiological arousal. Cell Reports Medicine, 4(1), 100895. <https://doi.org/10.1016/j.xcrm.2022.100895>", "备注": "做法是用鼻子吸一口，短暂再补吸一小口把肺撑满，然后用嘴把气缓慢长长地吐尽，重复 5 分钟。只有这一项试验，在家做，好不好由本人填问卷报，人数也不多。效应是「比冥想略好」，不是「解决问题」。但成本是零、5 分钟、随时随地能做，性价比高", "level": "B"}, {"title": "把「定期和人见面」当成健康支出，别只在心情差时才找人", "ref": "第22节·第10条", "成本": "要花一点钱，还要搭上见面的时间。难在心情好的时候也得主动约人。", "说人话": "70 项研究、340 万人、平均跟踪 7 年：社会隔离的人，同期死亡的概率比不隔离的人高约三成。感到孤独的高约四分之一，独居的高约三成。三者量级相当，而且在 65 岁以下的人身上更明显。这些都是观察数据，去不掉「本来身体就差的人更容易独居」这层反向解释。", "收益": "这是把 70 项先记录情况再往后跟踪的研究合在一起算的结果（荟萃分析），共 340 万名参与者，平均跟踪 7 年。社会隔离、孤独感、独居都与死亡率升高相关。把年龄、身体状况这些干扰因素扣掉之后，加权平均比值比分别是：社会隔离 1.29、孤独 1.26、独居 1.32。也就是同期死亡的概率分别高约三成、约四分之一、约三成。三者的效果大小差不多，而且在 65 岁以下人群中比在老年人群中更大", "证据等级": "A", "来源": "Holt-Lunstad J, Smith TB, Baker M, Harris T, Stephenson D (2015). Loneliness and social isolation as risk factors for mortality: a meta-analytic review. Perspectives on Psychological Science, 10(2), 227-237. <https://doi.org/10.1177/1745691614568352>", "备注": "争议。这些都是跟着人群观察出来的关联，不是分组对照试验，谁因谁果分不开。身体本来就差的人，更容易独居、更少社交。作者把社会关系看作和吸烟、肥胖同一量级的健康因素，但没有随机试验证明「增加社交能降低死亡率」。这条与第 3 节「减少让你消耗的人际关系」不冲突：那条说的是砍掉消耗你的关系，这条说的是保住让你回血的那几段", "level": "A"}, {"title": "要人陪着说话打 12356，未成年人和青少年打 12355，要看医生挂心理门诊", "ref": "第29节·第11条", "成本": "不花钱。两条热线都免费。心理门诊按普通门诊挂号。", "说人话": "想找个人说话，打 12356，这是全国心理援助热线，免费。未成年人和青少年另有 12355 青少年综合服务平台。要看医生，就挂精神科、心理科或临床心理科的心理门诊。遇到家庭变故、失业、失学，社区网格员和社工本来就该主动发现。", "收益": "国家卫生健康委等 25 部门 2026 年方案要求完善 12356 心理援助热线工作制度。要保证稳定运行、提升接通率。要推动建立省级 12356 信息化平台。要加强与 110 等服务热线的联动机制建设。还要建强用好 12355 青少年综合服务平台，并与 12356 联动协作。到 2030 年的目标有三条。一是 80% 以上的行政村、城市社区设心理咨询室或社会工作室并提供心理服务。二是各级公立精神专科医院、各县（区）至少有 1 所医院提供心理门诊服务。三是各省建成省级 12356 心理援助平台。心理危机干预与心理援助队伍，由精神科医师、心理治疗技师、心理咨询人员、社会工作专业人员和志愿者组成。方案还要求三类人平时就留意、早点发现。这三类人是网格员（社区里按片区负责的工作人员）、社会工作专业人员和志愿者。他们要及时发现家庭变故、失业、失学等心理危机风险（全国，2026 年 3 月印发）", "证据等级": "B", "来源": "国家卫生健康委等 25 部门 (2026). 关于印发健全社会心理服务体系和危机干预机制实施方案的通知（国卫医政发〔2026〕8 号）. <https://www.gov.cn/zhengce/zhengceku/202604/content_7065035.htm>", "备注": "给 B 是因为村和社区的咨询室、县级的心理门诊都是 2030 年才要建成的目标，不是现在各地都有。12356 和 12355 则是现在就能打的。12356 的开通时间和每天接听多长时间见第 1 节第 25 条。心理咨询和心理治疗不是一回事。下诊断、开药得由精神科医师来，治疗要在有资质的医疗机构做。市面上按小时收费的「疗愈」「灵性咨询」不在这个体系里。", "level": "B"}]}, {"id": "urgent", "icon": "🚑", "name": "突然出状况", "hint": "有人倒下、烫伤、过敏、噎住", "lead": ["先深呼吸。你只需要做眼前这一步。", "下面的顺序，照着来。"], "tail": "做完这一步，剩下的交给电话那头的人，听他的安排。", "calls": [{"label": "打 120", "tel": "120", "kind": "red"}], "entries": [{"title": "有人倒地没呼吸，立刻用力按压胸口，让旁人打 120 并找 AED", "ref": "第13节·第1条", "成本": "不花钱。红十字会或者医院的心肺复苏课，半天到一天，学一次够用多年。没学过也能做：双手叠起来放在两乳头连线的中点，每秒大约 2 次用力往下压，不要停。", "说人话": "你最可能按的是自家人：心脏骤停有 79.2% 发生在家里。有人按压，活着出院的比例从 3.9% 升到 16.1%。叫不应、没呼吸，就直接按。位置在两乳头连线的中点，双手叠起来用力压，每秒 2 次，不停。让第二个人打 120、拿 AED，你的手别停。", "收益": "79 项研究、142,740 人合起来算（荟萃分析）：心跳停在医院外面（院外心脏骤停）的人，活着出院的总共只有 7.6%。在场的人做了心肺复苏的，活着出院的比例从 3.9% 升到 16.1%。有人在旁边看见发作的占 53%，真得到在场者按压的只有 32%。中国 BASIC-OHCA 登记了 38,227 例急救接诊病例。其中 30,282 例（79.2%）的心脏骤停发生在家中。这批人里，在场者按压率 20.3%，活着出院的 1.2%。顺序是先按压，再让第二个人打电话和拿 AED。机器开机后照着它的语音做", "证据等级": "A", "来源": "Sasson C 等 (2010). Predictors of survival from out-of-hospital cardiac arrest: a systematic review and meta-analysis. Circulation: Cardiovascular Quality and Outcomes. <https://doi.org/10.1161/CIRCOUTCOMES.109.889576> ; Zheng J 等 (2023). Incidence, process of care, and outcomes of out-of-hospital cardiac arrest in China: a prospective study of the BASIC-OHCA registry. The Lancet Public Health. <https://doi.org/10.1016/S2468-2667(23)00173-1> ; 全国人大 (2020). 民法典（第一百八十四条）. <https://www.spp.gov.cn/spp/fl/202006/t20200602_463888.shtml>", "备注": "不要先掐人中，不要先找家属，不要先拍视频。也不要因为怕按断肋骨就不敢用力。民法典第一百八十四条写明：自愿做紧急救助、把受助人弄伤了，救助人不承担民事责任。", "level": "A"}, {"title": "有人噎住说不出话，站到背后做 5 次拍背加 5 次腹部冲击，倒下就做心肺复苏", "ref": "第13节·第26条", "成本": "不花钱。看一遍动作：一手握拳顶在肚脐上方，另一手包住，向内向上快速冲击。", "说人话": "先问一句「你噎住了吗，能说话吗」。还能用力咳、能出声的不要动手，咳嗽本身最管用。说不出话就站到背后，5 次拍背接 5 次腹部冲击，反复做到东西出来或者人倒下。倒下就开始心肺复苏，同时叫人打急救电话。孕妇和很胖的人改冲胸口。别伸手去嘴里掏看不见的东西。", "收益": "美国国立医学图书馆原文：先问「你噎住了吗，能说话吗」。「能用力咳嗽、能说话的不要动手」，咳嗽本身多能把异物咳出。说不出话就「反复做 5 次拍背接 5 次腹部冲击，直到异物出来或人失去意识」。「失去意识就开始心肺复苏」，同时叫人打急救电话。孕妇、肥胖者改做胸部冲击", "证据等级": "B", "来源": "US National Library of Medicine, MedlinePlus. Choking – adult or child over 1 year. <https://medlineplus.gov/ency/article/000047.htm>", "备注": "不要往嘴里伸手掏看不见的东西，会推得更深。不要拍还能咳嗽的人。噎住最常发生在自家饭桌上，这条按受益人口径算的是家里人。国家卫健委、中国红十字会关于海姆立克法的官方页面本次未找到，TODO（待核实：中国官方原文）。", "level": "B"}, {"title": "烫伤后立刻用凉的流动水冲 20 分钟，别抹牙膏酱油", "ref": "第13节·第14条", "成本": "不花钱。占 20 分钟。", "说人话": "受伤 3 小时内用凉的流动水冲够 20 分钟，后来需要植皮的可能性大约只有没冲的六成。是凉水不是冰水，冰敷会加重损伤。衣服粘在伤口上别硬撕，冲完拿干净布盖住去医院。牙膏、酱油、香油、面粉都不要抹。隔了一会儿才想起来，三小时内补冲仍然有用。", "收益": "澳大利亚跟踪了 2495 名烧烫伤儿童。受伤后 3 小时内用凉流动水冲 20 分钟的孩子，后来需要植皮的比值比是 0.6。这个数字的可信范围是 95% CI 0.4–0.8。也就是大约只有没这么冲的六成。7 项研究合起来算的结果同样发现，「伤后三小时内 20 分钟凉流动水显著降低了需要植皮和手术处理创面的可能」", "证据等级": "A", "来源": "Griffin BR, Frear CC, Babl F, Oakley E, Kimble RM (2020). Cool Running Water First Aid Decreases Skin Grafting Requirements in Pediatric Burns: A Cohort Study of Two Thousand Four Hundred Ninety-five Children. Annals of Emergency Medicine, 75(1), 75-85. <https://doi.org/10.1016/j.annemergmed.2019.06.028>；Griffin B, Cabilan CJ, Ayoub B, et al. (2022). The effect of 20 minutes of cool running water first aid within three hours of thermal burn injury on patient outcomes: A systematic review and meta-analysis. Australasian Emergency Care, 25(4), 367-376. <https://doi.org/10.1016/j.auec.2022.05.004>", "备注": "是凉水不是冰水，冰敷会加重损伤。衣服粘在伤口上就别硬撕，冲完用干净布盖住去医院。牙膏、酱油、香油、面粉都不要抹，会影响医生判断深度，还容易感染。三小时内补冲仍然有用", "level": "A"}, {"title": "突然全身起疹、喘不上气或者发晕，按过敏性休克处理，立刻叫 120 并说清楚", "ref": "第13节·第15条", "成本": "不花钱。已知有严重过敏的人自备肾上腺素笔要花钱，而且它是处方药。", "说人话": "突然全身起疹，再加上喘不上气或者发晕，就按过敏性休克办。立刻打 120，电话里直接说「怀疑过敏性休克」，让急救带着肾上腺素来。肾上腺素是首选的药，抗过敏药和激素起效慢，顶不了这个位置。有过一次的人找医生开自动注射笔，打大腿中外侧，隔着裤子也能打。", "收益": "肾上腺素是二级及以上过敏性休克首选的药（一线药），指南把它列为强推荐。抗过敏药和激素起效慢，顶不了它的位置", "证据等级": "B（指南强推荐，但底层证据等级低）", "来源": "中国医药教育协会等 (2022). 过敏性休克急救临床实践指南（2020）. Frontiers in Pharmacology：「Epinephrine is the first-line medicine in GRADE II to IV anaphylaxis」「Intramuscular epinephrine should be injected in the mid-anterolateral thigh」，成人肌注上限 0.5 mg、14 岁以下 0.3 mg，无反应可每 5–15 分钟重复一次. <https://doi.org/10.3389/fphar.2022.845689>；Muraro A, et al. (2022). EAACI guidelines: Anaphylaxis (2021 update). Allergy. <https://doi.org/10.1111/all.15032>", "备注": "这份过敏指南（EAACI）自己写明，这个领域「证据大多停留在很低的等级」。它列为强推荐，是因为好处远大于风险，不是因为有大型试验。肾上腺素在国内是处方药，普通人手上通常没有。能做的是叫 120，并说「怀疑过敏性休克」，让急救带着药来。有过一次严重过敏的，找医生开自动注射笔，学会打大腿中外侧（外侧偏前），隔着裤子也能打。", "level": "B"}]}]};
+const app = document.getElementById('app');
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const linkify = s => esc(s).replace(/&lt;(https?:\/\/.+?)&gt;/g, '<a href="$1" target="_blank" rel="noopener noreferrer">原文链接↗</a>');
+const COLORS = ['#ffe3ec', '#e6defc', '#ffeacc', '#dff3ea', '#e0ecff', '#ffd9d9'];
+const bearAv = '<div class="av"><svg viewBox="8 8 104 104" aria-hidden="true"><use href="#bear-sym"/></svg></div>';
+
+/* ---------- 小工具 ---------- */
+function toast(t){ const el = $('#toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast._t); toast._t = setTimeout(() => el.classList.remove('on'), 1900); }
+function burst(x, y){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  for (let i = 0; i < 9; i++){
+    const s = document.createElement('span'); s.className = 'fx'; s.textContent = i % 2 ? '✨' : '🤍';
+    const a = Math.PI * 2 * i / 9, r = 46 + Math.random() * 30;
+    s.style.cssText = `left:${x}px;top:${y}px;--dx:${Math.cos(a) * r}px;--dy:${Math.sin(a) * r - 20}px`;
+    document.body.appendChild(s); setTimeout(() => s.remove(), 950);
+  }
+}
+/* 八音盒：曲子与音色见 audio.js；小熊先生的话见 lines.js */
+/* 每个场景页的小插画：配色主题 + 小熊先生 + 周围的小物件（SVG）。
+   画面是 360x170，小熊占中间 x=132..228，小物件放在左右两侧。 */
+const _tile = (x, y, ch, c) => `<g><rect x="${x}" y="${y}" width="24" height="32" rx="4" fill="#f6efe0" stroke="#cdbb8f"/><rect x="${x + 2}" y="${y + 23}" width="20" height="7" rx="2" fill="#4b9b6a"/><text x="${x + 12}" y="${y + 19}" font-size="15" text-anchor="middle" fill="${c}">${ch}</text></g>`;
+const _stars = pts => pts.map(([x, y], i) => `<circle class="tw" style="animation-delay:${-(i * 0.7)}s" cx="${x}" cy="${y}" r="1.7" fill="#fff"/>`).join('');
+const _mag = (x, y) => `<circle cx="${x}" cy="${y}" r="13" fill="#e8f1ff" fill-opacity=".6" stroke="#f0c76a" stroke-width="4"/><path d="M${x + 10} ${y + 10}l14 14" stroke="#f0c76a" stroke-width="5" stroke-linecap="round"/>`;
+
+const VIG = {
+  night: { sky: ['#3b2f6b', '#8a6fd1'], rose: '#9a86e0', roseD: '#5f4bb3', line: '#e6defc',
+    cap: '小熊先生在翻剧本杀的剧本',
+    poke: ['这本剧本，我先看过了。', '凶手不是我。', '玩够了，记得回家。'],
+    svg: _stars([[40, 24], [110, 18], [196, 12], [250, 30], [330, 22], [20, 70]]) +
+      `<path d="M52 30a16 16 0 1 0 18 20a13 13 0 1 1 -18 -20z" fill="#fff4d6"/>` +
+      `<g><rect x="246" y="100" width="46" height="20" rx="3" fill="#fff" stroke="#cfc3ee" stroke-width="1.5"/><path d="M269 100v20" stroke="#cfc3ee"/><path d="M252 106h12M252 111h12M274 106h12M274 111h12" stroke="#b7a4f2" stroke-width="1.5" stroke-linecap="round"/></g>` +
+      _mag(86, 98) + `<text x="296" y="66" font-size="26" fill="#ffe9a8" class="vf">?</text>` },
+
+  party: { sky: ['#7a3b4a', '#e9a06a'], rose: '#e69a73', roseD: '#b5532c', line: '#ffe6d6',
+    cap: '小熊先生在摸牌',
+    poke: ['这把我不放炮。', '三缺一？', '少喝点，赢了再说。'],
+    svg: `<path d="M300 0v26" stroke="#ffffff88" stroke-width="2"/><path d="M282 26h36l-8 -12h-20z" fill="#f4c27a"/><ellipse cx="300" cy="46" rx="34" ry="16" fill="#ffe6a8" opacity=".25"/>` +
+      _tile(46, 88, '中', '#d23b3b') + _tile(74, 88, '發', '#2f8f57') + _tile(262, 88, '万', '#d23b3b') + _tile(290, 88, '', '#000') },
+
+  love: { sky: ['#b88ad8', '#f6b9d2'], rose: '#d98ac4', roseD: '#9d3f8a', line: '#f9dff0',
+    cap: '两颗星，一直面对面地转',
+    poke: ['慢慢来。', '先看行为，再看话。', '你的感受，最要紧。'],
+    svg: `<ellipse cx="292" cy="62" rx="32" ry="32" fill="none" stroke="#ffffff88" stroke-dasharray="3 4"/>` +
+      `<g><animateTransform attributeName="transform" type="rotate" from="0 292 62" to="360 292 62" dur="14s" repeatCount="indefinite"/><circle cx="276" cy="62" r="11" fill="#e8c9a8"/><circle cx="310" cy="62" r="5.5" fill="#cfc6e6"/></g>` +
+      `<g><rect x="58" y="88" width="40" height="28" rx="4" fill="#fff"/><path d="M58 92l20 14l20 -14" fill="none" stroke="#e6a9c9" stroke-width="2"/><text x="70" y="82" font-size="16" fill="#f08aa6" class="vf">♥</text></g>` },
+
+  pretty: { sky: ['#f6c6dc', '#fde6ef'], rose: '#e68aa9', roseD: '#b83f68', line: '#f6dce6',
+    cap: '小熊先生在照镜子',
+    poke: ['你今天已经很好看了。', '先把身体留好。', '镜子里的你，在笑。'],
+    svg: `<circle cx="84" cy="84" r="17" fill="#fdf2f7" stroke="#f0c76a" stroke-width="4"/><path d="M84 101v16" stroke="#f0c76a" stroke-width="6" stroke-linecap="round"/><path d="M76 78a10 10 0 0 1 8 -6" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>` +
+      `<text x="48" y="54" font-size="16" fill="#fff" class="tw">✦</text><text x="112" y="38" font-size="12" fill="#fff" class="tw">✦</text>` +
+      `<rect x="264" y="92" width="14" height="26" rx="2" fill="#d9c8ff"/><rect x="266" y="78" width="10" height="16" rx="2" fill="#e0527e"/><rect x="292" y="98" width="20" height="22" rx="5" fill="#fbd3e2" stroke="#f4a4c0" stroke-width="1.5"/><rect x="298" y="90" width="8" height="8" rx="2" fill="#f4a4c0"/>` },
+
+  sleep: { sky: ['#1d2554', '#4b4f9e'], rose: '#8a93e0', roseD: '#4a53a8', line: '#e1e4fb',
+    cap: '小熊先生在看意识流电影',
+    poke: ['关灯，闭眼，数到三。', '今晚，早一点睡。', '晚安。'],
+    svg: _stars([[30, 20], [90, 40], [170, 14], [230, 50], [330, 90], [20, 90], [200, 30]]) +
+      `<path d="M300 22a22 22 0 1 0 22 30a18 18 0 1 1 -22 -30z" fill="#fff4d6"/>` +
+      `<text x="236" y="46" font-size="20" fill="#e9e0ff" class="vf">z</text><text x="254" y="28" font-size="15" fill="#e9e0ff" class="vf">z</text>` +
+      `<g><circle cx="80" cy="96" r="22" fill="#2a2f66" stroke="#aeb5ff" stroke-width="3"/><circle cx="80" cy="84" r="5" fill="#aeb5ff"/><circle cx="80" cy="108" r="5" fill="#aeb5ff"/><circle cx="68" cy="96" r="5" fill="#aeb5ff"/><circle cx="92" cy="96" r="5" fill="#aeb5ff"/><circle cx="80" cy="96" r="4" fill="#fff4d6"/><animateTransform attributeName="transform" type="rotate" from="0 80 96" to="360 80 96" dur="24s" repeatCount="indefinite"/></g>` },
+
+  money: { sky: ['#f3d58a', '#fbeec8'], rose: '#d49a2a', roseD: '#8f5e0a', line: '#fbe9bd',
+    cap: '小熊先生在记账',
+    poke: ['先记账，再下单。', '钱在你手里，才是你的。', '这个月的订阅，查过了吗？'],
+    svg: `<circle cx="318" cy="52" r="10" fill="#f0c76a" stroke="#c9953a" stroke-width="2" class="vf"/>` +
+      [0, 1, 2].map(i => `<ellipse cx="282" cy="${116 - 7 * i}" rx="18" ry="6" fill="#f0c76a" stroke="#c9953a" stroke-width="1.5"/>`).join('') +
+      `<text x="282" y="${116 - 14 + 3}" font-size="9" text-anchor="middle" fill="#8f5e0a">¥</text>` +
+      `<rect x="56" y="92" width="48" height="30" rx="7" fill="#f4a4c0"/><rect x="82" y="102" width="22" height="12" rx="5" fill="#e17ea2"/><circle cx="92" cy="108" r="2.5" fill="#fff0b8"/>` },
+
+  phone: { sky: ['#9ec5f5', '#dcebff'], rose: '#5e9be0', roseD: '#245f9e', line: '#d7e6fb',
+    cap: '小熊先生在检查手机',
+    poke: ['验证码，谁问都不给。', '密码别和别人共用。', '开了二次验证，才算锁好门。'],
+    svg: `<rect x="262" y="58" width="42" height="68" rx="8" fill="#fff" stroke="#6fa8e8" stroke-width="3"/><rect x="267" y="66" width="32" height="48" rx="3" fill="#dcebff"/><rect x="277" y="90" width="12" height="10" rx="2" fill="#f0c76a"/><path d="M279 90v-4a4 4 0 0 1 8 0v4" fill="none" stroke="#f0c76a" stroke-width="2"/>` +
+      `<path d="M64 80a22 22 0 0 1 30 0M70 90a14 14 0 0 1 18 0" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".85"/><circle cx="79" cy="98" r="3" fill="#fff"/>` },
+
+  scam: { sky: ['#7f8fb5', '#cdd5ea'], rose: '#7283bd', roseD: '#3c4a85', line: '#dde2f3',
+    cap: '小熊先生守在你旁边',
+    poke: ['别怕，我在。', '先截图，再报警。', '不是你的错。'],
+    svg: `<path d="M84 64l24 8v18c0 14 -10 24 -24 30c-14 -6 -24 -16 -24 -30v-18z" fill="#cdd5ea" stroke="#fff" stroke-width="3"/><path d="M74 94l8 8l14 -16" fill="none" stroke="#46538f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>` +
+      _mag(272, 84) },
+
+  rent: { sky: ['#f4b98a', '#fde2c8'], rose: '#e68f57', roseD: '#a8531f', line: '#fbe3d0',
+    cap: '小熊先生在看房',
+    poke: ['钥匙收好。', '门锁好，灯留一盏。', '合同，一页一页看。'],
+    svg: `<rect x="262" y="82" width="52" height="38" fill="#fff6ef" stroke="#eba06d" stroke-width="2"/><path d="M256 84l32 -26l32 26z" fill="#e8805b"/><rect x="278" y="98" width="14" height="22" rx="2" fill="#c47a4a"/><rect x="298" y="92" width="11" height="11" fill="#ffe29a"/>` +
+      `<circle cx="70" cy="100" r="9" fill="none" stroke="#f0c76a" stroke-width="4"/><path d="M79 100h26M96 100v8M104 100v6" stroke="#f0c76a" stroke-width="4" stroke-linecap="round"/>` },
+
+  work: { sky: ['#a8c3d9', '#e3eef6'], rose: '#5f9cc2', roseD: '#2c6a8e', line: '#d9e9f3',
+    cap: '小熊先生在加班喝咖啡',
+    poke: ['咖啡我请。', '该你的，一分不少。', '留好证据，其余慢慢来。'],
+    svg: `<rect x="256" y="76" width="54" height="36" rx="3" fill="#2f3a55"/><rect x="260" y="80" width="46" height="28" fill="#cfe6f7"/><path d="M264 88h20M264 94h30M264 100h14" stroke="#7fb0cf" stroke-width="2" stroke-linecap="round"/><path d="M248 114h70l-6 6h-58z" fill="#9db7cc"/>` +
+      `<path d="M60 96h30l-3 22h-24z" fill="#fff"/><path d="M90 100h6a6 6 0 0 1 0 12h-7" fill="none" stroke="#fff" stroke-width="3"/><path d="M68 90c-4 -6 4 -8 0 -14M78 90c-4 -6 4 -8 0 -14" stroke="#fff" stroke-width="2" fill="none" class="vf"/>` },
+
+  trip: { sky: ['#7fc3e8', '#d8f0fb'], rose: '#3fa9cf', roseD: '#17789e', line: '#d3eef8',
+    cap: '小熊先生准备出发',
+    back: `<path d="M0 120l50 -56l34 38l30 -30l40 48z" fill="#bfe3f3"/><path d="M220 120l44 -50l30 34l30 -26l36 42z" fill="#a9d8ee"/>`,
+    poke: ['降落伞，检查过了。', '到了，报个平安。', '护照，放在最显眼的地方。'],
+    svg: `<g class="vf"><path d="M28 56a36 30 0 0 1 72 0z" fill="#f08aa6"/><path d="M28 56q9 -8 18 0q9 -8 18 0q9 -8 18 0q9 -8 18 0" fill="none" stroke="#fff" stroke-width="1.6" opacity=".7"/><path d="M28 56l30 40M100 56l-30 40M64 56v40" stroke="#fff" stroke-width="1.6"/><circle cx="64" cy="104" r="11" fill="#e5ac83"/><circle cx="60" cy="102.5" r="1.6" fill="#3a2a30"/><circle cx="68" cy="102.5" r="1.6" fill="#3a2a30"/><path d="M59.5 108q4.5 3.5 9 0" stroke="#3a2a30" stroke-width="1.4" fill="none"/><circle cx="56" cy="96" r="4" fill="#e5ac83"/><circle cx="72" cy="96" r="4" fill="#e5ac83"/><path d="M64 115v6M60 121h8" stroke="#b3203f" stroke-width="3" stroke-linecap="round"/></g>` +
+      `<rect x="268" y="92" width="44" height="30" rx="5" fill="#f4a4c0"/><path d="M281 92v-7a9 9 0 0 1 18 0v7" fill="none" stroke="#c24d78" stroke-width="3"/><path d="M268 106h44" stroke="#c24d78" stroke-width="2"/><rect x="286" y="102" width="8" height="8" rx="2" fill="#fff0b8"/>`  },
+
+  body: { sky: ['#bfe3a9', '#eef9d8'], rose: '#7fbf63', roseD: '#43812b', line: '#e1f2d3',
+    cap: '小熊先生在看小马吃草',
+    poke: ['今天，晒一会儿太阳。', '小马说：慢慢走。', '挑一条，今天就做。'],
+    svg: `<circle cx="318" cy="36" r="16" fill="#ffe27a"/>` +
+      `<g transform="translate(-4 0)"><ellipse cx="72" cy="94" rx="30" ry="16" fill="#f3d9bd"/><path d="M50 104v20M62 108v16M84 108v16M96 104v20" stroke="#e2bd96" stroke-width="6" stroke-linecap="round"/><path d="M92 86l16 -22" stroke="#f3d9bd" stroke-width="15" stroke-linecap="round"/><ellipse cx="114" cy="58" rx="13" ry="10" fill="#f3d9bd" transform="rotate(-18 114 58)"/><path d="M108 47l4 -11l6 10z" fill="#e2bd96"/><circle cx="118" cy="56" r="2" fill="#3a2a30"/><circle cx="124" cy="62" r="1.3" fill="#d9a07a"/><path d="M96 70c-8 4 -10 12 -8 22M102 64c-8 2 -12 10 -10 18" stroke="#f08aa6" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M44 90c-12 2 -14 14 -8 24" stroke="#f08aa6" stroke-width="6" fill="none" stroke-linecap="round"/></g>` +
+      `<path d="M262 120l-3 -12M270 120l0 -16M278 120l3 -12M296 120l-2 -10M304 120l2 -14" stroke="#7bbf5e" stroke-width="3" stroke-linecap="round"/><circle cx="270" cy="102" r="4" fill="#fff"/><circle cx="306" cy="104" r="4" fill="#f4a4c0"/>`  },
+
+  heart: { sky: ['#4b3d8f', '#a994e6'], rose: '#a08be0', roseD: '#6a55b5', line: '#ece6fb',
+    cap: '小熊先生在拉大提琴',
+    poke: ['我在这儿，不说话也行。', '琴先放着，你慢慢来。', '想说话，就打 12356。'],
+    svg: _stars([[40, 24], [100, 50], [170, 16], [240, 36], [330, 70]]) +
+      `<g transform="translate(0 14) rotate(14 286 84)"><path d="M286 22v36" stroke="#5a3a24" stroke-width="5" stroke-linecap="round"/><circle cx="286" cy="20" r="5" fill="#5a3a24"/><path d="M286 56c-18 0 -26 10 -24 22c2 8 -2 12 -6 20c-4 14 10 26 30 26s34 -12 30 -26c-4 -8 -8 -12 -6 -20c2 -12 -6 -22 -24 -22z" fill="#c98a55"/><path d="M286 56c-18 0 -26 10 -24 22c2 8 -2 12 -6 20" fill="none" stroke="#9c6334" stroke-width="2"/><path d="M270 92c-4 2 -4 8 0 10M302 92c4 2 4 8 0 10" stroke="#3a2418" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M286 54v62M280 116h12" stroke="#e8d7b8" stroke-width="1.4"/><rect x="280" y="108" width="12" height="6" rx="1.5" fill="#3a2418"/><path d="M286 124v14" stroke="#5a3a24" stroke-width="3"/></g>` +
+      `<path d="M252 134l66 -50" stroke="#f3e6c8" stroke-width="3.2" stroke-linecap="round"/>` +
+      `<circle cx="77" cy="84" r="22" fill="#ffe9a8" opacity=".25"/><rect x="70" y="92" width="14" height="28" rx="2" fill="#fff6ef"/><path d="M77 90c-5 -6 0 -12 0 -16c5 4 5 10 0 16z" fill="#ffd36e" class="flick"/>` +
+      `<text x="112" y="58" font-size="18" fill="#fff3c4" class="vf">♪</text>`  },
+
+  urgent: { sky: ['#cfd9e6', '#f1f5fa'], rose: '#d96a6a', roseD: '#a52f2f', line: '#f6dede',
+    cap: '先深呼吸，一步一步来',
+    poke: ['先深呼吸。', '按着做，别慌。', '电话打通，听他的安排。'],
+    svg: `<g><circle class="breathe" cx="84" cy="62" r="20" fill="#fff" fill-opacity=".5" stroke="#7d93ad" stroke-width="2.5"/><text x="84" y="68" font-size="17" text-anchor="middle" fill="#5f7691">吸</text></g><text x="84" y="104" font-size="12" text-anchor="middle" fill="#3f5878">吸气 · 慢慢呼出</text>` +
+      `<rect x="258" y="86" width="48" height="34" rx="6" fill="#fff" stroke="#e07a7a" stroke-width="2.5"/><path d="M280 94v18M271 103h18" stroke="#d94a4a" stroke-width="6" stroke-linecap="round"/><path d="M272 86v-5h20v5" fill="none" stroke="#e07a7a" stroke-width="3"/>`  }
+};
+
+function themeStyle(id){
+  const v = VIG[id]; if (!v) return '';
+  return `--rose:${v.rose};--rose-d:${v.roseD};--line:${v.line};--sky1:${v.sky[0]};--sky2:${v.sky[1]}`;
+}
+function vignette(id){
+  const v = VIG[id]; if (!v) return '';
+  return `<div class="vig" id="vig" role="button" tabindex="0" aria-label="${esc(v.cap)}。点一下，听小熊先生说话">
+    <svg viewBox="0 0 360 170" aria-hidden="true">
+      ${v.back || ''}
+      <rect x="0" y="118" width="360" height="52" fill="rgba(255,255,255,.3)"/><path d="M0 118h360" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+      <g class="bob"><use href="#bear-sym" x="132" y="22" width="96" height="96"/></g>
+      ${v.svg}
+    </svg></div>
+  <p class="vcap">${esc(v.cap)}</p>
+  <div class="vsay hint" id="vsay" aria-live="polite"><span class="vt">点点小熊先生</span></div>`;
+}
+
+const MELODY=[[0.0,78],[4.5,83],[4.75,79],[4.885,78],[5.0,76],[5.25,74],[5.5,73],[5.75,74],[6.0,73],[6.885,71],[7.0,69],[8.0,81],[10.25,78],[10.5,72],[10.75,71],[11.0,76],[11.25,75],[11.5,81],[11.75,79],[12.0,79],[14.25,76],[14.5,71],[14.75,69],[15.0,74],[15.25,73],[15.5,79],[15.75,78],[16.0,78],[17.5,80],[17.75,81],[18.0,74],[18.5,74],[18.625,76],[18.75,78],[19.25,76],[19.5,76],[19.75,74],[20.0,73],[20.25,71],[20.5,71],[20.625,73],[20.75,74],[21.5,73],[21.75,71],[22.0,69],[24.0,73],[24.25,71],[24.5,71],[24.625,73],[24.75,74],[25.5,73],[25.75,71],[26.0,69],[28.0,73],[29.25,74],[29.375,73],[29.5,71],[29.625,73],[29.75,69],[30.0,81],[31.5,72],[32.0,71],[32.5,83],[33.25,81],[33.5,79],[33.75,78],[34.0,79],[35.125,78],[35.25,76],[35.375,74],[35.5,73],[35.75,71],[36.0,70],[36.25,71],[36.5,73],[37.25,74],[37.5,76],[38.25,78],[38.5,79],[39.5,78],[40.0,76],[40.25,74],[40.5,73],[40.75,71],[41.0,73],[41.25,74],[41.375,76],[41.5,74],[42.0,71],[44.0,74],[45.25,78],[45.5,76],[45.75,74],[46.0,83],[47.5,81],[47.75,80],[48.0,78],[48.125,76],[48.25,81],[48.5,69],[49.0,71],[49.75,73],[49.875,74],[50.0,73],[50.75,71],[51.0,69],[52.0,74],[53.5,78],[53.75,76],[54.0,76],[55.5,79],[55.75,78],[56.0,78],[57.5,81],[57.75,79],[58.0,79],[60.0,69],[61.25,73],[61.5,76],[61.75,79],[62.0,79],[62.25,76],[62.5,78],[63.75,79],[63.875,81],[64.0,74],[65.25,78],[65.5,81],[65.75,84],[66.0,83],[67.5,74],[68.0,73],[68.25,76],[68.5,79],[69.5,71],[70.0,69],[70.5,76],[70.75,78],[70.875,79],[71.25,78],[71.75,76],[72.0,74],[72.125,73],[72.25,71],[72.75,73],[73.0,74],[73.5,73],[73.75,74],[74.0,74]];
+const MELODY_BPM=72, MELODY_BEATS=76;
+
+const BASS=[[0.0,62],[0.5,62],[1.0,61],[1.5,61],[2.0,59],[2.5,59],[3.0,57],[3.5,57],[4.0,55],[4.5,55],[5.0,56],[5.5,56],[6.0,57],[6.5,57],[7.0,55],[7.5,55],[8.0,54],[8.5,54],[9.0,52],[9.5,64],[10.0,63],[10.5,63],[11.0,59],[11.5,59],[12.0,64],[12.5,64],[13.0,62],[13.5,62],[14.0,61],[14.5,61],[15.0,57],[15.5,57],[16.0,62],[16.5,62],[17.0,61],[17.5,61],[18.0,59],[18.5,59],[19.0,56],[19.5,52],[20.0,57],[20.5,62],[21.0,64],[21.5,52],[22.0,57],[22.25,59],[22.5,61],[22.75,62],[24.0,57],[24.5,62],[25.0,64],[25.5,52],[26.0,57],[28.0,57],[28.5,57],[29.0,55],[29.5,55],[30.0,54],[30.5,54],[30.75,64],[31.0,52],[31.5,52],[32.0,63],[32.5,63],[33.0,54],[33.5,59],[34.0,64],[34.5,64],[35.0,62],[35.5,62],[36.0,61],[36.5,61],[37.0,59],[37.5,59],[38.0,58],[38.5,59],[39.0,61],[39.5,58],[40.0,59],[40.5,55],[40.75,62],[41.0,52],[41.5,54],[41.75,64],[42.0,59],[42.5,59],[43.0,57],[43.5,57],[44.0,56],[44.5,56],[45.0,54],[45.5,54],[46.0,52],[46.5,52],[47.0,62],[47.5,62],[48.0,61],[48.5,61],[49.0,62],[49.5,64],[50.0,57],[50.5,57],[50.75,62],[51.0,55],[51.25,62],[51.5,55],[51.75,61],[52.0,54],[52.5,54],[53.0,55],[53.5,55],[54.0,56],[54.5,56],[55.0,57],[55.5,57],[56.0,58],[56.5,58],[57.0,59],[57.5,59],[58.0,52],[58.5,64],[59.0,62],[59.5,62],[59.75,64],[60.0,61],[60.5,61],[61.0,57],[61.5,61],[62.0,62],[62.5,62],[63.0,60],[63.5,60],[64.0,59],[64.5,59],[65.0,57],[65.5,57],[66.0,55],[66.5,55],[67.0,54],[67.5,54],[68.0,52],[68.25,59],[68.5,52],[69.0,62],[69.5,62],[70.0,61],[70.5,57],[71.0,62],[71.5,55],[72.0,57],[72.5,55],[73.0,57],[73.5,57],[74.0,62]];
+
+/* ---------- 小熊先生说的话 ----------
+   LINES：引自游戏台词的一句，只显示文字，不配声音，出处写在说明页。
+   没有合适原句的页面（急症页）只用 VIG[id].poke 里的短叮嘱。 */
+const LINES = {
+  night:  '现在开始，把你的紧张和胆怯都交给我。',
+  party:  '死磕到底或是量力而行，有时候是一种意思。',
+  love:   '我从不奢望生命给我任何惊喜，直至你出现的那一刻。',
+  pretty: '审美本身就是件很私人化的事，有人不接受你的作品，自然也会有人很喜欢它。',
+  sleep:  '今晚，我想和你分享同一片月色。',
+  money:  '毕竟有太多人根本没发现，或者早已习惯自己处于不幸中，那才是真正的不幸。',
+  phone:  '你永远都有拒绝的权利。',
+  scam:   '那些身不由己的胆怯和犹豫，在我面前就都放下吧。',
+  rent:   '就算是司空见惯的日子，也会因为身旁的人，值得被好好记住。',
+  work:   '人没办法听从每个人的意见，要更相信自己的感受和判断。',
+  trip:   '只有活在当下，未来才不会留下新的遗憾。',
+  body:   '无论什么时候，只要你呼唤我，我都会回应你。',
+  heart:  '如若永劫的暗夜来临，我将燃尽我的每一寸，为你照亮生的路途。'
+};
+
+function bindVig(id){
+  const vg = document.getElementById('vig'), box = document.getElementById('vsay');
+  if (!vg || !box || !VIG[id]) return;
+  const list = (LINES[id] ? [LINES[id]] : []).concat(VIG[id].poke);
+  const txt = box.querySelector('.vt');
+  let k = 0, timer = null;
+  const say = ev => {
+    const it = list[k % list.length]; k++;
+    clearInterval(timer);
+    box.classList.remove('hint');
+    txt.textContent = '';
+    const chars = [...it]; let n = 0;
+    timer = setInterval(() => {
+      if (!document.body.contains(box)) { clearInterval(timer); return; }
+      n++; txt.textContent = chars.slice(0, n).join('');
+      if (n >= chars.length) clearInterval(timer);
+    }, 38);
+    vg.classList.remove('talk'); void vg.offsetWidth; vg.classList.add('talk');
+    setTimeout(() => vg.classList.remove('talk'), 650);
+    ping();
+    const r = vg.getBoundingClientRect();
+    burst((ev && ev.clientX) || r.left + r.width / 2, (ev && ev.clientY) || r.top + 60);
+  };
+  vg.addEventListener('click', say);
+  vg.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); say(e); } });
+}
+
+/* ---------- 八音盒音色引擎 ----------
+   曲子：巴赫《G弦上的咏叹调》（公版乐曲，乐谱转译自 Mutopia Project 公版 MIDI），旋律声部 + 低声部。
+   音色：梳齿式。基频清亮，带一点非谐的高频分音，起音有一下拨片的轻响，再过一层小房间混响。
+   行为：翻页不断；放完三遍后最后一遍发条慢慢走完；切到别的标签页自动停。 */
+const mtof = m => 440 * Math.pow(2, (m - 69) / 12);
+const MUSIC_SHIFT = 12;            // 梳齿比钢琴谱高一个八度
+const MUSIC_BPM = 66;
+const SPB = 60 / MUSIC_BPM;
+const TUNE = (() => {
+  const ev = [];
+  MELODY.forEach(([b, m]) => ev.push({ b, m: m + MUSIC_SHIFT, v: Math.abs(b - Math.round(b)) < 0.01 ? 1.1 : 0.9, soft: false }));
+  BASS.forEach(([b, m]) => ev.push({ b, m: m + MUSIC_SHIFT, v: 0.55, soft: true }));
+  return ev.sort((x, y) => x.b - y.b);
+})();
+const mus = { on: false, timer: null, bus: null, t0: 0, i: 0, loop: 0, maxLoop: 3, endAt: 0, level: 0.9 };
+let actx = null;
+
+function soundOn(){ return localStorage.getItem('snd') !== '0'; }
+function ensureCtx(){
+  actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+  if (actx.state === 'suspended') actx.resume();
+  return actx;
+}
+
+const _noise = {};
+function noiseBuffer(ctx){
+  const k = ctx.sampleRate;
+  if (!_noise[k]){
+    const buf = ctx.createBuffer(1, Math.floor(k * 0.06), k), d = buf.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    _noise[k] = buf;
+  }
+  return _noise[k];
+}
+function makeImpulse(ctx){
+  if (ctx._ir) return ctx._ir;
+  const rate = ctx.sampleRate, len = Math.floor(rate * 2.0), buf = ctx.createBuffer(2, len, rate);
+  for (let c = 0; c < 2; c++){
+    const d = buf.getChannelData(c);
+    for (let i = 0; i < len; i++){
+      const x = i / len;
+      d[i] = (Math.random() * 2 - 1) * Math.pow(1 - x, 3.4) * Math.min(1, i / (rate * 0.006));
+    }
+  }
+  return (ctx._ir = buf);
+}
+function buildBus(ctx, level){
+  const input = ctx.createGain();
+  const tone = ctx.createBiquadFilter(); tone.type = 'lowpass'; tone.frequency.value = 8000;
+  const dry = ctx.createGain(); dry.gain.value = 0.85;
+  const conv = ctx.createConvolver(); conv.buffer = makeImpulse(ctx);
+  const damp = ctx.createBiquadFilter(); damp.type = 'lowpass'; damp.frequency.value = 4200;
+  const wet = ctx.createGain(); wet.gain.value = 0.4;
+  const comp = ctx.createDynamicsCompressor();
+  comp.threshold.value = -20; comp.knee.value = 20; comp.ratio.value = 3; comp.attack.value = 0.004; comp.release.value = 0.3;
+  const master = ctx.createGain(); master.gain.value = level;
+  input.connect(tone); tone.connect(dry); tone.connect(conv); conv.connect(damp); damp.connect(wet);
+  dry.connect(comp); wet.connect(comp); comp.connect(master); master.connect(ctx.destination);
+  return { input, master };
+}
+
+/* 拨片的一下轻响：很短的带通噪声 */
+function pluck(ctx, out, t, vel){
+  const s = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain();
+  s.buffer = noiseBuffer(ctx);
+  f.type = 'bandpass'; f.frequency.value = 3800; f.Q.value = 1.2;
+  g.gain.setValueAtTime(vel * 0.05, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.018);
+  s.connect(f); f.connect(g); g.connect(out); s.start(t); s.stop(t + 0.03);
+}
+/* 一根梳齿：低音振得久，高音振得短；高频分音衰减很快 */
+function tine(ctx, out, f, t, vel, soft){
+  const dur = Math.max(0.5, 2.6 - Math.log2(f / 220) * 0.55);
+  const parts = soft ? [[1, 1, 1], [2, 0.1, 0.4]] : [[1, 1, 1], [2, 0.14, 0.45], [6.27, 0.11, 0.12], [17.5, 0.03, 0.05]];
+  const cents = (Math.random() - 0.5) * 6;
+  parts.forEach(([r, a, dk]) => {
+    const fr = f * r * Math.pow(2, cents / 1200);
+    if (fr > 12000) return;
+    const o = ctx.createOscillator(), g = ctx.createGain(), d = dur * dk;
+    o.type = 'sine'; o.frequency.value = fr;
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(vel * a * 0.22, t + 0.003);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+    o.connect(g); g.connect(out); o.start(t); o.stop(t + d + 0.05);
+  });
+  pluck(ctx, out, t, soft ? vel * 0.5 : vel);
+}
+function playEv(ctx, out, e, t){ tine(ctx, out, mtof(e.m), t, e.v, e.soft); }
+
+/* 发条的一声“嗒”：短噪声 + 低沉的木头共鸣 */
+function ratchetClick(ctx, out, t, v){
+  const s = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain();
+  s.buffer = noiseBuffer(ctx);
+  f.type = 'bandpass'; f.frequency.value = 1500 + Math.random() * 400; f.Q.value = 3;
+  g.gain.setValueAtTime(0.5 * v, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.03);
+  s.connect(f); f.connect(g); g.connect(out); s.start(t); s.stop(t + 0.05);
+  const o = ctx.createOscillator(), og = ctx.createGain();
+  o.type = 'sine'; o.frequency.setValueAtTime(190, t); o.frequency.exponentialRampToValueAtTime(110, t + 0.04);
+  og.gain.setValueAtTime(0.18 * v, t); og.gain.exponentialRampToValueAtTime(0.0001, t + 0.05);
+  o.connect(og); og.connect(out); o.start(t); o.stop(t + 0.07);
+}
+/* 拧发条：棘轮越拧越密 */
+function windSound(){
+  if (!soundOn()) return;
+  try {
+    const ctx = ensureCtx(), out = ctx.createGain();
+    out.gain.value = 0.7; out.connect(ctx.destination);
+    let t = ctx.currentTime + 0.05, gap = 0.17;
+    for (let i = 0; i < 14; i++){ ratchetClick(ctx, out, t, i % 2 ? 0.8 : 1); t += gap; gap = Math.max(0.065, gap * 0.9); }
+    ratchetClick(ctx, out, t + 0.05, 1.3);
+  } catch (e) {}
+}
+/* 点小熊：单根梳齿的一声 */
+const PING_NOTES = [86, 88, 90, 93, 95, 98];
+function ping(){
+  if (!soundOn()) return;
+  try {
+    const ctx = ensureCtx();
+    ctx._ping = ctx._ping || buildBus(ctx, 0.75);
+    tine(ctx, ctx._ping.input, mtof(PING_NOTES[Math.floor(Math.random() * PING_NOTES.length)]), ctx.currentTime + 0.02, 1, false);
+  } catch (e) {}
+}
+
+/* 最后一遍：发条越走越慢 */
+function tuneTime(b, rundown){ return rundown ? SPB * (b + 0.6 * b * b / MELODY_BEATS) : SPB * b; }
+function musicTick(){
+  if (!mus.on || !mus.bus) return;
+  const ctx = actx, now = ctx.currentTime;
+  for (let guard = 0; guard < 500; guard++){
+    const last = mus.loop >= mus.maxLoop - 1;
+    if (mus.i >= TUNE.length){
+      if (last){ if (now > mus.endAt) finishTune(); return; }
+      mus.loop++; mus.i = 0; mus.t0 += SPB * MELODY_BEATS + 2.2; continue;
+    }
+    const e = TUNE[mus.i], t = mus.t0 + tuneTime(e.b, mus.loop >= mus.maxLoop - 1);
+    if (t > now + 1.2) break;
+    if (t >= now - 0.08) playEv(ctx, mus.bus.input, e, Math.max(t, now));
+    mus.endAt = Math.max(mus.endAt, t + 3);
+    mus.i++;
+  }
+}
+function finishTune(){
+  clearInterval(mus.timer); mus.timer = null;
+  if (mus.bus && actx) ratchetClick(actx, mus.bus.input, actx.currentTime + 0.05, 1.1);
+  setTimeout(musicStop, 900);
+}
+function musicStart(){
+  if (mus.on || !soundOn()) return;
+  try {
+    const ctx = ensureCtx();
+    mus.bus = buildBus(ctx, 0.0001);
+    mus.bus.master.gain.setTargetAtTime(mus.level, ctx.currentTime, 0.25);
+    mus.on = true; mus.started = true; mus.i = 0; mus.loop = 0; mus.endAt = 0; mus.t0 = ctx.currentTime + 0.5;
+    mus.timer = setInterval(musicTick, 160); musicTick(); syncBell();
+  } catch (e) { mus.on = false; mus.bus = null; }
+}
+function musicStop(){
+  mus.on = false; clearInterval(mus.timer); mus.timer = null;
+  const b = mus.bus; mus.bus = null;
+  if (b && actx){
+    const t = actx.currentTime;
+    b.master.gain.cancelScheduledValues(t); b.master.gain.setTargetAtTime(0, t, 0.06);
+    setTimeout(() => { try { b.master.disconnect(); } catch (e) {} }, 500);
+  }
+  syncBell();
+}
+function setMusicLevel(l){
+  mus.level = l;
+  if (mus.bus && actx) mus.bus.master.gain.setTargetAtTime(l, actx.currentTime, 0.4);
+}
+function syncBell(){
+  document.querySelectorAll('[data-bell]').forEach(b => { b.textContent = mus.on ? '🔔' : '🔕'; b.setAttribute('aria-pressed', mus.on ? 'true' : 'false'); });
+}
+function toggleMusic(){
+  if (mus.on){ localStorage.setItem('snd', '0'); musicStop(); }
+  else { localStorage.setItem('snd', '1'); musicStart(); }
+  syncBell();
+}
+document.addEventListener('click', e => { if (e.target.closest && e.target.closest('[data-bell]')) toggleMusic(); });
+document.addEventListener('visibilitychange', () => { if (document.hidden && mus.on) musicStop(); });
+addEventListener('pagehide', () => { if (mus.on) musicStop(); });
+
+async function share(e, ev){
+  const text = `${e.title}\n\n${e['说人话']}\n\n（出自《高性价比人生指南》${e.ref}）`;
+  const r = ev.currentTarget.getBoundingClientRect();
+  if (navigator.share) { try { await navigator.share({ title: '小熊先生的八音盒', text }); burst(r.left + r.width / 2, r.top); return; } catch (_) {} }
+  try { await navigator.clipboard.writeText(text); toast('已复制，去聊天框粘贴就行'); burst(r.left + r.width / 2, r.top); }
+  catch (_) { toast('请长按文字复制'); }
+}
+function petals(n, host){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  for (let i = 0; i < n; i++){
+    const p = document.createElement('span'); p.className = 'petal';
+    p.style.cssText = `left:${Math.random() * 100}%;--t:${8 + Math.random() * 6}s;--dl:${-Math.random() * 10}s;--dx:${20 + Math.random() * 40}px;transform:scale(${.7 + Math.random() * .6})`;
+    host.appendChild(p);
+  }
+}
+function stars(host){
+  for (let i = 0; i < 26; i++){
+    const s = document.createElement('i'); s.className = 'star';
+    s.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 62}%;--d:${2 + Math.random() * 3}s;--dl:${-Math.random() * 3}s`;
+    host.appendChild(s);
+  }
+}
+
+/* ---------- 页脚 ---------- */
+const BELL = '<button class="bell" data-bell aria-label="音乐开关" aria-pressed="false">🔕</button>';
+const FOOTER = `<footer><button class="aboutbtn" data-about>说明与免责声明</button><p>同人二创 · 非官方 · 免费开源不商用</p></footer>`;
+
+/* ---------- 首页 ---------- */
+function home(){
+  document.title = '小熊先生的八音盒';
+  const wound = sessionStorage.getItem('wound') === '1';
+  app.innerHTML = `
+  <section class="hero" id="hero">
+    <button class="snd" id="snd" data-bell aria-label="音乐开关" aria-pressed="false">🔕</button>
+    <p class="kicker">小熊先生</p>
+    <h1>小熊先生的八音盒</h1>
+    <p class="sub">给兔子小姐的一些平安小事</p>
+    <div class="moon" aria-hidden="true"></div>
+    <div class="stage">
+      <svg class="sprig" viewBox="0 0 70 110" aria-hidden="true"><use href="#sprig-sym"/></svg>
+      <div class="mbox">
+        <div class="glow"></div>
+        <div class="mbox-lid"></div>
+        <button class="bear-wrap" id="bearBtn" aria-label="摸摸小熊先生"><svg class="bear" viewBox="0 0 120 120" aria-hidden="true"><use href="#bear-sym"/></svg></button>
+        <div class="mbox-base" aria-hidden="true"><svg viewBox="0 0 240 100">
+          <defs>
+            <linearGradient id="bodyg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd3e1"/><stop offset=".55" stop-color="#f4a4c0"/><stop offset="1" stop-color="#e17ea2"/></linearGradient>
+            <linearGradient id="goldg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset=".5" stop-color="#e9bb55"/><stop offset="1" stop-color="#b98a2e"/></linearGradient>
+          </defs>
+          <rect x="0" y="6" width="240" height="88" rx="16" fill="url(#bodyg)"/>
+          <rect x="0" y="6" width="240" height="12" rx="6" fill="url(#goldg)"/>
+          <rect x="0" y="82" width="240" height="12" rx="6" fill="url(#goldg)"/>
+          <path d="M16 27q104-8 208 0" stroke="#fff" stroke-opacity=".5" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <g fill="#fff" opacity=".55"><circle cx="40" cy="40" r="1.6"/><circle cx="52" cy="62" r="1.2"/><circle cx="196" cy="42" r="1.6"/><circle cx="184" cy="64" r="1.2"/></g>
+          <rect x="84" y="28" width="72" height="44" rx="13" fill="url(#goldg)"/>
+          <rect x="89" y="33" width="62" height="34" rx="10" fill="#fff4e6"/>
+          <path d="M120 61C105 52 107 42 114 42C117.8 42 120 45.2 120 45.2C120 45.2 122.2 42 126 42C133 42 135 52 120 61Z" fill="#f08aa6"/>
+          <ellipse cx="115.5" cy="46.5" rx="2.4" ry="1.5" fill="#fff" opacity=".6" transform="rotate(-30 115.5 46.5)"/>
+          <circle cx="22" cy="50" r="3.6" fill="url(#goldg)"/><circle cx="218" cy="50" r="3.6" fill="url(#goldg)"/>
+        </svg></div>
+        <span class="note n1" aria-hidden="true">♪</span><span class="note n2" aria-hidden="true">♫</span><span class="note n3" aria-hidden="true">♪</span>
+        <div class="key" aria-hidden="true"><svg viewBox="0 0 46 40">
+          <defs><linearGradient id="gk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset=".55" stop-color="#e9bb55"/><stop offset="1" stop-color="#b98a2e"/></linearGradient></defs>
+          <rect x="0" y="17" width="24" height="6" rx="3" fill="url(#gk)"/>
+          <path d="M18 20L31 12.5V27.5Z" fill="url(#gk)"/>
+          <path fill="url(#gk)" fill-rule="evenodd" transform="rotate(-22 33 9)" d="M23 9a10 6.5 0 1 0 20 0a10 6.5 0 1 0 -20 0Z M28 9a5 2.8 0 1 0 10 0a5 2.8 0 1 0 -10 0Z"/>
+          <path fill="url(#gk)" fill-rule="evenodd" transform="rotate(22 33 31)" d="M23 31a10 6.5 0 1 0 20 0a10 6.5 0 1 0 -20 0Z M28 31a5 2.8 0 1 0 10 0a5 2.8 0 1 0 -10 0Z"/>
+          <circle cx="24" cy="20" r="4.4" fill="url(#gk)" stroke="#b98a2e" stroke-width=".8"/>
+          <circle cx="22.8" cy="18.8" r="1.3" fill="#fff" opacity=".6"/>
+        </svg></div>
+      </div>
+      <div class="whisper" id="whisper">别担心，我不怕黑，只怕见不到你。</div>
+    </div>
+    <p class="quote">「等你什么时候想起我了，<br>再拧动发条，我就会实现你的心愿。」<small>—— 来自游戏台词</small></p>
+    <button class="windbtn" id="windBtn">拧动发条</button>
+    <div class="say" aria-live="polite">
+      <p style="--t:0s">来了。</p>
+      <p style="--t:.5s">你的心愿，我换成了几页小事。</p>
+      <p style="--t:1s">今天想翻哪一页？</p>
+    </div>
+  </section>
+  <section class="grid-wrap ${wound ? 'show' : 'locked'}" id="gridWrap">
+    <p class="pick">选一页翻开</p>
+    <div class="grid">
+      ${DATA.scenes.map((s, i) => `<button class="scene" data-id="${s.id}" style="--i:${i};--c:${COLORS[i % COLORS.length]}">
+        <span class="ic" aria-hidden="true">${s.icon}</span><b>${esc(s.name)}</b><small>${esc(s.hint)}</small></button>`).join('')}
+    </div>
+  </section>
+  ${FOOTER}`;
+
+  bindAbout();
+  const hero = $('#hero');
+  stars(hero); petals(8, hero);
+  $$('.scene').forEach(b => b.onclick = () => { location.hash = b.dataset.id; });
+  $('#bearBtn').onclick = () => {
+    if (!hero.classList.contains('open')) return;
+    ping(); musicStart();
+    hero.classList.add('red'); const w = $('#whisper'); w.classList.remove('on'); void w.offsetWidth; w.classList.add('on');
+    setTimeout(() => hero.classList.remove('red'), 900);
+  };
+  if (wound) { hero.classList.add('instant', 'winding', 'open', 'talk'); }
+  else {
+    $('#windBtn').onclick = () => {
+      hero.classList.add('winding'); windSound(); sessionStorage.setItem('wound', '1');
+      setTimeout(() => { hero.classList.add('open'); petals(14, hero); }, 1100);
+      setTimeout(() => hero.classList.add('talk'), 1900);
+      setTimeout(musicStart, 2700);
+      setTimeout(() => { const g = $('#gridWrap'); g.classList.remove('locked'); g.classList.add('show'); g.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 3300);
+    };
+  }
+  window.scrollTo(0, 0);
+}
+
+/* ---------- 场景页 ---------- */
+function scene(id){
+  const idx = DATA.scenes.findIndex(x => x.id === id);
+  if (idx < 0) { location.hash = ''; return; }
+  const s = DATA.scenes[idx], next = DATA.scenes[(idx + 1) % DATA.scenes.length];
+  document.title = s.name + ' · 小熊先生的八音盒';
+  const bubbles = (lines, t0) => lines.map((l, i) =>
+    `<div class="msg ${i ? 'cont' : ''}" style="--t:${(t0 + i * 0.75).toFixed(2)}s">${bearAv}<div class="bubble">${esc(l)}</div></div>`).join('');
+  const calls = (s.calls || []).map(c => `<a class="call ${c.kind}" href="tel:${c.tel}">📞 ${esc(c.label)}</a>`).join('');
+  const callNote = !(s.calls || []).length ? '' : `<div class="callnote">${esc(s.callnote || ((s.calls || []).some(c => c.kind === 'red') ? '不确定的时候，先打。电话里听调度员的安排。' : '两个电话都免费。'))}</div>`;
+  const leadEnd = 1.0 + s.lead.length * 0.75;
+  app.innerHTML = `<div class="sp" style="${themeStyle(id)}">
+  <div class="bar"><button class="back" id="back">← 八音盒</button><b>${s.icon} ${esc(s.name)}</b>${BELL}</div>
+  ${vignette(id)}
+  <div class="chat">
+    <div class="typing">${bearAv}<div class="bubble"><i></i><i></i><i></i></div></div>
+    ${bubbles(s.lead, 1.0)}
+  </div>
+  ${calls}${callNote}
+  <div class="cards">
+    ${s.entries.map((e, i) => `
+    <article class="card reveal">
+      <span class="tag lv-${esc(e.level)}">证据 ${esc(e.level)}</span><span class="tag">${esc(e.ref)}</span>
+      <h3>${esc(e.title)}</h3>
+      <p>${esc(e['说人话'])}</p>
+      <div class="acts">
+        <button class="btn ghost" data-share="${i}">转给朋友</button>
+      </div>
+      <details><summary>想知道依据</summary><div class="deep">
+        ${e['成本'] ? `<p><b>成本：</b>${esc(e['成本'])}</p>` : ''}
+        ${e['收益'] ? `<p><b>依据：</b>${esc(e['收益'])}</p>` : ''}
+        ${e['备注'] ? `<p><b>备注：</b>${esc(e['备注'])}</p>` : ''}
+        <p><b>来源：</b>${linkify(e['来源'])}</p>
+      </div></details>
+    </article>`).join('')}
+  </div>
+  <div class="chat tail">${bubbles([s.tail], 0)}</div>
+  <button class="next" id="next">再翻一页：${next.icon} ${esc(next.name)}</button>
+  ${FOOTER}</div>`;
+
+  bindAbout();
+  $('#back').onclick = () => { location.hash = ''; };
+  bindVig(id);
+  $('#next').onclick = () => { location.hash = next.id; };
+  $$('[data-share]').forEach(b => b.onclick = ev => share(s.entries[b.dataset.share], ev));
+  const cards = $$('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }), { threshold: .08 });
+    cards.forEach(c => io.observe(c));
+  }
+  setTimeout(() => cards.forEach(c => c.classList.add('in')), 2600);  // 兜底
+  window.scrollTo(0, 0);
+}
+
+/* ---------- 说明与免责声明 ---------- */
+function about(){
+  document.title = '说明与免责声明 · 小熊先生的八音盒';
+  app.innerHTML = `<div class="bar"><button class="back" id="back">← 八音盒</button><b>说明与免责声明</b>${BELL}</div>
+  <div class="about">
+    <h2>这是什么</h2>
+    <p>一本写给成年读者的平安小册子，内容改编自开源书《高性价比人生指南》（Unlicense）。条目原文没有改动，小熊先生的话只出现在每页开头和结尾。</p>
+    <h2>仅供参考</h2>
+    <p>急症请直接打 120。具体案件、用药、法律问题，请咨询专业人士，这里不能替代他们。</p>
+    <h2>证据等级怎么看</h2>
+    <table>
+      <tr><td>A</td><td>有具体数字可查，出处是多项研究合并起来的荟萃分析、跟踪很多人很多年的大型队列，或者随机分组的试验（RCT）</td></tr>
+      <tr><td>B</td><td>有研究支持，但说不出一个确切数字；或者只有小样本、单独一项研究撑着</td></tr>
+      <tr><td>C</td><td>作者自己的经验，或者大家公认的做法，没有直接的研究文献</td></tr>
+    </table>
+    <h2>同人声明</h2>
+    <p>这是同人二次创作，非官方作品，与游戏及其运营方、相关版权方无关。开场和点小熊时出现的台词引自游戏，版权归原权利人。本作品免费、开源、不商用。</p>
+    <p>页面中没有使用任何真人配音，也没有使用任何声音克隆。</p>
+    <h2>曲子</h2>
+    <p>八音盒里的曲子是巴赫《G弦上的咏叹调》（公版乐曲），乐谱转译自 Mutopia Project 的公版 MIDI，取旋律和低声部，音色由浏览器实时合成，没有使用录音。</p>
+    <h2>字体与样式</h2>
+    <p>字体：霞鹜文楷（OFL）。动效缓动：Open Props（MIT）。其余画面均为手绘 SVG。</p>
+    <p style="opacity:.6;margin-top:18px">版本 2026-10-10 · 共 ${DATA.scenes.length} 页</p>
+  </div>`;
+  $('#back').onclick = () => { history.length > 1 ? history.back() : (location.hash = ''); };
+  window.scrollTo(0, 0);
+}
+function bindAbout(){ $$('[data-about]').forEach(b => b.onclick = () => { location.hash = 'about'; }); }
+
+function route(){ const id = decodeURIComponent(location.hash.slice(1)); id === 'about' ? about() : id ? scene(id) : home(); syncBell(); }
+addEventListener('hashchange', route);
+/* 翻开过八音盒的人，第一次点屏幕就接着放；之后全由右上角的铃铛管 */
+addEventListener('click', e => {
+  if (mus.started || mus.on || !soundOn() || sessionStorage.getItem('wound') !== '1') return;
+  if (e.target.closest && e.target.closest('[data-bell]')) return;
+  musicStart();
+}, true);
+route();
+</script>
+</body>
+</html>
